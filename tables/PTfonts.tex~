@@ -1,0 +1,6281 @@
+% https://github.com/WGUNDERWOOD/tex-fmt
+\documentclass[12pt]{article}
+\usepackage[a3paper,margin=1.5cm]{geometry}
+\usepackage{fontspec}
+\newfontfamily{\Junicode}{Junicode}[Numbers=Lining]
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{polish}
+
+% \usepackage{metalogo}
+% \usepackage{xcolor}
+
+
+\usepackage{relsize}
+
+%\usepackage{float}
+
+% \usepackage{caption}
+
+\usepackage[verbose]{hyperref}
+
+\usepackage{graphicx}
+\usepackage{url}
+
+\usepackage{expex}
+
+
+\lingset{glhangstyle=none}
+\defineglwlevels{pismo,nr}
+\newcommand{\bg}{\begingl}
+
+% 1 height
+% 2 image
+\newcommand{\PTglyph}[2]{\includegraphics[height=7ex]{glyphs/#2}}
+\newcommand{\PTglyphid}[1]{#1}
+
+\newcommand{\pismoPL}[1]{{\relsize{2}\Junicode\textbf{#1}}}
+\newcommand{\pismoEN}[1]{{\relsize{1}\Junicode\begin{quote}#1\end{quote}}}
+\newcommand{\plate}[3]{\textbf{Plate #1} (fasc. #2, #3)}
+\newcommand{\exampleBib}[1]{{\relsize{2}\Junicode\textbf{The
+      example:}\\[2ex] CATALOGUS LIBRORUM \textbf{#1}}}
+\newcommand{\exampleBibExtra}[1]{{\relsize{2}\Junicode\textit{The
+      plate contains also an example without a font table:}\\[2ex]
+    CATALOGUS LIBRORUM \textbf{#1}}}
+\newcommand{\exampleDesc}[1]{{\relsize{0}\Junicode#1}}
+\newcommand{\exampleDig}[1]{{\relsize{0}\Junicode \textbf{Digitization(s) [JSB]:} #1}}
+\newcommand{\exampleLib}[1]{{\relsize{0}\Junicode \textbf{Library:} #1}}
+%\newcommand{\examplePL}[1]{{\relsize{0}\Junicode#1}}
+\newcommand{\examplePL}[1]{}
+%\newcommand{\exampleEN}[1]{{\relsize{0}\Junicode\begin{quote}#1\end{quote}}}
+\newcommand{\exampleEN}[1]{}
+\newcommand{\fontID}[2]{{\relsize{1}\Junicode\textbf{Font identifier} (JSB): #1 (table #2)}}
+\newcommand{\fontstat}[1]{{\relsize{1}\Junicode\textbf{Statistics} (JSB): #1 glyphs.}}
+\newcommand{\exampleRef}[1]{{\relsize{0}\Junicode \textbf{References:} #1}}
+\newcommand{\examplePage}[1]{{Page reference: \relsize{0}\Junicode#1}}
+\newcommand{\examplePageEN}[1]{{\relsize{0}\Junicode#1}}
+
+
+
+\parindent0pt
+
+\begin{document}
+
+\title{POLONIA TYPOGRAPHICA
+  SAECULI SEDECIMI\\
+  {\relsize{-2} TŁOCZNIE POLSKIE XVI STULECIA\\ MONOGRAFIE I PODOBIZNY
+    ZASOBÓW DRUKARSKICH}\\Reconstructed font tables\\
+  (draft)}
+
+\author{Janusz S. Bień (editor)}
+
+\date{\today}
+
+\maketitle
+
+% \catcode`\&=11
+% \catcode`\|=11
+
+% glyphs ids:
+ \catcode`\_=11
+
+% \def\apostrof{`}
+
+
+% dodac indeks!:
+% \catcode`\`=\active
+% \def`#1{\fbox{{\znak#1}}}
+
+% Hoebler
+\def\Hb#1{{\fontspec{Junicode}#1}}
+
+\newcommand{\alfa}{\textit{alpha} (\J{α})}
+\renewcommand{\alpha}{\textit{alpha} (\J{α})}
+\renewcommand{\beta}{\textit{beta} (\J{β})}
+\renewcommand{\delta}{\textit{delta} (\J{δ})}
+\renewcommand{\epsilon}{\textit{epsilon} (\J{ε})}
+\renewcommand{\eta}{\textit{eta} (\J{η})}
+\renewcommand{\zeta}{\textit{zeta} (\J{ζ})}
+\renewcommand{\theta}{\textit{theta} (\J{θ})}
+\renewcommand{\gamma}{\textit{gamma} (\J{γ})}
+\renewcommand{\chi}{\textit{chi} (\J{χ})}
+\renewcommand{\kappa}{\textit{kappa} (\J{κ})}
+\renewcommand{\iota}{\textit{iota} (\J{ι})}
+\renewcommand{\lambda}{\textit{lambda} (\J{λ})}
+
+\newpage
+
+\section{Introduction}
+\label{sec:introduction}
+
+\subsection{Fascicules}
+
+% – teka I – Kasper Hochfeder (1503–1505), wyd. II 1968;
+% – teka II – Jan Haller (1505–1525), wyd. II 1963;
+% – teka III – Florian Ungler (1510–1516), wyd. 1959;
+% – teka IV – Jan Haller (1505–1525), wyd. 1962;
+% – teka V – Florian Ungler (1521–1536), wyd. 1964;
+% – teka VI – Florian Ungler (1521–1536), wyd. 1966;
+% – teka VII – Florian Ungler (1521–1536), wyd. 1970;
+% – teka VIII – Aleksander Augezdecki (1549–1561?),
+% wyd. 1972;
+% – teka IX – Maciej Wirzbięta (1555/7–1605), wyd. 1974;
+% – teka X – Maciej Wirzbięta (1555/7–1605), wyd. 1975;
+% – teka XI – Maciej i Paweł Wirzbiętowie (1555/7–
+% –1609), wyd. 1981;
+% – teka XII – Maciej Szarfenberg (1527–1547), wyd. 1981.
+
+        \begin{itemize}
+        \item I Kasper Hochfeder (1503–1505), wyd. II 1968;\\offline
+        \item II Jan Haller (1505–1525), wyd. II 1963;\\offline
+      \item III. Florian Ungler (1510–1516), wyd. 1959; pierwsza drukarnia\\
+        {\url{https://polona.pl/preview/f021c751-e1bd-41ae-bb39-117399724bac}}
+%        Bułhak, Henryk (1930- ) - Polonia typographica saeculi sedecimi  zbiór podobizn zasobu drukarskiego tłoczni polskich XVI stulecia. Z. 3, Pierwsza drukarnia Floriana Unglera 1510-1516 - f021c751-e1bd-41ae-bb39-117399724bac.pdf
+\item IV Jan Haller (1505–1525), wyd. 1962;\\offline
+      \item V. Florian Ungler (1521–1536), wyd. 1964; druga drukarnia\\
+          \url{https://polona.pl/preview/29ab4ad7-f0a0-46c6-9f90-3d65e6407119}\\
+%        _- Polonia typographica saeculi sedecimi  zbiór podobizn zasobu drukarskiego tłoczni polskich XVI stulecia. Z. 5, Druga drukarnia Floriana Unglera 1521-1536  tabl. 176-245 - 29ab4ad7-f0a0-46c6-9f90-3d65e6407119.pdf
+%        brakuje tabel ????
+        \url{https://crispa.uw.edu.pl/object/files/764299/display/Default}
+        % Crispa
+      \item VI. Florian Ungler (1521–1536), wyd. 1966; druga drukarnia\\
+        {\url{https://polona.pl/preview/6e3ec50b-4be1-4581-945c-5665f4917178}}
+ %       _- Polonia typographica saeculi sedecimi  zbiór podobizn zasobu drukarskiego tłoczni polskich XVI stulecia. Z. 6, Druga drukarnia Floriana Unglera 1521-1536  tablice 246-310 - 6e3ec50b-4be1-4581-945c-5665f4917178.pdf
+      \item VII. Florian Ungler (1521–1536), wyd. 1970; druga drukarnia\\
+        {\url{https://polona.pl/preview/4d111123-7add-4a11-8d32-93635145ef4b}}
+%  _- Polonia typographica saeculi sedecimi  zbiór podobizn zasobu drukarskiego tłoczni polskich XVI stulecia. Z. 7, Druga drukarnia Floriana Unglera 1521-1536  tablice 311-365 - 4d111123-7add-4a11-8d32-93635145ef4b.pdf      
+      \item VIII. Aleksander Augezdecki (1549–1561?), wyd. 1972;\\
+        \url{https://polona.pl/preview/a3a4b39c-9cfa-434b-ba10-c2d8c7d89f62}
+%  _- Polonia typographica saeculi sedecimi  zbiór podobizn zasobu drukarskiego tłoczni polskich XVI stulecia. Z. 8, Aleksander Augezdecki  Królewiec - Szamotuły 1549-1561  tabl. 366-415 - a3a4b39c-9cfa-434b-ba10-c2d8c7d89f62.pdf
+\item IX. Maciej Wirzbięta (1555/7–1605), wyd. 1974;\\ \url{https://polona.pl/preview/a27a1dd3-0994-486b-9b87-5a4187bbeec2}
+%  _- Polonia typographica saeculi sedecimi  zbiór podobizn zasobu drukarskiego tłoczni polskich XVI stulecia. Z. 9, Maciej Wirzbięta, Kraków 15557-1605  tablice 416-475 - a27a1dd3-0994-486b-9b87-5a4187bbeec2.pdf
+\item X. Maciej Wirzbięta (1555/7–1605), wyd. 1975;\\ \url{https://polona.pl/preview/3717ea21-52eb-4dab-af8d-b84d897c71a1}
+%  _- Polonia typographica saeculi sedecimi  zbiór podobizn zasobu drukarskiego tłoczni polskich XVI stulecia. Z. 10, Maciej Wirzbięta, Kraków 15557-1605  tabl. 476-520 - 3717ea21-52eb-4dab-af8d-b84d897c71a1.pdf
+\item XI. Maciej i Paweł Wirzbiętowie (1555/7–1609), wyd. 1981; \\
+  \url{http://polona.pl/preview/3be15c17-50a5-45f8-b4ff-6571cbd515a0}\\
+% tylko uW:
+  \url{https://crispa.uw.edu.pl/object/files/754259/display/Default}
+      \item XII. Maciej Szarfenberg (1527–1547), wyd. 1981.\\
+        \url{http://polona.pl/preview/0e5c0b64-9360-4d2f-824b-bb6e9d4bebfd}\\
+        {\url{https://crispa.uw.edu.pl/object/files/754258/display/Default}}
+      \end{itemize}
+
+
+      For more information about \textsc{POLONIA TYPOGRAPHICA SAECULI
+        SEDECIMI} please consult e.g. the GitHub repository mentioned
+      below.
+
+\bigskip
+
+This PDF version of this paper is available as ??? on Zenodo
+???. Please report noticed mistakes in the \textsf{Issues} tab in the
+repository \url{https://github.com/jsbien/early_fonts_inventory},
+which contains also the \LuaLaTeX{} source of the document.
+
+
+\subsection{CATALOGUS LIBRORUM}
+\label{sec:catalogus-librorum}
+
+By \textit{CATALOGUS LIBRORUM} we mean the list of publications
+included in the booklet accompanying the plate in question. We
+reference it by the item number (sometimes supplemented by a letter)
+preceeded by the fascicule Roman number, e.g. `VIII:4a'.
+
+
+\subsection{Haebler's font classification}
+\label{sec:haebl-font-class}
+
+
+Symbols such as \Hb{M¹⁶}, \Hb{M¹⁸}, \Hb{M⁴⁸}, \Hb{M⁶⁰}, \Hb{M⁹¹},
+\Hb{Q|u}, \Hb{C}, \Hb{F7}, \Hb{G}, \Hb{K5} are explained in the
+publication:
+
+\begin{quote}
+  Konrad Haebler:\\ «Typenrepertorium der Wiegendrucke» (the series
+  \textit{Sammlung Bibliothekswissenschaftlicher Arbeiten})
+  \begin{enumerate}
+  \item Abteilung I: Deutschland und seine Nachbarlaender (1905).
+  \item Abteilung II: Italien, die Niederlande, Frankreich, Spanien und Portugal (1908).
+  \item Abteilung III:
+    \begin{enumerate}
+    \item Tabellen I: Antiqua-Typen (1909).
+    \item Tabellen II: Gotische Typen" (1910)
+    \end{enumerate}
+  \item Ergänzungsband I (suplement, 1922).
+  \item Ergänzungsband II (suplement, 1924).
+  \end{enumerate}
+\end{quote}
+Reprinted in 1968, digitized in 2020 by Kujawsko-Pomorska Biblioteka
+Cyfrowa (\url{https://kpbc.umk.pl/publication/222829}). Some volumes
+digitized earlier by Google Books and Hathi Trust Digital Library but,
+as of today, they seem available only for searching.
+
+\noindent
+Cf. also \url{https://tw.staatsbibliothek-berlin.de/}.
+
+\subsection{Wierzbowski's bibliography}
+\label{sec:wierzb-bibl}
+
+The abbreviations in the form ``Wierzb. 891,'' refer to items (not
+page numbers) in the bibliography \textit{Bibliographia Polonica XV ac
+  XVII ss. quae in bibliotheca Universitatis Caesareare Varsoviensis
+  asservantur} by Teodor Wierzbowski, published in 1889 and available
+in the Polona digital library as
+\url{https://polona.pl/item/96996417}.
+
+\subsection{Estreicher's bibliography}
+\label{sec:estr-bibl}
+
+The abbreviations ``Estr.,'' refer Estreichers' bibliography, called
+"most outstanding bibliography of Polish books, and probably one of
+the most famous bibliographies in the
+world".\footnote{\url{https://en.wikipedia.org/wiki/Karol_Estreicher_(senior)}}. It
+was started by Karol Estrecher (1827--1908), continued by his son
+Stanisław Estreicher (1869--1939) and finished by his grandson Karol
+Estrecher(1906--1984).For most of the volumes the copyright has
+expired, so they were reprinted, they are also (original or reprints)
+available in several digital librarries,
+e.g. \url{https://kpbc.umk.pl/dlibra/publication/13947} .
+Additionally there is also \textit{ELEKTRONICZNA BAZA BIBLIOGRAFII
+  ESTREICHERA} (EBBE), an electronic version of the
+bibliographies\footnote{\url{https://www.estreicher.uj.edu.pl/}}; the
+database includes also the scan of all the volumes, but there are some
+restrictions on their usage.
+
+The bibliography by Karol Estreicher (senior) consists of several
+parts. The volumes have two numbers: the number in the whole
+bibliography and in the specific part.
+  \begin{itemize}
+  \item Bibliografia polska. Cz. 1, Stólecie [!] XIX., volumes 7
+  \item 
+    Bibliografia polska. Cz. 2, Stólecie [!] XV-XIX spis chronologiczny. : volumes 3, one in
+    two volumes (global volume numbers 8--11)
+      \item 
+    Bibliografia polska. Cz. 3, Stólecie [!] XV-XVIII w układzie
+    abecadłowym: volumes 22 (global volume numbers 12--33)
+  \item 
+    Bibliografia polska. Cz. 4, Bibliografia polska XIX. stólecia [!] :
+    lata 1881-1900: volumes 4
+  \end{itemize}
+  There are  also two unnumbered volume
+  \begin{itemize}
+  \item Bibliografia polska XV.-XVI. stólecia : zestawienie chronologiczne
+    7200 druków w kształcie rejestru do Bibliografii, tudzież spis
+    abecadłowy tych dzieł, które dochowały się w bibliotekach polskich
+  \item 
+    Bibliografia polska XIX. stulecia. Zeszyt dodatkowy, 1871-1873
+  \end{itemize}
+
+  The volumes authored by Stanisław Estreicher (with some use of his
+  father manuscripts) include volumes 34--36 suplementing the part 3.
+
+  The references to the bibliography contains the global volume number
+  and the page number, e.g.  the reference ``Estr. XV. 242;
+  XXXIV. 55'' refer to the mentions of Zaborowski's \textit{Tractatus
+    contra malos divites et usurarios} which can be seen on page 242
+  of volume 15\footnote{See e.g.
+    \url{https://www.estreicher.uj.edu.pl/_skany/Bibliografia_Staropolska/15_Tom_XV/0257_0242.jpg}}
+  and page 55 of volume 34\footnote{See e.g.
+    \url{https://www.estreicher.uj.edu.pl/_skany/Bibliografia_Staropolska/34_Tom_XXXIV/0057_0055.jpg}}.
+
+\subsection{Other abbreviations}
+\label{sec:other-abbreviations}
+
+
+For the time being they have to be lookep up in the appropriate
+fascicules.
+
+% Piekarski
+
+% Knihopis
+
+% Knih.
+% Knihopis ćeskosłovenskych tiskń od doby nejstarsi aź do konce XVIH.
+% stoleti. Red. Z. Tobolka. DilII. Tisky z let 1501—1800. Ć. 1 i nast. V Praze
+% 1936 i nast.
+% https://www.digitalniknihovna.cz/nkp/periodical/uuid:595d5a00-baf9-11e3-b74a-5ef3fc9ae867
+
+% BM Germ.: Short-title catalogue
+% Short-title catalogue of book printed in the German-speaking countries
+% and German books printed in other countries from 1455 to 1600 now in
+% the British Museum. London 1962.
+
+% Bohonos Ossol.
+
+% Drukarze IV 
+
+% Boh. Ossol.
+% Drukarze IV
+
+% M. Bohonos: Katalog starych druków Biblioteki Zakładu Narodowego
+% im. Ossolińskich. Polonica wieku XVI. Z materiałów rejestracyjnych
+% zebranych zespołowo pod kierownictwem Kazimierza Zatheya opraco-
+% wała... Wrocław 1965.
+
+% Drukarze dawnej Polski od XV do XVIII wieku. T. 4: Pomorze. Oprac.
+% A. Kawecka-Gryczowa oraz K. Korotajowa. Wrocław 1962.
+
+% War.???
+
+% The abbreviation ``K.'' occuring in some descriptions stands for
+% \textit{Karty}, i.e. \textit{sheets}.
+
+\newpage
+\section{\Huge Font tables}
+\label{sec:font-tables}
+
+Font tables: 89. Typoglyphs: 7\,676???
+% ls -l . | egrep -c '^-'
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tab. 01 Aleksander Augezdecki pismo 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% 01,Augezdecki-01_PT08_402.djvu,Augezdecki,01,08,402
+
+% Author "Paulina Buchwald-Pelcowa"
+% Title "Aleksander Augezdecki 1549-1561"
+% Editor "Alodia Kawecka Gryczowa"
+% Series "Polonia Typographica Saeculi Sedecimi: zbiór podobizn zasobu drukarskiego tłoczni polskich XVI stulecia"
+% Fascicule "VIII"
+% Publisher "Zakład Narodowy imienia Ossolińskich — Wydawnictwo"
+% Addres "Kraków  Wrocław Warszawa"
+% Year "1972"
+% Note "1. Pisma tekstowe, szwabacha M⁸¹. Stopień 20 ww. = 102—103 mm (tercja). — Tabl. 402—404. [402]"
+% Note1 "Character set table prepared by Paulina Buchwald-Pelcowa"
+% Note2 "Scan (prepared by Biblioteka Uniwersytecka w Warszawie from their own copy) converted to DjVu with didjvu by Janusz S. Bień"
+% URL "https://github.com/jsbien/early_fonts_inventory/"
+
+\pismoPL{Aleksander Augezdecki 1. Pisma tekstowe, szwabacha M⁸¹. Stopień 20 ww. = 102—103 mm (tercja). — Tabl. 402—404.}
+
+
+\pismoEN{Aleksander Augezdecki 1. Schwabacher text script. Typeface M⁸¹. Type size 20 lines = 102—103 mm (tertia) - Plate 402-404.}
+
+  
+    \medskip
+
+    
+\plate{402}{VIII}{1972}
+    
+The plate    prepared by Paulina Buchwald-Pelcowa.\\
+The font table    prepared by Paulina Buchwald-Pelcowa.\\
+
+    \medskip
+    
+    % Biblioteka Czartoryskich. Krakéw. P.B. P.
+% 4*, [TESTAMENTUM NOVUM. Evangelium secundum Matthaeum. Trad. polon. Stanislaus Murzynowski]:
+% Ewangelia Sw. Mateusza. Krélewiec, [Aleksander Augezdeckij, 1551. 4°.
+% Karta LXXXIIIb.
+% Estreicher XIII 26. Wierzbowski 135.
+% Pismo 1: tekst i zestaw wraz z zestawem liter ze znakami diakrytycznymi polskimi. — Pismo 2: szwabacha tekstowa w marginaliach. — Pismo 3: szwabacha
+% komentarzowa w marginaliach. — Pismo 7: nagtowek. — Rubryki «, 8, y, 6, 7 w zestawie — Cyfry 1 z pismem 3. — Cyfry 3 z pismem 3. — Przerywniki
+% 5 z pismem 1 i 3.
+
+
+      \bigskip
+
+
+      \exampleBib{VIII:4a}
+      \bigskip
+
+
+\exampleDesc{[TESTAMENTUM NOVUM. Evangelium secundum Matthaeum. Trad. polon. Stanislaus Murzynowski]:
+Ewangelia Sw. Mateusza. Królewiec, [Aleksander Augezdecki], 1551. 4°.}
+
+\medskip
+\examplePage{\textit{Karta LXXXIIIb.}}
+
+
+\bigskip
+\exampleLib{Biblioteka Czartoryskich. Kraków.}
+
+\bigskip
+
+\exampleRef{\textit{Estreicher XIII 26. Wierzbowski 135.}}
+
+\bigskip
+\exampleDig{\url{https://www.dbc.wroc.pl/publication/33779} page 202.}
+
+%      Pismo 1: tekst i zestaw wraz z zestawem liter ze znakami diakrytycznymi polskimi.
+
+\bigskip
+
+      \examplePL{Pismo 1: tekst i zestaw wraz z zestawem liter ze znakami diakrytycznymi polskimi.}
+      
+      \medskip
+
+\exampleEN{Font 1. The text and the table including letters with Polish diacritical marks.}
+
+  
+  \bigskip
+  
+
+    \fontID{Au-01}{01}
+
+
+\fontstat{188}
+
+    % \exdisplay \bg \gla
+\input {t01_glyphs}
+%//
+%\glpismo
+\input {t01_glyphids.tex}
+% //
+%\endgl \xe
+
+%\end{flushleft}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tab. 02 Aleksander Augezdecki pismo 1a
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Author "Paulina Buchwald-Pelcowa"
+% Title "Aleksander Augezdecki 1549-1561"
+% Editor "Alodia Kawecka Gryczowa"
+% Series "Polonia Typographica Saeculi Sedecimi: zbiór podobizn zasobu drukarskiego tłoczni polskich XVI stulecia"
+% Fascicule "VIII"
+% Publisher "Zakład Narodowy imienia Ossolińskich — Wydawnictwo"
+% Addres "Kraków  Wrocław Warszawa"
+% Year "1972"
+% Note "1. Pisma tekstowe, szwabacha M⁸¹. Stopień 20 ww. = 102—103 mm (tercja). — Tabl. 402—404. [403]"
+% Note1 "Character set table prepared by Paulina Buchwald-Pelcowa"
+% Note2 "Scan (prepared by Biblioteka Uniwersytecka w Warszawie from their own copy) converted to DjVu with didjvu by Janusz S. Bień"
+    
+\pismoPL{Aleksander Augezdecki 1. Pisma tekstowe, szwabacha M⁸¹. Stopień 20 ww. = 102—103 mm (tercja). — Tabl. 402—404.
+[zestaw liter ze znakami diakrytycznymi czeskimi]}
+
+\pismoEN{Aleksander Augezdecki 1. Schwabacher text script. Typeface M⁸¹. Type size 20 lines = 102—103 mm (tertia) - Plate 402-404.
+[the table of letters with Czech diacritical marks]}
+
+\medskip
+
+\plate{403}{VIII}{1972}
+
+The plate    prepared by Paulina Buchwald-Pelcowa.\\
+The font table    prepared by Paulina Buchwald-Pelcowa.\\
+
+\bigskip
+
+\exampleBib{VIII:25}
+
+\medskip
+\bigskip
+
+\exampleDesc{PIESNĚ Chwal Bożských. Szamotuly, Aleksander Augezdecki, [25 I 1560—] 7 VI 1561. 2°. War. A.}
+
+\medskip
+\examplePage{\textit{Karta *₂b}}
+
+\bigskip
+\exampleLib{Biblioteka Czartoryskich. Kraków.}
+
+\bigskip
+\exampleRef{\textit{Estreicher XIX 91. Knihopis 12860.}}
+
+\bigskip
+\exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/13639/}, page 8.}
+
+    \examplePL{Pismo 1: tekst i zestaw liter ze znakami diakrytycznymi czeskimi.}
+
+    \medskip
+
+    \exampleEN{Font 1. The text and the table of letters with Czech diacritical marks}
+
+\bigskip
+
+    \fontID{Au-01a}{02}
+
+\fontstat{43}
+
+\bigskip
+
+% \exdisplay \bg \gla
+\input {t02_glyphs.tex}
+%//
+%\glpismo
+\input {t02_glyphids.tex}
+% //
+%\endgl \xe
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tab. 03 Aleksander Augezdecki pismo 1b
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pismoPL{Aleksander Augezdecki 1. Pisma tekstowe, szwabacha
+  M⁸¹. Stopień 20 ww. = 102—103 mm (tercja). — Tabl. 402—404. [znaki
+    diakrytyczne niemieckie, notacja matematyczna]}
+
+  \pismoEN{Aleksander Augezdecki 1. Schwabacher text script. Typeface
+    M⁸¹. Type size 20 lines = 102—103 mm (tertia) - Plate
+    402-404. [German diacritical marks, mathematical notation]}
+
+\medskip
+
+\plate{404}{VIII}{1972}
+
+The plate    prepared by Paulina Buchwald-Pelcowa.\\
+The font table    prepared by Paulina Buchwald-Pelcowa.\\
+
+\bigskip
+
+\exampleBib{VIII:12}
+
+\bigskip
+\exampleDesc{CHRISTOPHORUS RUDOLFF: Die Coss. 4°. Królewiec, Aleksander Augezdecki, 1553. 4°.}
+
+\medskip
+\examplePage{\textit{Karta 63a.}}
+
+  \bigskip
+\exampleLib{Biblioteka Czartoryskich. Kraków.}
+
+\bigskip
+\exampleRef{\textit{BM Germ.: Short-title catalogue s. 759}}
+
+\bigskip
+\exampleDig{\url{https://ds.ub.uni-bielefeld.de/viewer/api/v1/records/2014414/sections/LOG_0000/pdf/}}
+
+\medskip
+
+    \examplePL{Pismo 1: tekst i zestaw liter ze znakami diakrytycznymi niemieckimi.}
+
+    \medskip
+
+    \exampleEN{Font 1. The text and the table of letters with German diacritical marks [and mathematical notation]}
+
+      \bigskip
+
+%https://www.unicode.org/L2/L2024/24141-n5277-leibniz.pdf
+%      Biblioteka Czartoryskich. Krakéw.
+% P.B.P. 
+% 12. CHRISTOPHORUS RUDOLFF: Die Coss. 4°. Krélewiec, Aleksander Augezdecki, 1553. 4°.
+% Pismo 1: tekst i zestaw liter ze znakami diakrytycznymi niemieckimi. — Cyfry 4 z pismem 1.
+% Karta 63a.
+% BM Germ.: Short-title catalogue s. 759,
+
+% https://www.unicode.org/L2/L2024/24141-n5277-leibniz.pdf
+% https://www.researchgate.net/publication/230735404_From_the_second_unknown_to_the_symbolic_equation
+
+%       12 karta 63a
+
+%       1553
+% CHRISTOPHORUS RUDOLFF: Die Coss. Ed.
+% Michael Stifel. 4*. K. 104. (Arkusze A—Z Aa— Cc) —
+% BM Germ. 759. Arkusze Dd—Zz Aaa—Zzz
+% Aaaa—Zzzz Aaaaa—Zzzzz Aaaaaa—LlIII zob.
+% poz. 138. *
+% W niektórych egzemplarzach różnice w foliacji i sygnacji. Egzem-
+% plarz B. Nar. XVI. Qu 115 k. ... 90,9, 92, 93, 95, 95—212...; egzem-
+% płarz B. Czart. 52811 II k. ... 89—93, 95, 95—212..., karta Ca
+% błędnie sygnowana B;.
+% Pisma 1, 4—6, 13, 15. — Rubryka a, $, y. — Cyfry 1—4. —
+% Przerywnik 2. — Inicjały 3, 15, 16, 21, 22, 27. — Drzeworyty
+% 20, 21—23. - Li2.
+      
+% Digitization %%%%%which variant????
+% https://ds.ub.uni-bielefeld.de/viewer/image/2014414/1/LOG_0000/
+% https://old.maa.org/press/periodicals/convergence/mathematical-treasures-rudolffs-arithmetic-and-algebra
+% https://old.maa.org/sites/default/files/images/upload_library/46/Swetz_2012_Math_Treasures/ColumbiaU/1302100032.png
+
+\bigskip
+
+    \fontID{Au-01b}{03}
+
+    \fontstat{23}
+
+    \bigskip
+% \exdisplay \bg \gla
+\input {t03_glyphs.tex}
+%//
+%\glpismo
+\input {t03_glyphids.tex}
+% //
+%\endgl \xe
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tab. 04 Aleksander Augezdecki pismo 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Author "Paulina Buchwald-Pelcowa"
+% Title "Aleksander Augezdecki 1549-1561"
+% Editor "Alodia Kawecka Gryczowa"
+% Series "Polonia Typographica Saeculi Sedecimi: zbiór podobizn zasobu drukarskiego tłoczni polskich XVI stulecia"
+% Fascicule "VIII"
+% Publisher "Zakład Narodowy imienia Ossolińskich — Wydawnictwo"
+% Addres "Kraków  Wrocław Warszawa"
+% Year "1972"
+% Note "2 Pismo tekstowe, szwabacha M⁸¹. Stopień 20 ww. = 86—87 mm (cycero). — Tabl. 405, 406. [406]"
+% Note1 "Character set table prepared by Paulina Buchwald-Pelcowa"
+
+\pismoPL{Aleksander Augezdecki 2. Pisma tekstowe, szwabacha M⁸¹. Stopień 20 ww. = 86—87 mm (cycero). — Tabl. 402—404.}
+
+\pismoEN{Aleksander Augezdecki 2. Schwabacher text script. Typeface M⁸¹. Type size 20 lines = 86—87 mm (cicero) - Plate 402-404.}
+
+\medskip
+
+\plate{405}{VIII}{1972}
+
+The plate    prepared by Paulina Buchwald-Pelcowa.\\
+The font table    prepared by Paulina Buchwald-Pelcowa.\\
+
+
+\bigskip
+
+\exampleBib{VIII:6}
+
+\bigskip
+\exampleDesc{[TESTAMENTUM NOVUM. Trad. polon. Stanislaus Murzynowski]: Testamentu Nowego część pierwsza.
+Królewiec, Aleksander Augezdecki, X 1551. 4°.}
+
+\medskip
+\examplePage{\textit{Karta B₁a.}}
+
+  \bigskip
+\exampleLib{Biblioteka Czartoryskich. Kraków.}
+
+\bigskip
+\exampleRef{\textit{Estreicher XIII 26, Wierzbowski 1288.}}
+
+\bigskip
+\exampleDig{\url{https://www.dbc.wroc.pl/publication/33779} page 13.}
+
+
+\medskip
+
+    \examplePL{Pismo 2: tekst i zestaw wraz z zestawem liter ze znakami diakrytycznymi polskimi.}
+
+    \medskip
+
+    \exampleEN{Font 2. The text and the table including letters with Polish diacritical marks.}
+
+
+\bigskip
+
+    \fontID{Au-02}{04}
+
+    \fontstat{158}
+
+\bigskip
+
+% \exdisplay \bg \gla
+\input {t04_glyphs.tex}
+%//
+%\glpismo
+\input {t04_glyphids.tex}
+% //
+%\endgl \xe
+
+%   *[TESTAMENTUM NOVUM. Evangelium secundum Matthaeum. Trad. polon. Stanislaus Murzynowski]: Ewangelia św. Mateusza. 4�. K. 104.
+% (Arkusze A—B A—B A—Y). Druk czarno-czerwony. — Estr. XIII 26. Wierzb. 135. Arkusze
+% Z aa—kk zob. poz. 4.
+% W egz. B. Nar. XVI Qu. 6471 w pierwszym marginalium na lewym
+% marginesie w. 4, zamiast majuskuły A wydrukowano minuskułę a.
+% Pisma 1—3, 5—7, 10—12. — Cyfry 1—3, 5. — Przerywnik I, 5. —
+% Inicjały 1, 3—8, 28.
+% Warsz. B. U. 28.2.4.4. z notatkami J. Maleckiego. [4�
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tab. 05 Aleksander Augezdecki pismo 2a
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ % Author "Paulina Buchwald-Pelcowa"
+% Title "Aleksander Augezdecki 1549-1561"
+% Editor "Alodia Kawecka Gryczowa"
+% Series "Polonia Typographica Saeculi Sedecimi: zbiór podobizn zasobu drukarskiego tłoczni polskich XVI stulecia"
+% Fascicule "VIII"
+% Publisher "Zakład Narodowy imienia Ossolińskich — Wydawnictwo"
+% Addres "Kraków  Wrocław Warszawa"
+% Year "1972"
+% Note "2 Pismo tekstowe, szwabacha M⁸¹. Stopień 20 ww. = 86—87 mm (cycero). — Tabl. 405, 406. [405]"
+% Note1 "Character set table prepared by Paulina Buchwald-Pelcowa"
+% Note2 "Scan (prepared by Biblioteka Uniwersytecka w Warszawie from their own copy) converted to DjVu with didjvu by Janusz S. Bień"
+% URL "https://github.com/jsbien/early_fonts_inventory/"
+% .
+
+\pismoPL{Aleksander Augezdecki 2. Pisma tekstowe, szwabacha
+  M⁸¹. Stopień 20 ww. = 86—87 mm (cycero). — Tabl. 405, 406. [litery
+  ze znakami diakrytycznymi czeskimi]}
+
+\pismoEN{Aleksander Augezdecki 2. Schwabacher text script. Typeface
+  M⁸¹. Type size 20 lines = 86—87 mm (cicero) - Plate 405,
+  406. [letters with Czech diacritical marks]}
+
+\medskip
+
+\plate{406}{VIII}{1972}
+
+The plate    prepared by Paulina Buchwald-Pelcowa.\\
+The font table    prepared by Paulina Buchwald-Pelcowa.\\
+
+
+\bigskip
+
+\exampleBib{VIII:25}
+
+\bigskip
+\exampleDesc{PIESNĚ Chwal Bożských. Szamotuly, Aleksander Augezdecki, [25 I 1560—] 7 VI 1561. 2°. War. A.}
+
+\medskip
+\examplePage{\textit{Karta *₄a.}}
+
+  \bigskip
+\exampleLib{Biblioteka Czartoryskich. Kraków.}
+
+\bigskip
+\exampleRef{\textit{Estreicher XIX 91. Knihopis 12860.}}
+
+\bigskip
+\exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/13639/}, page 10.}
+
+\medskip
+
+    \examplePL{Pismo 2: tekst i zestaw liter ze znakami diakrytycznymi czeskimi.}
+
+    \medskip
+
+    \exampleEN{Font 2. The text and the table including letters with Czech diacritical marks.}
+
+
+\bigskip
+
+    \fontID{Au-02a}{05}
+
+    \fontstat{15}
+
+\bigskip
+
+
+% \exdisplay \bg \gla
+\input {t05_glyphs.tex}
+%//
+%\glpismo
+\input {t05_glyphids.tex}
+% //
+%\endgl \xe
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tab. 06,Augezdecki-03_PT08_407.djvu,Augezdecki,03,08,407
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "3. Pismo komentarzowe, szwabacha M⁸¹ + M⁸⁷. Stopień 20 ww. = 67 mm (garmond). — Tabl. 407."
+% Note1 "Character set table prepared by Maria Błońska"
+
+\pismoPL{Aleksander Augezdecki 3. Pismo komentarzowe, szwabacha M⁸¹ + M⁸⁷. Stopień 20 ww. = 67 mm (garmond). — Tabl. 407.}
+
+\pismoEN{Aleksander Augezdecki 3. Schwabacher comment script. Typeface M⁸¹ + M⁸⁷. Type size 20 lines = 67 mm (garmond). - Plate 407.}
+
+\medskip
+
+\plate{407}{VIII}{1972}
+
+The plate    prepared by Paulina Buchwald-Pelcowa.\\
+The font table prepared by Paulina Buchwald-Pelcowa and Maria Błońska.
+
+\bigskip
+
+ \exampleBib{VIII:4$^a$}
+
+\bigskip
+\exampleDesc{[TESTAMENTUM NOVUM. Evangelium secundum Matthaeum. Trad. polon. Stanislaus Murzynowski]:
+Ewangelia Św. Mateusza. Królewiec, [Aleksander Augezdecki], 1551. 4°.}
+
+\medskip
+\examplePage{\textit{Karta B₂a.}}
+
+  \bigskip
+\exampleLib{Biblioteka Czartoryskich. Kraków.}
+
+\bigskip
+\exampleRef{\textit{Estreicher XIII 26. Wierzbowski 135.}}
+
+\bigskip
+\exampleDig{\url{https://crispa.uw.edu.pl/object/files/318618/display/Default} page 18}
+
+\medskip
+
+    \examplePL{Pismo 3: tekst i zestaw.}
+
+    \medskip
+
+    \exampleEN{Font 3. The text and the font table}
+
+
+\bigskip
+
+    \fontID{Au-03}{06}
+
+    \fontstat{112}
+
+\bigskip
+
+
+% \exdisplay \bg \gla
+ \input {t06_glyphs.tex}
+%//
+%\glpismo
+ \input {t06_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ 
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BRAK w PT tabeli pisma 4!
+% Tab. 07,Augezdecki-05_PT08_408.djvu,Augezdecki,05,08,408
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "5. Pismo nagłówkowe, tekstura M³⁰. Stopień I w. = 9 mm. — Tabl. 408."
+% Note1 "Character set table prepared by Paulina Buchwald-Pelcowa"
+
+\pismoPL{Aleksander Augezdecki 5. Pismo nagłówkowe, tekstura M³⁰. Stopień 1 w. = 9 mm. — Tabl. 408. [pierwszy zestaw]}
+
+\pismoEN{Aleksander Augezdecki 5. Display font, Textura M³⁰. Type size 1 line = 9 mm. - Plate 408. [first set]}
+% https://www.adfontes.uzh.ch/en/tutorium/schriften-lesen/schriftgeschichte/gotische-minuskeln-textura-und-textualis/
+\medskip
+
+\plate{408[1]}{VIII}{1972}
+
+The plate    prepared by Paulina Buchwald-Pelcowa.\\
+The font table    prepared by Paulina Buchwald-Pelcowa.\\
+\relax[Layout confusing, misinterpretation possible --- JSB]
+
+\bigskip
+
+\fontID{Au-05}{07}
+
+    \fontstat{96}
+    % 95???
+    
+% \exdisplay \bg \gla
+ \input {t07_glyphs.tex}
+%//
+%\glpismo
+ \input {t07_glyphids.tex}
+% //
+%\endgl \xe
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tab. 08,Augezdecki-06_PT08_408
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "6. Pismo nagłówkowe, tekstura M²⁹. Stopień I w. = 7 mm. — Tabl. 408."
+% Note1 "Character set table prepared by Paulina Buchwald-Pelcowa"
+
+\pismoPL{Aleksander Augezdecki 6. Pismo nagłówkowe, tekstura M²⁹. Stopień 1 w. = 7 mm. — Tabl. 408. [drugi zestaw]}
+
+\pismoEN{Aleksander Augezdecki 6. Display font, Textura M²⁹. Type size 1 line = 7 mm. - Plate 408. [second set]}
+% https://www.adfontes.uzh.ch/en/tutorium/schriften-lesen/schriftgeschichte/gotische-minuskeln-textura-und-textualis/
+\medskip
+
+\plate{408[2]}{VIII}{1972}
+
+The plate    prepared by Paulina Buchwald-Pelcowa.\\
+The font table    prepared by Paulina Buchwald-Pelcowa.\\
+\relax[Layout confusing, misinterpretation possible --- JSB]
+
+
+\bigskip
+
+\fontID{Au-06}{08}
+
+    \fontstat{93}
+
+% \exdisplay \bg \gla
+ \input {t08_glyphs.tex}
+%//
+%\glpismo%
+ \input {t08_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ 
+ \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 09,Augezdecki-07_PT08_409.djvu,Augezdecki,07,08,409
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "7. Pismo tekstowe, antykwa Qu/(G, I). Stopień 20 ww. = 101/102 mm (tercja). — Tabl. 409."
+% Note1 "Character set table prepared by Paulina Buchwald-Pelcowa"
+
+
+\pismoPL{Aleksander Augezdecki 7. Pismo tekstowe, antykwa Qu/(G, I). Stopień 20 ww. = 101/102 mm (tercja). — Tabl. 409.}
+
+\pismoEN{Aleksander Augezdecki 7. Text Roman type Qu/(G, I). Type size 20 lines = 101/102 mm (tertia). — Tabl. 409.}
+% https://www.adfontes.uzh.ch/en/tutorium/schriften-lesen/schriftgeschichte/gotische-minuskeln-textura-und-textualis/
+\medskip
+
+\plate{409}{VIII}{1972}
+
+The plate    prepared by Paulina Buchwald-Pelcowa.\\
+The font table    prepared by Paulina Buchwald-Pelcowa.
+
+
+
+\bigskip
+
+ \exampleBib{VIII:4$^a$}
+
+\bigskip
+\exampleDesc{[TESTAMENTUM NOVUM. Evangelium secundum Matthaeum. Trad. polon. Stanislaus Murzynowski]:
+Ewangelia Św. Mateusza. Królewiec, [Aleksander Augezdecki], 1551. 4°.}
+
+\medskip
+\examplePage{\textit{Karta A₂a.}}
+
+  \bigskip
+\exampleLib{Biblioteka Czartoryskich. Kraków.}
+
+\bigskip
+\exampleRef{\textit{Estreicher XIII 26. Wierzbowski 135.}}
+
+\bigskip
+\exampleDig{\url{https://crispa.uw.edu.pl/object/files/318618/display/Default} page 10}
+
+\medskip
+
+    \examplePL{Pismo 7: tekst i zestaw.}
+
+    \medskip
+
+    \exampleEN{Font 7. The text and the font table}
+
+
+\bigskip
+
+
+\fontID{Au-07}{09}
+
+\fontstat{84}
+
+% \exdisplay \bg \gla
+ \input {t09_glyphs.tex}
+%//
+%\glpismo%
+ \input {t09_glyphids.tex}
+% //
+%\endgl \xe
+
+ \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 10,Augezdecki-08_PT08_410.djvu,Augezdecki,08,08,410
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "8. Pismo tekstowe, antykwa Qu/(G). Stopień 20 ww. = 101 mm (tercja). — Tabl. 410."
+% Note1 "Character set table prepared by Paulina Buchwald-Pelcowa"
+
+
+\pismoPL{Aleksander Augezdecki 8. Pismo tekstowe, antykwa Qu/(G, I). Stopień 20 ww. = 101/102 mm (tercja). — Tabl. 410 [pierwszy zestaw].}
+
+\pismoEN{Aleksander Augezdecki 8. Text Roman type Qu/(G, I). Type size 20 lines = 101/102 mm (tertia). — Tabl. 410 [first set].}
+% https://www.adfontes.uzh.ch/en/tutorium/schriften-lesen/schriftgeschichte/gotische-minuskeln-textura-und-textualis/
+\medskip
+
+\plate{410[1]}{VIII}{1972}
+
+The plate    prepared by Paulina Buchwald-Pelcowa.\\
+The font table    prepared by Paulina Buchwald-Pelcowa.
+
+
+
+\bigskip
+
+ \exampleBib{VIII:26}
+
+\bigskip
+\exampleDesc{[CONFESSIO AUGUSTANA. Trad. polon. Martinus Kwiatkowski]: Confessio Augustanae fidei to jest wyznanie
+wiary krześciańskiej. Szamotuły, Aleksander Augezdecki, [po 13 V] 1561. 4°.}
+
+\medskip
+\examplePage{\textit{Karta B₁a.}}
+
+  \bigskip
+\exampleLib{Biblioteka Zakł. Nar. im. Ossolinskich. Wroclaw.}
+
+\bigskip
+\exampleRef{\textit{Estreicher XIV 355. Wierzbowski 1393. Bohonos Ossol. 442. Drukarze IV 31 i 85.}}
+
+\bigskip
+\exampleDig{\url{https://dbc.wroc.pl/dlibra/publication/15990/edition/14101} page 13}
+
+\medskip
+
+    \examplePL{Pismo 8: kolumna [? -- JSB]  i pierwszy zestaw.}
+
+    \medskip
+
+    \exampleEN{Font 7. The text column [?] and the first font table.}
+
+
+\bigskip
+
+
+\fontID{Au-08}{10}
+
+\fontstat{104}
+
+% \exdisplay \bg \gla
+ \input {t10_glyphs.tex}
+%//
+%\glpismo%
+ \input {t10_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ 
+ \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 11,Augezdecki-09_PT08_408.djvu,Augezdecki,09,08,408
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "9. Wersaliki tytułowe, antykwa. Wysokość 8 mm. — Tabl. 408."
+% Note1 "Character set table prepared by Paulina Buchwald-Pelcowa"
+
+\pismoPL{Aleksander Augezdecki 9. Wersaliki tytułowe, antykwa. Wysokość 8 mm. — Tabl. 408 [trzeci zestaw].}
+
+\pismoEN{Aleksander Augezdecki 9. Roman title capitals.  Type size 1 [line] = 8 mm. - Plate 408 [third set].}
+% https://www.adfontes.uzh.ch/en/tutorium/schriften-lesen/schriftgeschichte/gotische-minuskeln-textura-und-textualis/
+\medskip
+
+\plate{408[3]}{VIII}{1972}
+
+The plate    prepared by Paulina Buchwald-Pelcowa.\\
+The font table    prepared by Paulina Buchwald-Pelcowa.\\
+\relax[Layout confusing, misinterpretation possible --- JSB]
+
+
+\bigskip
+
+\fontID{Au-09}{11}
+
+\fontstat{29}
+
+% \exdisplay \bg \gla
+ \input {t11_glyphs.tex}
+%//
+%\glpismo%
+ \input {t11_glyphids.tex}
+% //
+%\endgl \xe
+
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 12,Augezdecki-10_PT08_408.djvu,Augezdecki,10,08,408
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "10.Wersaliki tytułowe, antykwa. Wysokość 6—7 mm. — Tabl. 408."
+% Note1 "Character set table prepared by Paulina Buchwald-Pelcowa"
+
+\pismoPL{Aleksander Augezdecki 10. Wersaliki tytułowe, antykwa. Wysokość 6—7 mm. — Tabl. 408 [czwarty zestaw].}
+
+\pismoEN{Aleksander Augezdecki 10. Roman title capitals.  Type size [1 line] = 6--7 mm. - Plate 408 [forth set].}
+% https://www.adfontes.uzh.ch/en/tutorium/schriften-lesen/schriftgeschichte/gotische-minuskeln-textura-und-textualis/
+\medskip
+
+\plate{408[4]}{VIII}{1972}
+
+The plate    prepared by Paulina Buchwald-Pelcowa.\\
+The font table    prepared by Paulina Buchwald-Pelcowa.\\
+\relax[Layout confusing, misinterpretation possible --- JSB]
+
+
+\bigskip
+
+\fontID{Au-10}{12}
+
+\fontstat{15}
+
+    
+% \exdisplay \bg \gla
+ \input {t12_glyphs.tex}
+%//
+%\glpismo%
+ \input {t12_glyphids.tex}
+% //
+%\endgl \xe
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 13,Augezdecki-11_PT08_408.djvu,Augezdecki,11,08,408
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "11. Wersaliki tytułowe, antykwa. Wysokość 4,5—5 mm:— Tabl. 408."
+% Note1 "Character set table prepared by Paulina Buchwald-Pelcowa"
+
+\pismoPL{Aleksander Augezdecki 11. Wersaliki tytułowe, antykwa. Wysokość 4,5—5 mm:— Tabl. 408 [czwarty zestaw].}
+
+\pismoEN{Aleksander Augezdecki 11. Roman title capitals. Type size [1 line] = 4.5--5 mm. - Plate 408 [forth set].}
+% https://www.adfontes.uzh.ch/en/tutorium/schriften-lesen/schriftgeschichte/gotische-minuskeln-textura-und-textualis/
+\medskip
+
+\plate{408[4]}{VIII}{1972}
+
+The plate    prepared by Paulina Buchwald-Pelcowa.\\
+The font table    prepared by Paulina Buchwald-Pelcowa.\\
+\relax[Layout confusing, misinterpretation possible --- JSB]
+
+
+\bigskip
+
+\fontID{Au-11}{13}
+
+\fontstat{32}
+
+% \exdisplay \bg \gla
+ \input {t13_glyphs.tex}
+%//
+%\glpismo%
+ \input {t13_glyphids.tex}
+% //
+%\endgl \xe
+
+\newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 14,Augezdecki-12_PT08_408.djvu,Augezdecki,12,08,408
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "12. Wersaliki, antykwa. Wysokość 2—2,5 mm. — Tabl. 408."
+% Note1 "Character set table prepared by Paulina Buchwald-Pelcowa"
+
+\pismoPL{Aleksander Augezdecki 12. Wersaliki, antykwa. Wysokość 2—2,5 mm. — Tabl. 408 [piąty zestaw].}
+
+\pismoEN{Aleksander Augezdecki 12. Roman capitals. Type size [1 line] = 2--2.5 mm. - Plate 408 [fifth set].}
+% https://www.adfontes.uzh.ch/en/tutorium/schriften-lesen/schriftgeschichte/gotische-minuskeln-textura-und-textualis/
+\medskip
+
+\plate{408[5]}{VIII}{1972}
+
+The plate    prepared by Paulina Buchwald-Pelcowa.\\
+The font table    prepared by Paulina Buchwald-Pelcowa.\\
+\relax[Layout confusing, misinterpretation possible --- JSB]
+
+
+\bigskip
+
+\fontID{Au-12}{14}
+
+\fontstat{22}
+
+% \exdisplay \bg \gla
+ \input {t14_glyphs.tex}
+%//
+%\glpismo%
+ \input {t14_glyphids.tex}
+% //
+%\endgl \xe
+
+\newpage
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 15,Augezdecki-13_PT08_411.djvu,Augezdecki,13,08,411 poprawić!!!
+% Tab. 15,Augezdecki-13_PT08_412.djvu,Augezdecki,13,08,411
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "13. Pismo nagłówkowe, fraktura H. Schönspergera. Stopień 1 w. = 8 mm. — Tabl. 412."
+
+\pismoPL{Aleksander Augezdecki 13. Pismo  nagłówkowe,
+  fraktura H. Schönspergera. Wysokość 1 w. = 8 mm. — Tabl. 412 [pierwszy zestaw].}
+
+\pismoEN{Aleksander Augezdecki 13. H. Schönsperger's Fracture, header font. Type size 1 line = 8 mm. - Plate 412 [first set].}
+% https://www.adfontes.uzh.ch/en/tutorium/schriften-lesen/schriftgeschichte/gotische-minuskeln-textura-und-textualis/
+\medskip
+
+\plate{412[1]}{VIII}{1972}
+
+The plate    prepared by Paulina Buchwald-Pelcowa.\\
+The font table    prepared by Paulina Buchwald-Pelcowa.\\
+\relax[Layout confusing, misinterpretation possible --- JSB]
+
+\bigskip
+
+\fontID{Au-13}{15}
+
+\fontstat{55}
+
+% \exdisplay \bg \gla
+ \input {t15_glyphs.tex}
+%//
+%\glpismo%
+ \input {t15_glyphids.tex}
+% //
+%\endgl \xe
+
+
+
+\newpage
+ 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 16,Augezdecki-14_PT08_410.djvu,Augezdecki,14,08,410
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% join!
+
+% Note "14. Pismo tekstowe i nagłówkowe, fraktura H. Schönspergera. Stopień 20 ww. = 153 mm. — Tabl. 410, 411.[410]"
+% Note1 "Character set table prepared by Paulina Buchwald-Pelcowa"
+
+\pismoPL{Aleksander Augezdecki 14. Pismo tekstowe i nagłówkowe,
+  fraktura H. Schönspergera. Stopień 20 ww. = 153 mm. — Tabl. 410
+  [drugi zestaw], 411.}
+
+\pismoEN{Aleksander Augezdecki 14. H. Schönsperger's Fracture, text
+  and header font. Type size 20 lines = 153 mm. - Plate 410 [second
+  set]m 411.}
+
+
+\plate{410[2]}{VIII}{1972}
+
+The plate    prepared by Paulina Buchwald-Pelcowa.\\
+The font table    prepared by Paulina Buchwald-Pelcowa.\\
+
+\bigskip
+
+\fontID{Au-14}{16}
+
+    \fontstat{144}
+    % 108 ????
+
+% \exdisplay \bg \gla
+ \input {t16_glyphs.tex}
+%//
+%\glpismo%
+ \input {t16_glyphids.tex}
+% //
+%\endgl \xe
+
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 17,Augezdecki-15_PT08_411.djvu,Augezdecki,15,08,411 poprawić!!!
+% Tab. 17,Augezdecki-15_PT08_412.djvu,Augezdecki,15,08,411
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "15. Pismo tytułowe i nagłówkowe, fraktura H. Schönspergera. Wysokość 1 w. = 11—12 mm bez przedłużek. — Tabl. 412."
+% Note1 "Character set table prepared by Paulina Buchwald-Pelcowa"
+
+\pismoPL{Aleksander Augezdecki 15. Pismo tytułowe i nagłówkowe,
+  fraktura H. Schönspergera. Wysokość 1 w. = 11—12 mm bez
+  przedłużek. — Tabl. 412 [drugi zestaw].}
+
+\pismoEN{Aleksander Augezdecki 15. H. Schönsperger's Fracture, title
+  and header font. Type size 1 line = 11--12 mm without ascenders and
+  descenders. - Plate 412 [second set].}
+
+\plate{412[2]}{VIII}{1972}
+
+The plate    prepared by Paulina Buchwald-Pelcowa.\\
+The font table    prepared by Paulina Buchwald-Pelcowa.\\
+\relax[Layout confusing, misinterpretation possible --- JSB]
+
+
+\bigskip
+
+\fontID{Au-15}{17}
+
+\fontstat{109}
+
+% \exdisplay \bg \gla
+ \input {t17_glyphs.tex}
+%//
+%\glpismo%
+ \input {t17_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 18,Augezdecki-16_PT08_413.djvu,Augezdecki,16,08,413
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "16. Pismo tekstowe, szwabacha M⁸¹. Stopień 20 ww. = 88 mm. — Tabl. 413."
+% Note1 "Character set table prepared by Paulina Buchwald-Pelcowa"
+
+
+\pismoPL{Aleksander Augezdecki 16. Pismo tekstowe, szwabacha M⁸¹. Stopień 20 ww. = 88 mm. — Tabl. 413.}
+
+\pismoEN{Aleksander Augezdecki 16. Text type, Schwabacher M⁸¹. Type size 20 lines = 88 mm. — Tabl. 413.}
+% https://www.adfontes.uzh.ch/en/tutorium/schriften-lesen/schriftgeschichte/gotische-minuskeln-textura-und-textualis/
+\medskip
+
+\plate{413}{VIII}{1972}
+
+Prepared by Paulina Buchwald-Pelcowa.
+
+\bigskip
+
+ \exampleBib{VIII:20}
+
+\bigskip
+\exampleDesc{IACOBUS KUCHLER: Epithalamion de nuptiis Andreae comitis in Gorka.
+Szamotuly, Aleksander Augezdecki, 20 X 1558. 4°.}
+
+\medskip
+\examplePage{\textit{Karta A₃a.}}
+
+  \bigskip
+\exampleLib{Książnica Miejska im. Kopernika. Toruń}
+
+\bigskip
+\exampleRef{\textit{Drukarze IV 29.}}
+
+% \bigskip
+% \exampleDig{\url{https://dbc.wroc.pl/dlibra/publication/15990/edition/14101} page 13}
+
+\medskip
+
+    \examplePL{Pismo 16: tekst i zestaw.}
+
+    \medskip
+
+    \exampleEN{Font 16. A text and the font table.}
+
+
+\bigskip
+
+
+\fontID{Au-16}{18}
+
+\fontstat{74}
+
+% \exdisplay \bg \gla
+ \input {t18_glyphs.tex}
+%//
+%\glpismo%
+ \input {t18_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ 
+ \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 19,Augezdecki-17_PT08_411.djvu,Augezdecki,17,08,411 poprawić
+% Tab. 19,Augezdecki-17_PT08_412.djvu,Augezdecki,17,08,411
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "17. Pismo tytułowe i nagłówkowe, tekstura M⁶³. Wysokość I w.= 12— 13 mm. — Tabl. 412."
+% Note1 "Character set table prepared by Paulina Buchwald-Pelcowa"
+
+\pismoPL{Aleksander Augezdecki 17. Pismo tytułowe i nagłówkowe, tekstura M⁶³. Wysokość 1 w.= 12—13 mm. — Tabl. 412 [trzeci zestaw].}
+
+\pismoEN{Aleksander Augezdecki 17. Title
+  and header font. Type size 1 line = 12-13 mm.- Plate 412 [third set].}
+
+\plate{412[3]}{VIII}{1972}
+
+The plate    prepared by Paulina Buchwald-Pelcowa.\\
+The font table    prepared by Paulina Buchwald-Pelcowa.\\
+\relax[Layout confusing, misinterpretation possible --- JSB]
+
+\bigskip
+
+\fontID{Au-17}{19}
+
+\fontstat{67}
+
+% \exdisplay \bg \gla
+ \input {t19_glyphs.tex}
+%//
+%\glpismo%
+ \input {t19_glyphids.tex}
+% //
+%\endgl \xe
+
+
+     \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 20,Haller-01_PT04_164.djvu,Haller,01,04,164
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "1. Pismo kanonowe. Krój M¹⁹, Stopień 10 ww. = 128/129 mm. — Tabl. 164."
+% Note1 "Character set table prepared by Maria Błońska"
+
+  \pismoPL{Jan Haller 1. Pismo kanonowe. Krój M¹⁹. Stopień 10 ww. =
+    128/129 mm. — Tabl. 164. (Występuje u Hochfedera jako pismo
+    8. Tabl. 25, u Unglera jako pismo 13,  Tabl. 72). }
+
+
+  
+  \pismoEN{Jan Haller 1. Canon [?] font. Typeface M¹⁹. Type size 10
+    ww. = 128/129 mm. — Plate 164. (Used by Hochfeder as font 8, plate
+    24, and by Ungler as font 13, plate 72.)}
+
+\plate{164}{IV}{1962}
+
+The plate prepared by Helena Kapełuś.\\
+The font table prepared by Helena Kapełuś and Maria Błońska.
+
+\bigskip
+
+\exampleBib{IV:121}
+
+\bigskip
+\exampleDesc{MISSALE Vladislaviense. Kraków, Jan Haller, 29. XI. 1515 — 1. II. 1516. 2⁰.}
+
+\medskip
+\examplePage{\textit{Karta 1 (Canon) niepełna: wiersze 1——15.}}
+
+  \bigskip
+\exampleLib{Biblioteka Czartoryskich. Kraków.}
+
+\bigskip
+\exampleRef{\textit{Estreicher XXII. 434}}
+
+\bigskip
+\exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/22776/}, page 403.}
+
+% \medskip
+
+%     \examplePL{Pismo 2: tekst i zestaw liter ze znakami diakrytycznymi czeskimi.}
+
+%     \medskip
+
+%     \exampleEN{Font 2. The text and the table including letters with Czech diacritical marks.}
+
+
+\bigskip
+
+
+\fontID{Ha-01}{20}
+
+\fontstat{85}
+
+% \exdisplay \bg \gla
+ \input {t20_glyphs.tex}
+%//
+%\glpismo%
+ \input {t20_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ 
+  \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 22,Haller-03_PT04_166.djvu,Haller,03,04,166
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  
+% Note "2. Pismo mszalne większe. Krój M¹⁸. Stopień 10 ww. = 77 mm. — Tabl. 165."
+% Note1 "Character set table prepared by Maria Błońska"
+
+  \pismoPL{Jan Haller 2. Pismo mszalne większe. Krój M¹⁸. Stopień 10
+    ww. = 77 mm. — Tabl. 165. (Występuje u Hochfedera jako pismo
+    7. Tabl. 24, u Unglera jako pismo 12. Tabl. 72).}
+
+
+  
+\pismoEN{Jan Haller 2. Larger mass [?] font. Typeface M¹⁸. Type size 10 ww. =
+    77 mm. — Plate 165. (Used by Hochfeder as font 7, plate
+    24, and by Ungler as font 12, plate 72.)}
+
+\plate{165}{IV}{1962}
+
+The plate prepared by Helena Kapełuś.\\
+The font table prepared by Helena Kapełuś and Maria Błońska.
+
+\bigskip
+
+\exampleBib{IV:2}
+
+\bigskip
+\exampleDesc{IOANNES LASKI: Commune Poloniae Regni privilegium. Kraków, Jan Haller, [po 27. I. 1506]. 2⁰}
+
+\medskip
+\examplePage{\textit{Karta a₃b.}}
+
+  \bigskip
+\exampleLib{Biblioteka Zakł. Nar. im. Ossolińskich. Wrocław.}
+
+\bigskip
+\exampleRef{\textit{Estreicher XXI. 79. Wierzbowski 9.}}
+
+\bigskip
+%\exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/493453/}, page ???}???
+\exampleDig{\url{https://dlibra.biblioteka.tarnow.pl/publication/196}, page 54.}
+
+\medskip
+
+    \examplePL{Pismo 2: wiersz 1—4, 17.}
+
+    \medskip
+
+    \exampleEN{Font 2: lines 1--4, 17}
+
+
+\bigskip
+
+
+\fontID{Ha-02}{21}
+
+\fontstat{111}
+
+% \exdisplay \bg \gla
+ \input {t21_glyphs.tex}
+%//
+%\glpismo%
+ \input {t21_glyphids.tex}
+% //
+%\endgl \xe
+
+
+  \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 22,Haller-03_PT04_166.djvu,Haller,03,04,166
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "3. Pismo mszalne mniejsze. Krój M²³. Stopień 20 ww. = 136/137 mm. — Tabl. 166."
+% Note1 "Character set table prepared by Maria Błońska"
+
+
+  \pismoPL{Jan Haller 3. Pismo mszalne większe. Krój M²³. Stopień 10
+    ww. = 136/137 mm. — Tabl. 166. (Występuje u Hochfedera jako pismo
+    11. Tabl. 24, u Unglera jako pismo 11).}
+
+
+  
+\pismoEN{Jan Haller 3. Smaller mass [?] font. Typeface M²³. Type size 10 ww. =
+    136/137 mm. — Plate 166. (Used by Hochfeder as font 11, plate
+    11, and by Ungler as font 11.)}
+
+\plate{166}{IV}{1962}
+
+Prepared by Helena Kapełuś.\\
+The font table prepared by Helena Kapełuś and Maria Błońska.
+
+\bigskip
+
+\exampleBib{IV:151}
+
+\bigskip
+\exampleDesc{AGENDA Cracoviensis. Kraków, Jan Haller, [1517]. 4⁰.}
+
+\medskip
+\examplePage{\textit{Karta M₂b.}}
+
+  \bigskip
+\exampleLib{Biblioteka Zakł. Nar. im. Ossolińskich. Wrocław.}
+
+\bigskip
+\exampleRef{\textit{Estreicher XII. 70.}}
+
+\bigskip
+%\exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/493453/}, page ???}???
+\exampleDig{\url{https://dbc.wroc.pl/dlibra/publication/11760/}, page 242.}
+
+% \medskip
+
+%     \examplePL{Pismo 2: wiersz 1—4, 17.}
+
+%     \medskip
+
+%     \exampleEN{Font 2: lines 1--4, 17}
+
+
+\bigskip
+
+
+\fontID{Ha-03}{22}
+
+\fontstat{115}
+
+% \exdisplay \bg \gla
+ \input {t22_glyphs.tex}
+%//
+%\glpismo%
+ \input {t22_glyphids.tex}
+% //
+%\endgl \xe
+
+ 
+  \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 23,Haller-04_PT04_167.djvu,Haller,04,04,167
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "4. Pismo nagłówkowe. Krój M⁸³. Stopień 20 ww. =112/114 mm. — Tabl. 167."
+% Note1 "Character set table prepared by Maria Błońska"
+
+
+  \pismoPL{Jan Haller 4. Pismo nagłówkowe. Krój M⁸³. Stopień 20 ww. =
+    112/114 mm. — Tabl. 167. (Występuje u Hochfedera jako pismo
+    2. Tabl. 19).}
+
+  
+  \pismoEN{Jan Haller 4. Header font. Typeface M⁸³. Type size 20 ww. =
+    112/114 mm. — Plate 167. (Used by Hochfeder as font 2, plate 19.)}
+
+\plate{167}{IV}{1962}
+
+The plate prepared by Helena Kapełuś.\\
+The font table prepared by Helena Kapełuś and Maria Błońska.
+
+\bigskip
+
+\exampleBib{IV:21}
+
+\bigskip
+\exampleDesc{STATUTA conventus generalis Cracoviensis. [Kraków, Jan Haller, po 2. IIT. 1507]. 2*. Wyd. A.}
+
+\medskip
+\examplePage{\textit{Karta [1] a.}}
+
+  \bigskip
+\exampleLib{Biblioteka Narodowa. Warszawa.}
+
+\bigskip
+\exampleRef{\textit{Estreicher XXIX. 249.}}
+
+\bigskip
+%\exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/493453/}, page ???}???
+\exampleDig{\url{https://wbc.poznan.pl/dlibra/publication/493454} planned (as of \today)}
+
+% \medskip
+
+%     \examplePL{Pismo 2: wiersz 1—4, 17.}
+
+%     \medskip
+
+%     \exampleEN{Font 2: lines 1--4, 17}
+
+
+\bigskip
+
+
+\fontID{Ha-04}{23}
+
+\fontstat{137}
+
+% \exdisplay \bg \gla
+ \input {t23_glyphs.tex}
+%//
+%\glpismo%
+ \input {t23_glyphids.tex}
+% //
+%\endgl \xe
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 24,Haller-05_PT04_168.djvu,Haller,05,04,168
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "5. Pismo tekstowe. Krój M⁴⁸. Stopień 20 ww. =81/82 mm. — Tabl. 168."
+% Note1 "Character set table prepared by Maria Błońska"
+
+  \pismoPL{Jan Haller 5. Pismo tekstowe. Krój M⁴⁸. Stopień 20
+    ww. =81/82 mm. — Tabl. 168. (Występuje u Hochfedera jako pismo
+    9. Tabl. 26, u Unglera jako pismo 4.  Tabl. 115).}
+
+
+  
+\pismoEN{Jan Haller 5. Text font. Typeface M⁴⁸. Type size 20 ww. =
+    81/82 mm. — Plate 168. (Used by Hochfeder as font 9, plate
+    26, and by Ungler as font 4, plate 115.)}
+
+\plate{168}{IV}{1962}
+
+Prepared by Helena Kapełuś.\\
+The font table prepared by Helena Kapełuś and Maria Błońska.
+
+\bigskip
+
+\exampleBib{IV:17}
+
+\bigskip
+\exampleDesc{17. IOANNES SACRANUS: Hlucidarius errorum ritus Ruthenici. [Kraków, Jan Haller, ok. 1507]. 4⁰.}
+  
+
+\medskip
+\examplePage{\textit{Karta 7 a.}}
+
+  \bigskip
+\exampleLib{Biblioteka Narodowa. Warszawa.}
+
+\bigskip
+\exampleRef{\textit{Estreicher XVII. 13. Wierzbowski 773.}}
+
+\bigskip
+\exampleDig{\url{http://old.mbc.malopolska.pl/dlibra/docmetadata?id=83069}
+page 13,\\
+\url{https://www.dbc.wroc.pl/dlibra/publication/3624/edition/3513}
+page 7.}
+  % https://www.dbc.wroc.pl/dlibra/publication/3624/edition/3513?language=en
+  % http://old.mbc.malopolska.pl/dlibra/docmetadata?id=83069&from=publication
+  
+  % \medskip
+\bigskip
+
+    \examplePL{Pismo 4: naglówek.}
+
+    \medskip
+
+    \exampleEN{Font 4: the header}
+
+
+\bigskip
+
+
+\fontID{Ha-05}{24}
+
+\fontstat{135}
+
+% \exdisplay \bg \gla
+ \input {t24_glyphs.tex}
+%//
+%\glpismo%
+ \input {t24_glyphids.tex}
+% //
+%\endgl \xe
+
+ 
+  \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 25,Haller-06_PT04_169.djvu,Haller,06,04,169
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "6. Pismo komentarzowe. Krój M”. Stopień 20 ww. = 82 mm (interliniowane). — Tabl. 169."
+% Note1 "Character set table prepared by Maria Błońska"
+
+
+  \pismoPL{Jan Haller 6. Pismo komentarzowe. Krój M⁹¹. Stopień 20
+    ww. = 82 mm (interliniowane). — Tabl. 169. (Występuje u Hochfedera
+    jako pismo 4. Tabl. 21).}
+
+
+
+  
+\pismoEN{Jan Haller 6. Text font. Typeface M⁹¹. Type size 20 ww. =
+    82 mm (with extra leading). — Plate 169. (Used by Hochfeder as font 4, plate
+    21.)}
+
+\plate{169}{IV}{1962}
+
+The plate prepared by Helena Kapełuś.\\
+The font table prepared by Helena Kapełuś and Maria Błońska.
+
+\bigskip
+
+\exampleBib{IV:23}
+
+\bigskip \exampleDesc{THEOREMATA Autoris causarum cum
+  annotationibus ac expositione Iacobi de Gostynin. Kraków, Jan
+  Haller, 23. III. 1507. 4⁰.}
+  
+
+\medskip
+\examplePage{\textit{Karta b₃a.}}
+
+  \bigskip
+\exampleLib{Biblioteka Zakl. Nar. im. Ossolińskich. Wrocław.}
+
+\bigskip
+\exampleRef{\textit{Estreicher XV. 85. Wierzbowski 848.}}
+
+\bigskip
+\exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/310579/} page 25.}
+  
+  % \medskip
+\bigskip
+
+    \examplePL{Pismo 4: naglówek. [Pismo 6: tekst - JSB]}
+
+    \medskip
+
+    \exampleEN{Font 4: the header [Font 6: the text - JSB]}
+
+
+\bigskip
+
+
+\fontID{Ha-06}{25}
+
+\fontstat{94}
+
+% \exdisplay \bg \gla
+ \input {t25_glyphs.tex}
+%//
+%\glpismo%
+ \input {t25_glyphids.tex}
+% //
+%\endgl \xe
+
+  
+
+  \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 26,Haller-07_PT04_170.djvu,Haller,07,04,170
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "6. Pismo komentarzowe. Krój M”. Stopień 20 ww. = 82 mm (interliniowane). — Tabl. 169."
+% Note1 "Character set table prepared by Maria Błońska"
+
+
+  \pismoPL{Jan Haller 6. Pismo komentarzowe. Krój M⁹¹. Stopień 20
+    ww. = 82 mm (interliniowane). — Tabl. 169. (Występuje u Hochfedera
+    jako pismo 4. Tabl. 21).}
+
+
+
+  
+\pismoEN{Jan Haller 6. Text font. Typeface M⁹¹. Type size 20 ww. =
+    82 mm (with extra leading). — Plate 169. (Used by Hochfeder as font 4, plate
+    21.)}
+
+\plate{170}{IV}{1962}
+
+The plate prepared by Helena Kapełuś.\\
+The font table prepared by Helena Kapełuś and Maria Błońska.
+
+\bigskip
+
+\exampleBib{IV:83}
+
+\bigskip \exampleDesc{PETRUS ROSELLI: Quaestiones in libros priorum
+  Analyticorum et Elenchorum Aristotelis. Ed. Ioannes de Stobnica.
+  Kraków, Jan Haller, 24. V. 1511. 4⁰.}
+  
+
+\medskip
+\examplePage{\textit{Karta 89}}
+
+  \bigskip
+\exampleLib{Biblioteka Narodowa. Warszawa.}
+
+
+\bigskip
+\exampleRef{\textit{Estreicher XXVI. 363. Wierzbowski 18.}}
+
+% \bigskip
+% \exampleDig{\url{} page} 
+% podobne ale nie identyczne:
+% PETRUS ROSELLI: Quaestiones in libros priorum
+%   Analyticorum et Elenchorum Aristotelis. 
+%   https://www.dbc.wroc.pl/dlibra/publication/15987/edition/13965
+
+  
+  % \medskip
+\bigskip
+
+    \examplePL{Pismo 4: naglówek. [Pismo 7: tekst - JSB]}
+
+    \medskip
+
+    \exampleEN{Font 4: the header [Font 7: the text - JSB]}
+
+
+\bigskip
+
+
+\fontID{Ha-07}{26}
+
+\fontstat{129}
+
+% \exdisplay \bg \gla
+ \input {t26_glyphs.tex}
+%//
+%\glpismo%
+ \input {t26_glyphids.tex}
+% //
+%\endgl \xe
+
+ 
+
+ \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 27,Haller-08_PT04_171.djvu,Haller,08,04,171
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "8. Pismo tekstowe. Krój M⁹¹. Stopień 20 ww. = 72 mm. — Tabl. 171."
+% Note1 "Character set table prepared by Maria Błońska"
+
+  \pismoPL{Jan Haller 8. Pismo tekstowe. Krój M⁹¹. Stopień 20 ww. = 72 mm. — Tabl. 171.}
+  
+\pismoEN{Jan Haller 8. Text font. Typeface M⁹¹. Type size 20 ww. =
+    72 mm . — Plate 171.}
+
+\plate{171}{IV}{1962}
+
+The plate prepared by Helena Kapełuś.\\
+The font table prepared byHelena Kapełuś and Maria Błońska.
+
+\bigskip
+
+\exampleBib{IV:201}
+
+\bigskip
+
+
+\exampleDesc{MICHAEL VRATISLAVIENSIS: Epithoma conclusionum
+  theologicalium pro introductione in IV libros Petri
+  Lombardi. Kraków, Jan Haller, 1521. 4⁰.}
+  
+
+\medskip
+\examplePage{\textit{Karta a²a}}
+
+  \bigskip
+\exampleLib{Biblioteka Narodowa. Warszawa.}
+
+
+\bigskip
+\exampleRef{\textit{Estreicher XXXIII. 357. Wierzbowski 57.}}
+
+\bigskip
+\exampleDig{\url{https://www.dbc.wroc.pl/dlibra/publication/8876/} page 7} 
+
+% https://polona.pl/preview/1f9dd490-e381-429e-9784-174169b32fb7
+% Epithoma conclusionum theologicalium pro introductione in quatuor libros Sententiarum magistri Petri Lombardi [...] in [...] studio Cracouien[si] elucubratum
+
+% https://www.dbc.wroc.pl/dlibra/publication/8876/edition/8006
+% Epithoma conclusionum theologicalium pro introductione in quatuor libros sententiarum magistri Petri Lombardi [...]
+% page 7
+
+
+% https://polona2.pl/item/epithoma-conclusionum-theologicalium-pro-introductione-in-quatuor-libros-sententiarum,OTIxNzA2MTg/2/#info:metadata
+
+% https://platforma.bk.pan.pl/en/search_results/1283666
+
+
+\bigskip
+
+    \examplePL{Pismo 12: wiersz 1, 4. [Pismo 8: tekst - JSB]}
+
+    \medskip
+
+    \exampleEN{Font 12: the lines 1, 4. [Font 8: the text - JSB]}
+
+
+\bigskip
+
+
+\fontID{Ha-08}{27}
+
+\fontstat{121}
+
+% \exdisplay \bg \gla
+ \input {t27_glyphs.tex}
+%//
+%\glpismo%
+ \input {t27_glyphids.tex}
+% //
+%\endgl \xe
+
+ \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Tab. 28,Haller-09_PT04_172.djvu,Haller,09,04,172
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "9. Pismo tekstowe. Krój M⁴⁹. Stopień 20 ww. = 72 mm. — Tabl. 172."
+% Note1 "Character set table prepared by Maria Błońska"
+
+ 
+  \pismoPL{Jan Haller 9. Pismo tekstowe. Krój M⁴⁹. Stopień 20 ww. = 72 mm. — Tabl. 172 [pierwszy zestaw].}
+  
+\pismoEN{Jan Haller 9. Text font. Typeface M⁴¹. Type size 20 ww. =
+    72 mm . — Plate 172 [first set].}
+
+\plate{172[1]}{IV}{1962}
+
+The plate prepared by Helena Kapełuś.\\
+The font table prepared by Helena Kapełuś and Maria Błońska.
+
+\bigskip
+
+\exampleBib{IV:135}
+
+\bigskip
+
+
+\exampleDesc{MICHAEL VRATISLAVIENSIS: Expositio hymnorumque interpretatio. Kraków, Jan Haller, 1516. 4⁰.}
+  
+
+\medskip
+\examplePage{\textit{Karta 3 b}}
+
+  \bigskip
+\exampleLib{Biblioteka Zakł. Nar. im. Ossolińskich. Wrocław.}
+
+
+\bigskip
+\exampleRef{\textit{Estreicher XXXIII. 358.}}
+
+% \bigskip
+% \exampleDig{\url page 7} 
+
+\bigskip
+
+\examplePL{Pismo 3: naglówek. — Pismo 9: tekst i pierwszy zestaw. —
+  Rubryka \beta{} z pismem 9. — Cyfry 7: z pismem 9.  z pismem 13. [\ldots]}
+
+    \medskip
+
+    \exampleEN{Font 3: the header. — Font 9: the text and the first character set. — Rubric \beta{} with digits from font 9}
+
+
+\bigskip
+
+
+\fontID{Ha-09}{28}
+
+\fontstat{119}
+
+% \exdisplay \bg \gla
+ \input {t28_glyphs.tex}
+%//
+%\glpismo%
+ \input {t28_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+ % Tab. 29,Haller-10_PT04_173.djvu,Haller,10,04,173
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "10. Pismo komentarzowe. Krój M⁸⁷. Stopień 20 ww. = 72 mm. — Tabl. 173."
+% Note1 "Character set table prepared by Maria Błońska"
+
+
+  \pismoPL{Jan Haller 10. Pismo komentarzowe. Krój M⁸⁷. Stopień 20 ww. = 72 mm. — Tabl. 173.}
+  
+  \pismoEN{Jan Haller 10. Text font. Typeface M⁸⁷. Type size 20 ww. =
+    72 mm . — Plate 173.}
+
+\plate{173}{IV}{1962}
+
+The plate prepared by Helena Kapełuś.\\
+The font table prepared by Helena Kapełuś and Maria Błońska.
+
+\bigskip
+
+\exampleBib{IV:208}
+
+\bigskip
+
+
+\exampleDesc{IACOBUS FABER STAPULENSIS: Introductio in libros De Anima Aristotelis. Kraków, Jan Haller, 1522. 4⁰}
+  
+
+\medskip
+\examplePage{\textit{Karta A₂b}}
+
+  \bigskip
+\exampleLib{Biblioteka Zakł. Nar. im. Ossolińskich. Wrocław.}
+
+
+\bigskip
+\exampleRef{\textit{Estreicher. XIV. 150. Wierzbowski 993.}}
+
+% \bigskip
+% \exampleDig{\url page 7} 
+
+\bigskip
+
+\examplePL{Rubryka \eta{}: z pismem 10.}
+
+    \medskip
+
+    \exampleEN{Rubric \eta{} with font 10.}
+
+
+\bigskip
+
+
+\fontID{Ha-10}{29}
+
+\fontstat{102}
+
+% \exdisplay \bg \gla
+ \input {t29_glyphs.tex}
+%//
+%\glpismo%
+ \input {t29_glyphids.tex}
+% //
+%\endgl \xe
+
+ 
+ \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+ % Tab. 30,Haller-11_PT04_174.djvu,Haller,11,04,174
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "11. Pismo tekstowe antykwowe. Krój Qlu (C). Stopień 20 ww. = 92 mm. — - Tabl. 174."
+% Note1 "Character set table prepared by Maria Błońska"
+
+
+  \pismoPL{Jan Haller 11. Pismo tekstowe antykwowe. Krój Q|u (C). Stopień 20 ww. = 92 mm. — - Tabl. 174.}
+  
+  \pismoEN{Jan Haller 11. Roman text font. Typeface Q|u (C). Type size 20 ww. =
+    92 mm . — Plate 174.}
+
+\plate{174}{IV}{1962}
+
+Prepared by Helena Kapełuś.\\
+The font table prepared by Helena Kapełuś and Maria Błońska.
+
+\bigskip
+
+\exampleBib{IV:163}
+
+\bigskip
+
+
+\exampleDesc{STANISLAUS ZABOROWSKI: Grammatices rudimenta. Kraków, Jan Haller, 1518. 4⁰}
+  
+% https://cyfrowe.mnk.pl/dlibra/publication/24392/edition/24082?language=en
+\medskip
+\examplePage{\textit{Karta K₃a}}
+
+  \bigskip
+\exampleLib{Biblioteka Narodowa. Warszawa.}
+
+
+
+\bigskip
+\exampleRef{\textit{Estreicher.XXXIV. 45. Wierzbowski 957.}}
+
+ \bigskip
+\exampleDig{\url{https://polona.pl/preview/dfb921b2-a937-4ee8-ad01-0724aa52c76a}
+  page 121}
+
+\bigskip
+
+\examplePL{Pismo 11 (tekst łaciński). — Rubryki \theta, \iota. — Cyfry 6.}
+
+    \medskip
+
+    \exampleEN{Font 11 (Latin text). — Rubric \theta{}, \iota. — Digits 6.}
+
+
+\bigskip
+
+\exampleBib{IV:16}
+
+\bigskip
+
+
+\exampleDesc{STANISLAUS ZABOROWSKI: Orthographia seu modus recte scribendi. Kraków, Jan Haller, IV. 1518. 4⁰.}
+
+
+
+
+\medskip
+\examplePage{\textit{Karta [5] a}}
+
+  \bigskip
+\exampleLib{Biblioteka Narodowa. Warszawa.}
+
+
+
+\bigskip
+\exampleRef{\textit{Estreicher.XXXIV. 52. Wierzbowski 48.}}
+
+ \bigskip
+\exampleDig{\url{https://polona.pl/preview/2db2e5da-ec87-426c-8e0d-e6b09093407a}
+  page 17}
+% https://zpe.gov.pl/kronika/759455
+
+\bigskip
+
+\examplePL{Pismo 11 (tekst polski). — Rubryka \theta{}. — Inicjał 60 (V).}
+
+    \medskip
+
+    \exampleEN{Font 11 (Polish text). — Rubric \theta{}. — Initial 60. (V)}
+
+
+\bigskip
+
+
+\fontID{Ha-11}{30}
+
+\fontstat{112}
+
+% \exdisplay \bg \gla
+ \input {t30_glyphs.tex}
+%//
+%\glpismo%
+ \input {t30_glyphids.tex}
+% //
+%\endgl \xe
+
+ 
+ \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+ % Tab. 31,Haller-12_PT04_175.djvu,Haller,12,04,175
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "12. Pismo mszalne. Krój M⁶⁰. Stopień 20 ww. = 176 mm. — Tabl. 175."
+% Note1 "Character set table prepared by Maria Błońska"
+
+  \pismoPL{Jan Haller 12. Pismo mszalne. Krój M⁶⁰. Stopień 20 ww. = 176 mm. — Tabl. 175.}
+  
+  \pismoEN{Jan Haller 12. Missal font. Typeface M⁶⁰. Type size 20 ww. =
+    176 mm . — Plate 175.}
+
+\plate{175}{IV}{1962}
+
+The plate prepared by Helena Kapełuś.\\
+The font table prepared by Helena Kapełuś and Maria Błońska.
+
+\bigskip
+
+\exampleBib{IV:173}
+
+\bigskip
+
+\exampleDesc{PSALTERIUM secundum morem Ecclesiae Cracoviensis. Kraków, Jan Haller, 1518. 2⁰.}
+  
+
+\medskip
+\examplePage{\textit{Karta ostatnia, kolofon.}}
+
+\examplePageEN{\textit{Last page, colophon}}
+
+  
+  \bigskip
+\exampleLib{Biblioteka Narodowa. Warszawa.}
+
+\bigskip
+\exampleRef{\textit{Estreicher XXV. 387.}}
+
+% \bigskip
+% \exampleDig{\url{https://polona.pl/preview/dfb921b2-a937-4ee8-ad01-0724aa52c76a}
+%   page 121}
+
+\bigskip
+
+\examplePL{Pismo 12. — Rubryki \chi{}, \lambda{}. — Cyfry 8.}
+
+    \medskip
+
+    \exampleEN{Font 12. — Rubric \chi{}, \lambda. — Digits 8.}
+
+
+\bigskip
+
+\bigskip
+
+
+\fontID{Ha-12}{31}
+
+\fontstat{100}
+
+% \exdisplay \bg \gla
+ \input {t31_glyphs.tex}
+%//
+%\glpismo%
+ \input {t31_glyphids.tex}
+% //
+%\endgl \xe
+
+%  {
+%  \relsize{-1}
+ 
+% \exampleBibExtra{IV:26}
+
+% \bigskip
+
+% \exampleDesc{MICHAEL VRATISLAVIENSIS: Introductorium astronomiae Cracoviense almanach.
+% Kraków, Jan Haller, 29. V. 1507. 4⁰.}
+
+
+
+
+% \medskip
+% \examplePage{\textit{Karta A₆b}}
+
+%   \bigskip
+% \exampleLib{Biblioteka Zakl. Nar. im. Ossolińskich. Wrocław}
+
+
+% \bigskip
+% \exampleRef{\textit{Estreicher XXXIII. 356.}}
+
+% % https://polona2.pl/item/introductoriu-m-astronomie-cracouiense-elucidans-almanach,NDQzMzg2MDM/0/#info:metadata
+% % 1517
+% % https://dbc.wroc.pl/dlibra/publication/8925/edition/8046?language=pl
+% % 1507!!!
+% % https://wbc.poznan.pl/dlibra/publication/402464/edition/314800
+% % 1506
+
+
+% % \bigskip
+% % \exampleDig{\url{https://dbc.wroc.pl/dlibra/publication/8925}
+% %   page brak?!}
+
+% \bigskip
+
+% \examplePL{Znaki Zodiaku. — Pismo 5. — Rubryka \beta{} z pismem 5. — Cyfry 2.}
+
+%     \medskip
+
+%     \exampleEN{Znaki Zodiaku. — Font 5. — Rubric \beta{} with font 5. — Digits 2}
+%   }
+  
+
+ \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+ % Tab. 32,Haller-13_PT04_172.djvu,Haller,13,04,172
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Note "13.  Pismo tekstowe. Krój M¹⁸. Stopień 20 ww. = 112 mm (interliniowane). — Tabl. 172."
+% Note1 "Character set table prepared by Maria Błońska"
+
+  \pismoPL{Jan Haller 13.  Pismo tekstowe. Krój M¹⁸. Stopień 20 ww. = 112 mm (interliniowane). — Tabl. 172 [drugi zestaw].}
+  
+  \pismoEN{Jan Haller 13. Text font. Typeface M¹⁸. Type size 20 ww. =
+    112 mm (with extra leading). — Plate 172 [second set].}
+
+\plate{172[2]}{IV}{1962}
+
+The plate prepared by Helena Kapełuś.\\
+The font table prepared by Helena Kapełuś and Maria Błońska.
+
+
+\examplePL{Pismo 13: drugi zestaw. — Cyfry 9: z pismem 13.}
+
+    \medskip
+
+    \exampleEN{Font 13. — second character set,  — Digits 9: with font 13.}
+
+
+\bigskip
+
+
+\fontID{Ha-13}{32}
+
+\fontstat{96}
+
+% \exdisplay \bg \gla
+ \input {t32_glyphs.tex}
+%//
+%\glpismo%
+ \input {t32_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ 
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+ % Tab. 33,Hochfeder-02_PT01_020bis.djvu,Hochfeder,02,01,020
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Fascicule "I"
+% Edition "Wydanie II przejrzane i uzupełnione przez Marię Błońską"
+% Publisher "Instytut Badań Literackich Polskiej Akademii Nauk — Biblioteka Narodowa"
+% Addres "Warszawa"
+% Year "1968"
+% Note "2. Pismo nagłówkowe gotyckie. Krój M⁸⁹. Stopień 20 ww. = 111/113 mm - Tabl. 20bis. (Występuje u Hallera jako pismo 4. Tabl. 167) [20bis]"
+% Note1 "Character set table prepared by Maria Błońska and Anna Wolińska"
+
+\pismoPL{Kasper Hochfeder 2. Pismo nagłówkowe gotyckie. Krój
+  M⁸⁹. Stopień 20 ww. = 111/113 mm - Tabl. 20bis. (Występuje u Hallera
+  jako pismo 4. Tabl. 167)}
+
+  
+\pismoEN{Kasper Hochfeder 2. Gothic header font. Typeface M⁸⁹. Type
+  size 20 lines = 111/113 mm. (Used by Haller as font 4. Plate 167)}
+
+\plate{20bis}{I}{1968}
+
+Prepared by Kazimierz Piekarski and  Maria Błońska.\\
+The font table prepared by Maria Błońska and Anna Wolińska.
+
+\bigskip
+
+\exampleBib{I:8}
+
+\bigskip \exampleDesc{HESIODUS: Georgica. Kraków, Kasper Hochfeder [nakładem Jana Hallera], 1 VII 1505. 4⁰}
+
+\medskip
+\examplePage{\textit{Karta a₀a}}
+
+  \bigskip
+\exampleLib{Biblioteka Narodowa. Warszawa.}
+
+\bigskip
+\exampleRef{\textit{Estreicher XVIII 168. Wierzbowski 836.}}
+  
+  % \medskip
+\bigskip
+
+    \examplePL{Pismo 2: tekst i zestaw.}
+    
+    \medskip
+
+    \exampleEN{Font 2: text and font repertoire}
+
+
+\bigskip
+
+% Scharfenberg:
+% https://kpbc.umk.pl/dlibra/publication/258387/edition/268632?language=pl
+% Lipsk:
+% https://cyfrowe.mnk.pl/dlibra/publication/25371/edition/25054?language=pl
+
+\fontID{Ho-02}{33}
+
+\fontstat{112}
+
+% \exdisplay \bg \gla
+ \input {t33_glyphs.tex}
+%//
+%\glpismo%
+ \input {t33_glyphids.tex}
+% //
+%\endgl \xe
+
+
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+ % Tab. 34,Hochfeder-03_PT01_021.djvu,Hochfeder,03,01,021
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Note "3. Pismo tekstowe gotyckie. Krój M⁸⁸. Stopień 20 ww. = 76/77 mm - Tabl. 21. (Występuje u Hallera jako pismo 7. Tabl. 170) [21]"
+% Note1 "Character set table prepared by Maria Błońska and Anna Wolińska"
+
+\pismoPL{Kasper Hochfeder 3. Pismo tekstowe gotyckie. Krój
+  M⁸⁸. Stopień 20 ww. = 76/77 mm - Tabl. 21. (Występuje u Hallera
+  jako pismo 7. Tabl. 170)}
+
+  
+\pismoEN{Kasper Hochfeder 3. Gothic text font. Typeface M⁸⁸. Type
+  size 20 lines = 76/77 mm. (Used by Haller as font 7. Plate 170)}
+
+\plate{21}{I}{1968}
+
+Prepared by Kazimierz Piekarski and  Maria Błońska.\\
+The font table prepared by Maria Błońska and Anna Wolińska.
+
+\bigskip
+
+\exampleBib{I:8}
+
+\bigskip \exampleDesc{IOANNES GLOGOVIENSIS: Minoris Donati
+  interpretatio. Kraków, [Kasper Hochfeder] nakładem Jana Hallera,
+  1503. 4⁰.}
+
+
+\medskip
+\examplePage{\textit{Karta a₅b}}
+
+  \bigskip
+\exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+
+\bigskip
+\exampleRef{\textit{Estreicher XVII 175. Wierzbowski 2040.}}
+
+  
+  % \medskip
+\bigskip
+
+\examplePL{Pismo 3.  Rubryki \beta{}, \alfa{}. — Cyfry 1, 2.}
+
+    
+    \medskip
+
+    \exampleEN{Font  3.  Rubrics \beta{}, \alfa{}. — Digits 1, 2.}
+
+
+\bigskip
+
+% Scharfenberg:
+% https://kpbc.umk.pl/dlibra/publication/258387/edition/268632?language=pl
+% Lipsk:
+% https://cyfrowe.mnk.pl/dlibra/publication/25371/edition/25054?language=pl
+
+\fontID{Ho-03}{34}
+
+\fontstat{124}
+
+% \exdisplay \bg \gla
+ \input {t34_glyphs.tex}
+%//
+%\glpismo%
+ \input {t34_glyphids.tex}
+% //
+%\endgl \xe
+
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+ % Tab. 35,Hochfeder-04_PT01_022.djvu,Hochfeder,04,01,022
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ % from dsed4test:
+
+% Note "4. Pismo marginalne gotyckie. Krój M⁹⁸. Stopień 20 ww. = 57/58 mm - Tabl. 22, (Występuje u Hallera jako pismo 6. Tabl. 169) [22]"
+% Note1 "Character set table prepared by Maria Błońska and Anna Wolińska"
+
+\pismoPL{Kasper Hochfeder 4. Pismo marginalne gotyckie. Krój M⁹⁸. Stopień 20 ww. = 57/58 mm - Tabl. 22, (Występuje u Hallera jako pismo 6. Tabl. 169)}
+  
+\pismoEN{Kasper Hochfeder 4. Gothic margin font. Typeface M⁹⁸. Type
+  size 20 lines = 57/58 mm. (Used by Haller as font 6. Plate 169)}
+
+\plate{22}{I}{1968}
+
+Prepared by Kazimierz Piekarski and  Maria Błońska.\\
+The font table prepared by Maria Błońska and Anna Wolińska.
+
+\bigskip
+
+\exampleBib{I:1}
+
+\bigskip \exampleDesc{FRANCISCUS NIGER: Compendiosa ars de
+  epistolis. Kraków, Kasper Hochfeder, 10 VI 1503. 4⁰.}
+
+\medskip
+\examplePage{\textit{Karta ostatnia verso.}}
+
+  \bigskip
+\exampleLib{Biblioteka Czartoryskich Kraków.}
+
+
+\bigskip
+\exampleRef{\textit{Estreicher XXXI 153.}}
+
+  
+  % \medskip
+\bigskip
+
+\examplePL{Pismo 2: wiersz 1-4. — Pismo 3: wiersz 29-30. — Pismo 4: wiersz
+  5-28. — Rubryka \beta{}: z pismem 3. — Rubryka \gamma{}: z pismem 4.}
+
+\medskip
+
+    \exampleEN{Font 2: lines 1-4. — Font 3: lines 29-30. — font 4: lines
+  5-28. — Rubric \beta{}: with font 3. — Rubric \gamma{}: with font 4.}
+
+
+
+\bigskip
+
+% Scharfenberg:
+% https://kpbc.umk.pl/dlibra/publication/258387/edition/268632?language=pl
+% Lipsk:
+% https://cyfrowe.mnk.pl/dlibra/publication/25371/edition/25054?language=pl
+
+\fontID{Ho-04}{35}
+
+\fontstat{75}
+
+% \exdisplay \bg \gla
+ \input {t35_glyphs.tex}
+%//
+%\glpismo%
+ \input {t35_glyphids.tex}
+% //
+%\endgl \xe
+
+ 
+ 
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+ % Tab. 36,Hochfeder-05_PT01_023.djvu,Hochfeder,05,01,023
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ % from dsed4test:
+
+% Note "5. Pismo tekstowe gotyckie. Krój M⁸⁸. Stopień 20 ww. = 88/89 mm - Tabl. 23 [23]"
+% Note1 "Character set table prepared by Maria Błońska and Anna Wolińska"
+
+
+\pismoPL{Kasper Hochfeder 5. Pismo tekstowe gotyckie. Krój M⁸⁸. Stopień 20 ww. = 88/89 mm - Tabl. 23}
+  
+\pismoEN{Kasper Hochfeder 5. Gothic text font. Typeface M⁸⁸. Type size 20 lines = 88/89 mm - Plate 23}
+
+\plate{23}{I}{1968}
+
+Prepared by Kazimierz Piekarski and  Maria Błońska.\\
+The font table prepared by Maria Błońska and Anna Wolińska.
+
+\bigskip
+
+\exampleBib{I:8}
+
+\bigskip \exampleDesc{IOANNES GLOGOVIENSIS: Minoris Donati
+  interpretatio. Kraków, [Kasper Hochfeder] nakładem Jana Hallera,
+  1503. 4⁰.}
+
+
+\medskip
+\examplePage{\textit{F₇b}}
+
+  \bigskip
+\exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+
+\bigskip
+\exampleRef{\textit{Estreicher XVII 175. Wierzbowski 2040.}}
+
+  
+  % \medskip
+\bigskip
+
+\examplePL{[Pismo 5.] Rubryka \chi{}}
+
+\medskip
+
+    \exampleEN{[Font 5.] Rubric \chi{}}
+
+
+
+\bigskip
+
+\fontID{Ho-05}{36}
+
+\fontstat{107}
+
+% \exdisplay \bg \gla
+ \input {t36_glyphs.tex}
+%//
+%\glpismo%
+ \input {t36_glyphids.tex}
+% //
+%\endgl \xe
+
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+ % Tab. 37,Hochfeder-06_PT01_024.djvu,Hochfeder,06,01,024
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ % from dsed4test:
+
+% Note "6. Pismo tekstowe gotyckie. Krój M⁸⁸. Stopień 20 ww. = 79/80 mm - Tabl. 24 [24]"
+% Note1 "Character set table prepared by Maria Błońska and Anna Wolińska"
+
+
+
+\pismoPL{Kasper Hochfeder 6. Pismo tekstowe gotyckie. Krój M⁸⁸. Stopień 20 ww. = 79/80 mm - Tabl. 24 drugi zestaw]}
+  
+\pismoEN{Kasper Hochfeder 6. Gothic text font. Typeface M⁸⁸. Type size 20 lines = 79/80 mm - Plate 24 [second set]}
+
+\plate{24[2]}{I}{1968}
+
+Prepared by Kazimierz Piekarski and  Maria Błońska.\\
+The font table prepared by Maria Błońska and Anna Wolińska.
+
+\bigskip
+
+\exampleBib{I:24}
+
+\bigskip \exampleDesc{IOANNES DE SACROBOSCO: Algorithmus. Kraków, [Kasper Hochfeder]. 1504. 4⁰.}
+%IOHANNES???
+
+\medskip
+\examplePage{\textit{Bb}}
+
+  \bigskip
+\exampleLib{Biblioteka Czartoryskich. Kraków.}
+
+
+\bigskip
+\exampleRef{\textit{Estreicher XXVII 14. Wierzbowski 832.}}
+
+\bigskip
+\exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/edition/30503/content}
+  page 18}
+
+%algorismus!
+
+  
+  % \medskip
+\bigskip
+
+\examplePL{Pismo 6: tekst i drugi zestaw. — Pismo 7: nagłówki i
+  pierwszy zestaw. — Rubryka \alpha{}: z pismem 6. — Cyfry 2: z pismem
+  6.}
+
+\medskip
+
+\exampleEN{Font 6: the text and the second font table. — font 7:
+  headers and the first font table. — Rubric \alpha{}: with font 6. —
+  Digits 2: with font 6.}
+
+
+
+\bigskip
+
+\fontID{Ho-06}{37}
+
+\fontstat{113}
+
+% \exdisplay \bg \gla
+ \input {t37_glyphs.tex}
+%//
+%\glpismo%
+ \input {t37_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ 
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+ % Tab. 38,Hochfeder-07_PT01_024.djvu,Hochfeder,07,01,024
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ % from dsed4test:
+
+% Note "7. Pismo mszalne gotyckie. Krój M¹⁸. Stopień 20 ww. = 154/156 mm - Tabl. 24, 25. (Występuje u Hallera jako pismo 2. Tabl.165; u Unglera jako pismo13. Tabl. 72).  [24]"
+% Note1 "Character set table prepared by Maria Błońska and Anna Wolińska"
+
+
+\pismoPL{Kasper Hochfeder 7. Pismo mszalne gotyckie. Krój M¹⁸. Stopień
+  20 ww. = 154/156 mm - Tabl. 24, 25. (Występuje u Hallera jako pismo
+  2. Tabl.165; u Unglera jako pismo13. Tabl. 72) [pierwszy zestaw].}
+  
+\pismoEN{Kasper Hochfeder 7. Gothic missal font. Typeface M¹⁸. Type size 20 lines = 154/156 mm - Plate 24, 25. (used by Haller as font 2. Plate 165; by Ungler as font 13. Plate 72) [first set].}
+
+\plate{24[1]}{I}{1968}
+
+Prepared by Kazimierz Piekarski and  Maria Błońska.\\
+The font table prepared by Maria Błońska and Anna Wolińska.
+
+\bigskip
+
+\exampleBib{I:24}
+
+\bigskip \exampleDesc{IOANNES DE SACROBOSCO: Algorithmus. Kraków, [Kasper Hochfeder]. 1504. 4⁰.}
+%IOHANNES???
+
+\medskip
+\examplePage{\textit{Bb}}
+
+  \bigskip
+\exampleLib{Biblioteka Czartoryskich. Kraków.}
+
+
+\bigskip
+\exampleRef{\textit{Estreicher XXVII 14. Wierzbowski 832.}}
+
+\bigskip
+\exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/edition/30503/content}
+  page 18}
+
+%algorismus!
+
+  
+  % \medskip
+\bigskip
+
+\examplePL{Pismo 6: tekst i drugi zestaw. — Pismo 7: nagłówki i
+  pierwszy zestaw. — Rubryka \alpha{}: z pismem 6. — Cyfry 2: z pismem
+  6.}
+
+\medskip
+
+\exampleEN{Font 6: the text and the second font table. — font 7:
+  headers and the first font table. — Rubric \alpha{}: with font 6. —
+  Digits 2: with font 6.}
+
+
+
+\bigskip
+
+\fontID{Ho-07}{38}
+
+\fontstat{109}
+
+% \exdisplay \bg \gla
+ \input {t38_glyphs.tex}
+%//
+%\glpismo%
+ \input {t38_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ split poprawione
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+ % Tab. 39,Hochfeder,09,01,027
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ % from dsed4test:
+
+% Note "9. Pismo tekstowe gotyckie. Krój M⁴⁸. Stopień 20 ww. = 81/82 mm - Tabl. 27. (Występuje u Hallera jako pismo 5. Tabl. 168; u Unglera jako pismo4. Tabl. 115).  [27]"
+% Note1 "Character set table prepared by Maria Błońska and Anna Wolińska"
+
+ \pismoPL{Kasper Hochfeder 9. Pismo tekstowe gotyckie. Krój
+   M⁴⁸. Stopień 20 ww. = 81/82 mm - Tabl. 27. (Występuje u Hallera
+   jako pismo 5. Tabl. 168; u Unglera jako pismo 4. Tabl. 115).}
+  
+ \pismoEN{Kasper Hochfeder 9. Gothic text font. Typeface M⁴⁸. Type
+   size 20 lines = 81/82 mm - Plate 27. (used by Haller as font
+   5. Plate 168; by Ungler as font 4. Plate 115).}
+
+\plate{27}{I}{1968}
+
+Prepared by Kazimierz Piekarski and  Maria Błońska.\\
+The font table prepared by Maria Błońska and Anna Wolińska.
+
+\bigskip
+
+\exampleBib{I:15}
+
+\bigskip \exampleDesc{IOANNES DE DOBCZYCE: Opusculum de arte memorativa. Kraków, [Kasper Hochfeder], 13 IX 1504. 4⁰}
+
+\medskip
+\examplePage{\textit{[Karta] c₃b}}
+
+  \bigskip
+\exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+
+\bigskip
+\exampleRef{\textit{Estreicher XV 255, Wierzbowski 831.}}
+
+\bigskip
+\exampleDig{\url{ https://polona.pl/preview/aa8a86f1-23fe-4ef8-b9f4-b36499c4a351}
+  page 263,\\ \url{https://www.wbc.poznan.pl/dlibra/publication/310297}
+  page 42}
+
+%algorismus!
+
+  
+  % \medskip
+\bigskip
+
+\examplePL{[Pismo 9] Rubryka \epsilon{}}
+
+\medskip
+
+\exampleEN{[Font 9] Rubric \epsilon{}}
+
+
+
+\bigskip
+
+\fontID{Ho-09}{39}
+
+\fontstat{111}
+
+% \exdisplay \bg \gla
+ \input {t39_glyphs.tex}
+%//
+%\glpismo%
+ \input {t39_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ 
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+ % Tab. 40,Hochfeder-10_PT01_028.djvu,Hochfeder,10,01,028
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ % from dsed4test:
+
+ % Note "10. Pismo komentarzowe gotyckie. Krój M¹⁶. Stopień 20 ww. = 69 mm - Tabl. 28 [28]"
+% Note1 "Character set table prepared by Maria Błońska and Anna Wolińska"
+
+ \pismoPL{Kasper Hochfeder 10. Pismo komentarzowe gotyckie. Krój
+   M¹⁶. Stopień 20 ww. = 69 mm - Tabl. 28. [pierwszy zestaw]}
+  
+ \pismoEN{Kasper Hochfeder 10. Gothic comment font. Typeface M¹⁶. Type
+   size 20 lines = 69 mm - Plate 28 [first set].}
+
+\plate{28[1]}{I}{1968}
+
+Prepared by Kazimierz Piekarski and  Maria Błońska.\\
+The font table prepared by Maria Błońska and Anna Wolińska.
+
+\bigskip
+
+\exampleBib{I:16}
+
+\bigskip \exampleDesc{ IOANNES GLOGOVIENSIS: Exercitium veteris artis. Kraków, [Kasper Hochfeder]. 16 X 1504. 4⁰,
+War. B: nakładem Jana Hallera.}
+
+
+\medskip
+\examplePage{\textit{[Karta] L₇b}}
+
+  \bigskip
+\exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+
+\bigskip
+\exampleRef{\textit{Estreicher XVII 173, 160. Wierzbowski 7.}}
+
+\bigskip
+\exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/559203/}
+  page 176}
+
+%algorismus!
+
+  
+  % \medskip
+\bigskip
+
+\examplePL{Pismo 10: tekst i pierwszy zestaw. — Pismo 11: nagłówki i
+  drugi zestaw, — Rubryka \delta{}: z pismem 11. — Cyfry 4: z pismem
+  11}
+
+\medskip
+
+\exampleEN{Font 10: the text and the first font table. — Font 11: the
+  headers and the second font table. — Rubric \delta{} with font 11. —
+  Digits 4: with font 11}
+
+
+
+\bigskip
+
+\fontID{Ho-10}{40}
+
+\fontstat{107}
+
+% \exdisplay \bg \gla
+ \input {t40_glyphs.tex}
+%//
+%\glpismo%
+ \input {t40_glyphids.tex}
+% //
+%\endgl \xe
+
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+ % Tab. 41,Hochfeder-11_PT01_028.djvu,Hochfeder,11,01,028
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ % from dsed4test:
+
+ % Note "11. Pismo mszalne gotyckie. Krój M²³. Stopień 20 ww. = 154/156 mm - Tabl. 25, 28. (Występuje u Hallera jako pismo 3. Tabl. 166; u Unglera jako pismo 11) [28]"
+% Note1 "Character set table prepared by Maria Błońska and Anna Wolińska"
+
+ \pismoPL{Kasper Hochfeder 11. Pismo mszalne gotyckie. Krój
+   M²³. Stopień 20 ww. = 154/156 mm - Tabl. 25, 28 [drugi
+   zestaw]. (Występuje u Hallera jako pismo 3. Tabl. 166; u Unglera
+   jako pismo 11)}
+  
+ \pismoEN{Kasper Hochfeder 11. Gothic missal font. Typeface M²³. Type
+   size 20 lines = 154/156 mm - Plate 28 [second set] (used by Haller
+ as font 3. Plate 166; by Ungler as font 11).}
+
+\plate{28[2]}{I}{1968}
+
+Prepared by Kazimierz Piekarski and  Maria Błońska.\\
+The font table prepared by Maria Błońska and Anna Wolińska.
+
+\bigskip
+
+\exampleBib{I:16}
+
+\bigskip \exampleDesc{ IOANNES GLOGOVIENSIS: Exercitium veteris artis. Kraków, [Kasper Hochfeder]. 16 X 1504. 4⁰,
+War. B: nakładem Jana Hallera.}
+
+
+\medskip
+\examplePage{\textit{[Karta] L₇b}}
+
+  \bigskip
+\exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+
+\bigskip
+\exampleRef{\textit{Estreicher XVII 173, 160. Wierzbowski 7.}}
+
+\bigskip
+\exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/559203/}
+  page 176}
+
+%algorismus!
+
+  
+  % \medskip
+\bigskip
+
+\examplePL{Pismo 10: tekst i pierwszy zestaw. — Pismo 11: nagłówki i
+  drugi zestaw, — Rubryka \delta{}: z pismem 11. — Cyfry 4: z pismem
+  11}
+
+\medskip
+
+\exampleEN{Font 10: the text and the first font table. — Font 11: the
+  headers and the second font table. — Rubric \delta{} with font 11. —
+  Digits 4: with font 11}
+
+
+
+\bigskip
+
+\fontID{Ho-11}{41}
+
+\fontstat{95}
+
+% \exdisplay \bg \gla
+ \input {t41_glyphs.tex}
+%//
+%\glpismo%
+ \input {t41_glyphids.tex}
+% //
+%\endgl \xe
+
+
+  \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+ % Tab. 42,Ungler1-01_PT03_112.djvu,Ungler1,01,03,112
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ % from dsed4test:
+
+% Fascicule "III"
+% Publisher "Zakład Narodowy imienia Ossolińskich — Wydawnictwo"
+% Addres "Kraków  Wrocław Warszawa"
+% Year "1959"
+% Note "1. Pismo tekstowe gotyckie. Krój M⁹¹. Stopień 20 ww. == 76/77 mm. — Tabl. 112."
+
+
+ \pismoPL{Florian Ungler pierwsza drukarnia 1. Pismo tekstowe gotyckie. Krój M⁹¹. Stopień 20 ww. == 76/77 mm. — Tabl. 112.}
+  
+ \pismoEN{Florian Ungler first house 1. Gothic text font. Typeface M⁹¹. Type size 20 ww. == 76/77 mm. — Plate 112.}
+
+\plate{112}{III}{1959}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Maria Błońska.
+
+\bigskip
+
+\exampleBib{III:3}
+
+\bigskip \exampleDesc{IOANNES DE SACROBOSCO: Algorithmus. Kraków, Florian Ungler, 31. I. 1511. 4⁰} 
+
+
+\medskip
+\examplePage{\textit{Karta b₅b}}
+
+  \bigskip
+\exampleLib{Biblioteka Zakł. Nar. im. Ossolińskich. Wrocław.}
+
+
+\bigskip
+\exampleRef{\textit{Estreicher XXVI. 15. Piekarski U. 2.}}
+
+  \bigskip
+  \exampleDig{%1523 \url{https://polona.pl/preview/ff92eeb7-0467-4359-bdd8-4be4de13358c}    page ???,
+    % 1522?: \url{https://www.wbc.poznan.pl/dlibra/publication/314379/} page    ???,
+    \url{https://dbc.wroc.pl/dlibra/publication/3586/} page 24}
+
+%algorismus!
+
+  
+  % \medskip
+\bigskip
+
+\examplePL{[Pismo 1] Rubryka \alpha{}. — Cyfry 1. — Inicjal 1 (P).}
+
+\medskip
+
+\exampleEN{[Font 1] Rubric \alpha{}  —
+  Digits 1. — Initial 1 (P)}
+
+
+\bigskip
+
+\fontID{Un1-1}{42}
+
+\fontstat{94}
+
+% \exdisplay \bg \gla
+ \input {t42_glyphs.tex}
+%//
+%\glpismo%
+ \input {t42_glyphids.tex}
+% //
+%\endgl \xe
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+ % Tab. 43,Ungler1-02_PT03_113.djvu,Ungler1,02,03,113
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ % from dsed4test:
+
+% Note "2. Pismo tekstowe gotyckie. Krój M⁹¹. Stopień 20 ww. == 76/77 mm. — Tabl. 113."
+% Note1 "Character set table prepared by Maria Błońska"
+
+\pismoPL{Florian Ungler  pierwsza drukarnia 2. Pismo tekstowe gotyckie. Krój M⁹¹. Stopień 20 ww. == 76/77 mm. — Tabl. 113.}
+  
+ \pismoEN{Florian Ungler  first house 2. Gothic text font. Typeface M⁹¹. Type size 20 ww. == 76/77 mm. — Plate 113.}
+
+\plate{113}{III}{1959}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by  Henryk Bułhak and Maria Błońska.
+
+\bigskip
+
+\exampleBib{III:9}
+
+\bigskip \exampleDesc{STANISLAUS ZABOROWSKI: Tractatus contra malos divites et usurarios.
+Kraków, Florian Ungler, 10. IV. 1512. 4⁰.}
+
+\medskip
+\examplePage{\textit{Karta A₃a}}
+
+  \bigskip
+  \exampleLib{Biblioteka Narodowa. Warszawa.}
+  
+
+\bigskip \exampleRef{\textit{Estreicher XVI. 242, XXXIV. 55.
+    Wierzbowski 882. Piekarski U. 8.}}
+
+  \bigskip
+  \exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/863/} page 9}
+%\url{https://dbc.wroc.pl/dlibra/publication/11691/} page ???. nie to wydanie???
+
+  % \medskip
+\bigskip
+
+\examplePL{[Pismo 2] Pismo 9: naglówek. — [JSB niejasne:] Cyfry 3:
+  pierwszy zestaw. — Cyfry 4: drugi zestaw.}
+
+\medskip
+
+\exampleEN{[Font 2] Font 9: the header. — [JSB unclear:] Digits 3:
+  first set. — Digits 4: second set.}
+
+
+
+\bigskip
+
+\fontID{U1-02}{43}
+
+\fontstat{120}
+
+% \exdisplay \bg \gla
+ \input {t43_glyphs.tex}
+%//
+%\glpismo%
+ \input {t43_glyphids.tex}
+% //
+%\endgl \xe
+
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+ % Tab. 44,Ungler1-03_PT03_114.djvu,Ungler1,03,03,114
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ % from dsed4test:
+
+ % Note "3. Pismo tekstowe gotyckie. Krój M⁹¹. Stopień 20 ww. == 72/73 mm. — Tabl. 114."
+% Note1 "Character set table prepared by Maria Błońska"
+
+\pismoPL{Florian Ungler  pierwsza drukarnia 3. Pismo tekstowe gotyckie. Krój M⁹¹. Stopień 20 ww. == 72/73 mm. — Tabl. 114."}
+  
+ \pismoEN{Florian Ungler  first house 3. Gothic text font. Typeface M⁹¹. Type size 20 ww. == 72/73 mm. — Plate 114.}
+
+\plate{114}{III}{1959}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Maria Błońska.
+
+\bigskip
+
+\exampleBib{III:60$^a$}
+
+\bigskip \exampleDesc{IOANNES DE AUERBACH:
+Processus iudiciarius. Arkusze K—O. Kraków, Florian Ungler [1514]. 4⁰.}
+
+
+\medskip
+\examplePage{\textit{Karta M₂a}}
+
+  \bigskip
+  \exampleLib{Biblioteka Narodowa. Warszawa.}
+  
+
+\bigskip \exampleRef{\textit{Estreicher XXXII. 57. Piekarski U. 57.}}
+
+  \bigskip
+  \exampleDig{\url{ https://cyfrowe.mnk.pl/dlibra/publication/865/} page 95}
+  
+% Lipsk  https://kpbc.umk.pl/dlibra/publication/edition/146354/content
+% Paris   https://bibliotekacyfrowa.pl/en/dlibra/publication/53621/processus-iudiciarius-johannes-de-auerbach-1405-1469
+%  Ungler 1516? https://wbc.poznan.pl/dlibra/publication/505385/edition/473732/content?ref=L3B1YmxpY2F0aW9uLzQ5NDE4NC9lZGl0aW9uLzQyNTk4OA
+ 
+  
+  % \medskip
+\bigskip
+
+\examplePL{[Pismo 3] Rubryka \beta{}. — Cyfry 5.}
+
+\medskip
+
+\exampleEN{[Font 3] Rubric \beta{}. — Digits 5.}
+
+
+
+\bigskip
+
+\fontID{U1-03}{44}
+
+\fontstat{129}
+
+% \exdisplay \bg \gla
+ \input {t44_glyphs.tex}
+%//
+%\glpismo%
+ \input {t44_glyphids.tex}
+% //
+%\endgl \xe
+
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+ % Tab. 45,Ungler1-04_PT03_115.djvu,Ungler1,04,03,115
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ % from dsed4test:
+% Note "4. Pismo tekstowe gotyckie. Krój M⁴⁸. Stopień 20 ww. == 79/81 mm. — Tabl. 115."
+% Note1 "Character set table prepared by Maria Błońska"
+
+
+\pismoPL{Florian Ungler  pierwsza drukarnia 4. Pismo tekstowe gotyckie. Krój M⁴⁸. Stopień 20 ww. == 79/81 mm. — Tabl. 115.}
+  
+ \pismoEN{Florian Ungler  first house 4. Gothic text font. Typeface M⁴⁸. Type size 20 ww. == 79/81 mm. — Plate 115.}
+
+\plate{115}{III}{1959}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Maria Błońska.
+
+\bigskip
+
+\exampleBib{III:7}
+
+\bigskip \exampleDesc{ARISTOTELES: Oeconomicorum libri duo. Trad. Leon. Bruti Aretini. Kraków, Florian Ungler [1512]. 4⁰.}
+
+
+\medskip
+\examplePage{\textit{Karta A₂b}}
+
+  \bigskip
+  \exampleLib{Biblioteka Jagiellońska. Kraków.}
+  
+
+\bigskip \exampleRef{\textit{Estreicher XII. 214. Piekarski U. 6.}}
+
+  \bigskip
+  \exampleDig{\url{ https://cyfrowe.mnk.pl/dlibra/publication/865/} page 95}
+% Lipsk  https://kpbc.umk.pl/dlibra/publication/edition/146354/content
+% Paris   https://bibliotekacyfrowa.pl/en/dlibra/publication/53621/processus-iudiciarius-johannes-de-auerbach-1405-1469
+%  Ungler 1516? https://wbc.poznan.pl/dlibra/publication/505385/edition/473732/content?ref=L3B1YmxpY2F0aW9uLzQ5NDE4NC9lZGl0aW9uLzQyNTk4OA
+ 
+  
+  % \medskip
+\bigskip
+
+\examplePL{[Pismo 4] Rubryka \beta{}.}
+
+\medskip
+
+\exampleEN{[Font 4] Rubric \beta{}.}
+
+
+
+\bigskip
+
+\fontID{U1-04}{45}
+
+\fontstat{74}
+
+% \exdisplay \bg \gla
+ \input {t45_glyphs.tex}
+%//
+%\glpismo%
+ \input {t45_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+ % Tab. 46,Ungler1-05_PT03_116.djvu,Ungler1,05,03,116
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+ % from dsed4test:
+% Note "5. Pismo tekstowe gotyckie. Krój M⁴⁸. Stopień 20 ww. == 89/90 mm. — Tabl. 116."
+% Note1 "Character set table prepared by Maria Błońska"
+
+
+
+\pismoPL{Florian Ungler  pierwsza drukarnia 5. Pismo tekstowe gotyckie. Krój M⁴⁸. Stopień 20 ww. == 89/90 mm. — Tabl. 116.}
+  
+ \pismoEN{Florian Ungler  first house 5. Gothic text font. Typeface M⁴⁸. Type size 20 ww. == 89/90 mm. — Plate 116.}
+
+\plate{116}{III}{1959}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Maria Błońska.
+
+\bigskip
+
+\exampleBib{III:22}
+
+\bigskip \exampleDesc{IOANNES BURHARDUS: Ordo missae cum glossa Stanislai Zaborowski. Kraków,
+Florian Ungler, 29. XI. 1512. 4⁰}
+
+
+\medskip
+\examplePage{\textit{Karta C₂b}}
+
+  \bigskip
+  \exampleLib{Biblioteka Jagiellońska. Kraków.}
+  
+
+\bigskip \exampleRef{\textit{Estreicher XXIII. 413, XX XIV. 48. Wierzbowski 2067. Piekarski U. 18.}}
+
+  \bigskip
+  \exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/865/} page 95}
+% Lipsk  https://kpbc.umk.pl/dlibra/publication/edition/146354/content
+% Paris   https://bibliotekacyfrowa.pl/en/dlibra/publication/53621/processus-iudiciarius-johannes-de-auerbach-1405-1469
+%  Ungler 1516? https://wbc.poznan.pl/dlibra/publication/505385/edition/473732/content?ref=L3B1YmxpY2F0aW9uLzQ5NDE4NC9lZGl0aW9uLzQyNTk4OA
+ 
+  
+  % \medskip
+\bigskip
+
+\examplePL{[Pismo 5]}
+
+\medskip
+
+\exampleEN{[Font 5]}
+
+
+
+\bigskip
+
+\fontID{U1-05}{46}
+
+\fontstat{95}
+
+% \exdisplay \bg \gla
+ \input {t46_glyphs.tex}
+%//
+%\glpismo%
+ \input {t46_glyphids.tex}
+% //
+%\endgl \xe
+
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+ % Tab. 47,Ungler1-06_PT03_117.djvu,Ungler1,06,03,117
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+ % from dsed4test:
+%  Note "6. Pismo tekstowe gotyckie (stany a i b). Krój M⁴⁸. Stopień 20 ww. == 85/86 mm. — Tabl. 117."
+% Note1 "Character set table prepared by Maria Błońska"
+
+
+\pismoPL{Florian Ungler  pierwsza drukarnia 6. Pismo tekstowe gotyckie (stany a i b). Krój M⁴⁸. Stopień 20 ww. == 85/86 mm. — Tabl. 117.}
+  
+ \pismoEN{Florian Ungler  first house 5. Gothic text font (status a and b). Typeface M⁴⁸. Type size 20 ww. == 85/86 mm. — Plate 117.}
+
+\plate{117}{III}{1959}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and  Maria Błońska.
+
+\bigskip
+
+\exampleBib{III:61}
+
+\bigskip \exampleDesc{STANISLAUS ZABOROWSKI: Orthographia polonica. Kraków [Florian Ungler, 1514—1515]. 8⁰.}
+
+
+\medskip
+\examplePage{\textit{Karty B₂a, C₁b}}
+
+  \bigskip
+  \exampleLib{Muzeum Narodowe. Zbiory Czapskich. Kraków.}
+  
+
+\bigskip \exampleRef{\textit{Estreicher XXXIV. 45. Piekarski U. 58.}}
+
+\bigskip
+
+\examplePL{Pismo 6 (alfabet polski): prawa kolumna wiersze 21—24. —
+  Pismo 3: prawa kolumna wiersze 1—20, 25—30. — Rubryka \beta{} z pismem
+  3. — Rubryki \epsilon{}, \zeta{}, \eta{}: z pismem 6.}
+
+\medskip
+
+\exampleEN{Font 6 (Polish alphabet): right column lines 21—24. —
+  Font 3: right column lines 1—20, 25—30. — Rubric \beta{} with font
+  3. — Rubrics \epsilon{}, \zeta{}, \eta{}: with font 6.}
+
+
+\bigskip
+
+\fontID{U1-06}{47}
+
+\fontstat{128}
+
+% \exdisplay \bg \gla
+ \input {t47_glyphs.tex}
+%//
+%\glpismo%
+ \input {t47_glyphids.tex}
+% //
+%\endgl \xe
+
+
+
+ 
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+ % Tab. 48,Ungler1-07_PT03_118.djvu,Ungler1,07,03,118
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+ % from dsed4test:
+% Note "7. Pismo nagłówkowe i tekstowe gotyckie. Krój M¹⁸ raz przekreślone. Stopień 20 ww. == 104/106 mm. — Tabl. 118."
+% Note1 "Character set table prepared by Maria Błońska"
+
+
+\pismoPL{Florian Ungler  pierwsza drukarnia 7. Pismo nagłówkowe i tekstowe gotyckie. Krój M¹⁸ raz przekreślone. Stopień 20 ww. == 104/106 mm. — Tabl. 118.}
+  
+ \pismoEN{Florian Ungler  first house 7. Gothic header and text font. Typeface M¹⁸. Type size 20 ww. == 104/106 mm. — Plate 118.}
+
+\plate{118}{III}{1959}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by by Henryk Bułhak and  Maria Błońska.
+
+\bigskip
+
+\exampleBib{III:32}
+
+\bigskip \exampleDesc{LAURENTIUS CORVINUS: Latinum ideoma. Kraków, Florian Ungler, 1513. 4⁰}
+
+\medskip
+\examplePage{\textit{Karta A₇a}}
+
+  \bigskip
+  \exampleLib{Biblioteka Narodowa. Warszawa.}
+  
+
+\bigskip \exampleRef{\textit{Estreicher XIV. 424. Wierzbowski 885. Piekarski U. 30.}}
+
+\bigskip
+
+\examplePL{[Pismo 7]   Rubryka \gamma{}. — Cyfry 4.}
+
+\medskip
+
+\exampleEN{[Font 6] Rubric \gamma{}. — Digits 4.}
+
+
+\bigskip
+
+\fontID{U1-07}{48}
+
+\fontstat{109}
+
+% \exdisplay \bg \gla
+ \input {t48_glyphs.tex}
+%//
+%\glpismo%
+ \input {t48_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+ % Tab. 49
+% 49,Ungler1-08_PT03_120.djvu,Ungler1,08,03,120
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+ % from dsed4test:
+% Ungler1-08_PT03_120_4dsed.txt:Note "8. Pismo nagłówkowe gotyckie. Krój M⁶⁹. Stopień 10 ww. == ok. 80mm. — Tabl. 120."
+% Ungler1-08_PT03_120_4dsed.txt:Note1 "Character set table prepared by Maria Błońska"
+
+ \pismoPL{Florian Ungler pierwsza drukarnia 8. Pismo nagłówkowe
+   gotyckie. Krój M⁶⁹. Stopień 10 ww. == ok. 80 mm. — Tabl. 120
+   [pierwszy zestaw].}
+  
+ \pismoEN{Florian Ungler  first house 8. Gothic header font. Typeface M⁶⁹. Type size 20 ww. == about 80 mm. — Plate 120 [first set].}
+
+\plate{120[1]}{III}{1959}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by by Henryk Bułhak and  Maria Błońska.
+
+\bigskip
+
+% \exampleBib{III:32}
+
+% \bigskip \exampleDesc{LAURENTIUS CORVINUS: Latinum ideoma. Kraków, Florian Ungler, 1513. 4⁰}
+
+% \medskip
+% \examplePage{\textit{Karta A₇a}}
+
+%   \bigskip
+%   \exampleLib{Biblioteka Narodowa. Warszawa.}
+  
+
+% \bigskip \exampleRef{\textit{Estreicher XIV. 424. Wierzbowski 885. Piekarski U. 30.}}
+
+% \bigskip
+
+% \examplePL{[Pismo 7]   Rubryka \gamma{}. — Cyfry 4.}
+
+% \medskip
+
+% \exampleEN{[Font 6] Rubric \gamma{}. — Digits 4.}
+
+% Biblioteka Jagielloóska. Kraków (22, 48).
+% Biblioteka Narodowa. Warszawa (37, 52). H. B. i M. B.
+% Inicjaly serii 22 (lombardy) reprodukowano z pozygi: 22(A4, B, C, D EG,H, L LL, M;,N, O,P,Q, R,S, V, X), 48 (T).
+% Znaki zodiaku 1 reprodukowano z pozycji 37 karta B,a (Pismo 7. — Cyfry 1).
+% Znaki zodiaku 2 reprodukowano z pozycji 52 karta C,b (Pismo 3. — Rubryka 8. — Cyfry 5).
+
+
+\bigskip
+
+\fontID{U1-08}{49}
+
+\fontstat{40}
+
+% \exdisplay \bg \gla
+ \input {t49_glyphs.tex}
+%//
+%\glpismo%
+ \input {t49_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ 
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+ % 50,Ungler1-09_PT03_120.djvu,Ungler1,09,03,120
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+ % from dsed4test:
+% Ungler1-09_PT03_120_4dsed.txt:Note "9. Pismo nagłówkowe gotyckie. Krój M²³. Stopień 10 ww. == ok. 70 mm. — Tabl. 120."
+% Ungler1-09_PT03_120_4dsed.txt:Note1 "Character set table prepared by Maria Błońska"
+
+ \pismoPL{Florian Ungler pierwsza drukarnia 9. Pismo nagłówkowe
+   gotyckie. Krój M²³. Stopień 10 ww. == ok. 70 mm. — Tabl. 120 [drugi
+   zestaw].}
+ 
+ \pismoEN{Florian Ungler first house 9. Gothic header font. Typeface
+   M²³. Type size 10 ww. == about 70 mm. — Plate 120 [second set].}
+
+\plate{120[2]}{III}{1959}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by  Maria Błońska.
+
+\bigskip
+
+% \exampleBib{III:32}
+
+% \bigskip \exampleDesc{LAURENTIUS CORVINUS: Latinum ideoma. Kraków, Florian Ungler, 1513. 4⁰}
+
+% \medskip
+% \examplePage{\textit{Karta A₇a}}
+
+%   \bigskip
+%   \exampleLib{Biblioteka Narodowa. Warszawa.}
+  
+
+% \bigskip \exampleRef{\textit{Estreicher XIV. 424. Wierzbowski 885. Piekarski U. 30.}}
+
+% \bigskip
+
+% \examplePL{[Pismo 7]   Rubryka \gamma{}. — Cyfry 4.}
+
+% \medskip
+
+% \exampleEN{[Font 6] Rubric \gamma{}. — Digits 4.}
+
+
+\bigskip
+
+\fontID{U1-09}{50}
+
+\fontstat{38}
+
+% \exdisplay \bg \gla
+ \input {t50_glyphs.tex}
+%//
+%\glpismo%
+ \input {t50_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 51,Ungler1-10_PT03_119.djvu,Ungler1,10,03,119
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+ % from dsed4test:
+% Ungler1-10_PT03_119_4dsed.txt:Note "10. Pismo tekstowe antykwowe. Krój Qu/ pośredni między G i K⁵. Stopień 20 ww. == 95/96 mm. — Tabl. 119."
+% Ungler1-10_PT03_119_4dsed.txt:Note1 "Character set table prepared by Maria Błońska"
+
+ \pismoPL{Florian Ungler pierwsza drukarnia 10. Pismo tekstowe
+   antykwowe. Krój Qu/ pośredni między G i K⁵. Stopień 20 ww. == 95/96
+   mm. — Tabl. 119.}
+  
+ \pismoEN{Florian Ungler  first house 10. Roman text font. Typeface Qu/ halfway between G and K⁵. Type size 20 lines == 95/96
+   mm. — Plate 119.}
+
+\plate{119}{III}{1959}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared  by Henryk Bułhak and Maria Błońska.
+
+\bigskip
+
+\exampleBib{III:50}
+
+\bigskip \exampleDesc{IOANNES LASKI: Oratio ad Leonem X pp. habita 13 Iunii 1513.
+Kraków, Florian Ungler [1 Wolfgang Lern?, 1514]. 4⁰.}
+
+\medskip
+\examplePage{\textit{Karta A₃b}}
+
+  \bigskip
+  \exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+
+\bigskip \exampleRef{\textit{Estreicher. XXI. 80. Wierzbowski 2070. Piekarski U. 39. Piekarski w Sil. Rer. III 1927 s. 181.}}
+% \bigskip
+
+% \examplePL{[Pismo 10]   Rubryka \delta{}.}
+
+% \medskip
+
+% \exampleEN{
+
+
+\bigskip
+
+\fontID{U1-10}{51}
+
+\fontstat{109}
+
+% \exdisplay \bg \gla
+ \input {t51_glyphs.tex}
+%//
+%\glpismo%
+ \input {t51_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 52,Ungler2-01_PT05_239.djvu,Ungler2,01,05,239
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+ % from dsed4test:
+% Ungler2-01_PT05_239_4dsed.txt:Note "1. Pismo nagłówkowe i tekstowe, rotunda M²³. Stopień 20 ww. = 132 mm. — Tabl. 239."
+% Ungler2-01_PT05_239_4dsed.txt:Note1 "Character set table prepared by Maria Błońska"
+
+ \pismoPL{Florian Ungler druga drukarnia 1. Pismo nagłówkowe i tekstowe, rotunda M²³. Stopień 20 ww. = 132 mm. — Tabl. 239.}
+  
+ \pismoEN{Florian Ungler  second house 1. Rotunda header and text font, typeface M²³. Type size 20 lines = 132 mm. — Plate 239.}
+
+\plate{239}{V}{1964}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Maria Błońska.
+
+\bigskip
+
+\exampleBib{V:23}
+
+\bigskip \exampleDesc{DONATUS: Dialogus iuvenibus scholaribus perutilissimus. Kraków, [Florian Ungler], 1523. 4⁰.}
+
+\medskip
+\examplePage{\textit{Karta 2 b (?)}}
+
+  \bigskip
+%  \exampleLib{Biblioteka Jagiellońska. Kraków.}
+% Egzemplarz niedostępny.
+  
+
+\bigskip \exampleRef{\textit{L. Zalewski: Biblioteka Seminarium Duchownego w Lublinie i biblioteki klasztorne w diecezji lubelskiej i podlaskiej. Warszawa 1926. s. 203.}}
+% \bigskip
+
+% \examplePL{[Pismo 10]   Rubryka \delta{}.}
+% Cyfry 1. — Inicjał 4 (P). — Drzeworyt 157: listwa dolna. — Drzeworyt 158: listwa boczna.
+% \medskip
+
+% \exampleEN{
+
+
+\bigskip
+
+\fontID{U2-01}{52}
+
+\fontstat{99}
+
+% \exdisplay \bg \gla
+ \input {t52_glyphs.tex}
+%//
+%\glpismo%
+ \input {t52_glyphids.tex}
+% //
+%\endgl \xe
+
+
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 53,Ungler2-02_PT05_240.djvu,Ungler2,02,05,240
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+ % from dsed4test:
+% Ungler2-02_PT05_240_4dsed.txt:Note "2. Pismo tekstowe, antykwa Q/u (zbliżone do F⁵). Stopień 20 ww. =92— 94 mm. — Tabl. 240."
+% Ungler2-02_PT05_240_4dsed.txt:Note1 "Character set table prepared by Maria Błońska"
+
+ \pismoPL{Florian Ungler druga drukarnia 2. Pismo tekstowe, antykwa Q/u (zbliżone do F⁵). Stopień 20 ww. = 92—94 mm. — Tabl. 240.}
+  
+ \pismoEN{Florian Ungler  second house 2. Roman text font, typeface Q/u (similar to F⁵). Type size 20 lines = 92-94  mm. — Plate 240.}
+
+\plate{240}{V}{1964}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Maria Błońska.
+
+\bigskip
+
+\exampleBib{V:32}
+
+\bigskip \exampleDesc{PANDECTA successionum cum Alberti Costensis additionibus. Kraków, Florian Ungler, [po 30 III 1524]: 4⁰}
+
+\medskip
+\examplePage{\textit{Karta 23 b}}
+
+  \bigskip
+  \exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+  
+
+\bigskip \exampleRef{\textit{Estreicher XIV 428.}}
+% \bigskip
+
+%Pismo 1: nagłówek. — Rubryki a, e: z pismem 2. — Cyfry 2: pierwszy zestaw. — Cyfry 4: drugi zestaw.
+
+% \examplePL{[Pismo 10]   Rubryka \delta{}.}
+% Cyfry 1. — Inicjał 4 (P). — Drzeworyt 157: listwa dolna. — Drzeworyt 158: listwa boczna.
+% \medskip
+
+% \exampleEN{
+
+
+\bigskip
+
+\fontID{U2-02}{53}
+
+\fontstat{153}
+
+% \exdisplay \bg \gla
+ \input {t53_glyphs.tex}
+%//
+%\glpismo%
+ \input {t53_glyphids.tex}
+% //
+%\endgl \xe
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 54,Ungler2-03_PT05_241.djvu,Ungler2,03,05,241
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+ % from dsed4test:
+% Ungler2-03_PT05_241_4dsed.txt:Note "3. Pismo tekstowe, rotunda M⁴⁹, Stopień 20 ww. = 62/63 mm. — Tabl. 241."
+% Ungler2-03_PT05_241_4dsed.txt:Note1 "Character set table prepared by Maria Błońska"
+
+ \pismoPL{Florian Ungler druga drukarnia 3. Pismo tekstowe, rotunda M⁴⁹, Stopień 20 ww. = 62/63 mm. — Tabl. 241 [pierwszy zestaw].}
+  
+ \pismoEN{Florian Ungler  second house 3. Rotunda text font, typeface M⁴⁹. Type size 20 lines = 62/63 mm. — Plate 241 [first set].}
+
+\plate{241[1]}{V}{1964}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Maria Błońska.
+
+\bigskip
+
+\exampleBib{V:37}
+
+\bigskip \exampleDesc{LECTURA super titulo de regulis iuris libro sexto. Kraków, Florian Ungłer, 1524. 8⁰.}
+
+
+\medskip
+\examplePage{\textit{Karta A₂b}}
+
+  \bigskip
+  \exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+\bigskip \exampleRef{\textit{Estreicher XXI 138, XXIII D. XXVI. Wierzbowski 1010. Piekarski Kórn. 831.}}
+% \bigskip
+
+% Pismo 2: nagłówek. — Pismo 3: tekst i zestaw. — Rubryki B, y: z pismem 3. — Cyfry 3: z pismem 3. 
+
+
+% \examplePL{}
+
+
+% \exampleEN{}
+
+
+\bigskip
+
+\fontID{U2-03}{54}
+
+\fontstat{154}
+
+% \exdisplay \bg \gla
+ \input {t54_glyphs.tex}
+%//
+%\glpismo%
+ \input {t54_glyphids.tex}
+% //
+%\endgl \xe
+
+
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 55,Ungler2-04_PT05_242.djvu,Ungler2,04,05,242
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+ % from dsed4test:
+% Ungler2-04_PT05_242_4dsed.txt:Note "4. Pismo tekstowe i nagłówkowe, szwabacha M⁸¹. Stopień 20 ww. = = 103 mm. — Tabl. 242."
+% Ungler2-04_PT05_242_4dsed.txt:Note1 "Character set table prepared by Maria Błońska"
+
+ \pismoPL{Florian Ungler druga drukarnia 4. Pismo tekstowe i
+   nagłówkowe, szwabacha M⁸¹. Stopień 20 ww. = = 103 mm. — Tabl. 242.}
+  
+ \pismoEN{Florian Ungler second house 4. Schwabacher header and text
+   font, typeface M⁸¹. Type size 20 lines = 103 mm. — Plate 242.}
+
+\plate{242}{V}{1964}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Maria Błońska.
+
+\bigskip
+
+\exampleBib{V:11}
+
+\bigskip \exampleDesc{PSEUDO-BONAVENTURA: [Meditationes vitae Christi. Trad. polon. Balthasar Opeć]. Żywot Pana Jezu Krysta.
+Kraków, Florian Ungler i Jan Sandecki nakładem Jana Hallera, [po 3 V] 1522. 4⁰.}
+
+
+\medskip
+\examplePage{\textit{Karta 26 b}}
+
+  \bigskip
+  \exampleLib{Biblioteka Czartoryskich. Kraków.}
+
+\bigskip \exampleRef{\textit{Estreicher XIII 252. Wierzbowski 984.}}
+% \bigskip
+% https://lib.amu.edu.pl/produkt/baltazar-opec-zywot-pana-jezu-krysta-stworzyciela-i-zbawiciela-rodzaju-ludskiego-wedle-ewanjelist-swietych-z-rozmyslanim-naboznym-doktorow-pisma-swietego-krotko-zebrany-krakow-florian-ungler-i-jan/
+% https://psp.amu.edu.pl/?type=book&id_asset=986
+
+% Drzeworyt 296: ozdobnik.
+
+
+% \examplePL{}
+
+
+% \exampleEN{}
+
+
+\bigskip
+
+\fontID{U2-04}{55}
+
+\fontstat{102}
+
+% \exdisplay \bg \gla
+ \input {t55_glyphs.tex}
+%//
+%\glpismo%
+ \input {t55_glyphids.tex}
+% //
+%\endgl \xe
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 56,Ungler2-05_PT05_243.djvu,Ungler2,05,05,243
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Ungler2-05_PT05_243_4dsed.txt:Note "5. Pismo tekstowe, antykwa Q/u (C). Stopień 20 ww. =94—95 mm. — Tabl. 243."
+% Ungler2-05_PT05_243_4dsed.txt:Note1 "Character set table prepared by Anna Wolińska"
+
+ \pismoPL{Florian Ungler druga drukarnia 5. Pismo tekstowe, antykwa Q/u (C). Stopień 20 ww. = 94—95 mm. — Tabl. 243 [pierwszy zestaw].}
+  
+ \pismoEN{Florian Ungler second house 3. Roman text font, typeface
+   Q/u (C). Type size 20 lines = 94—95 mm. — Plate 243 [first set].}
+
+\plate{243[1]}{V}{1964}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Anna Wolińska.
+
+\bigskip
+
+\exampleBib{V:52}
+
+\bigskip \exampleDesc{MATTHIAS DE MIECHÓW: Contra saevam pestem regimen.
+Kraków, Florian Ungler, [po 3 X] 1527. 8⁰.}
+
+
+\medskip
+\examplePage{\textit{Karta C₄b}}
+
+  \bigskip
+  \exampleLib{Archiwum Archidiecezjalne. Gniezno.}
+
+\bigskip \exampleRef{\textit{Estreicher XXII 358. Wierzbowski 2125. Formanowicz 236.}}
+ \bigskip
+
+ \exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/943/} page 9}
+
+  
+ % Pismo 5: tekst i pierwszy zestaw. — Rubryka a: z pismem 5. — Pismo
+ % 12: trzeci zestaw. — Pismo 13: drugi zestaw. — Przerywnik 1: z
+ % pismem 12.
+
+
+% \examplePL{}
+
+
+% \exampleEN{}
+
+
+\bigskip
+
+\fontID{U2-05}{56}
+
+\fontstat{80}
+
+% \exdisplay \bg \gla
+ \input {t56_glyphs.tex}
+%//
+%\glpismo%
+ \input {t56_glyphids.tex}
+% //
+%\endgl \xe
+
+ 
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 57,Ungler2-06_PT05_241.djvu,Ungler2,06,05,241
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Ungler2-06_PT05_241_4dsed.txt:Note "6. Pismo tekstowe, rotunda M¹⁸. Stopień 20 ww. = 76 mm. — Tabl. 241."
+% Ungler2-06_PT05_241_4dsed.txt:Note1 "Character set table prepared by Maria Błońska"
+
+ \pismoPL{Florian Ungler druga drukarnia 6. Pismo tekstowe, rotunda M¹⁸. Stopień 20 ww. = 76 mm. — Tabl. 241 [drugi zestaw].}
+  
+ \pismoEN{Florian Ungler second house 6. Rotunda text font, typeface M¹⁸. Type size 20 lines = 76 mm. — Plate 241 [second set].}
+
+\plate{241[2]}{V}{1964}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Maria Błońska.
+
+\bigskip
+
+\exampleBib{V:53}
+
+\bigskip \exampleDesc{VINCENTIUS FERRERIUS: [Opusculum de fine mundi]. Prophetiae Danielis tres horribiles.
+Kraków, Florian Ungler, 1527. 89. War. A.}
+
+
+\medskip
+\examplePage{\textit{Karta a₂b}}
+
+  \bigskip
+  \exampleLib{Biblioteka Czartoryskich. Kraków.}
+
+\bigskip \exampleRef{\textit{Estreicher XV 33. Wierzbowski 1040. Piekarski Kórn. 1569.}}
+
+ \bigskip
+
+ % \exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/943/} page 9}
+
+% Pismo 6: tekst i zestaw. — Pismo 7: nagłówek. — Rubryka \dzeta{}: z pismem 6. — Cyfry 6: z pismem 6.
+
+% \examplePL{}
+
+
+% \exampleEN{}
+
+
+\bigskip
+
+\fontID{U2-06}{57}
+
+\fontstat{95}
+
+% \exdisplay \bg \gla
+ \input {t57_glyphs.tex}
+%//
+%\glpismo%
+ \input {t57_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 58,Ungler2-09_PT05_244.djvu,Ungler2,09,05,244
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Ungler2-09_PT05_244_4dsed.txt:Note "9. Pismo tekstowe, szwabacha zromanizowana M⁸¹. Stopień 20 ww. = = 80/81 mm. — Tabl. 244."
+% Ungler2-09_PT05_244_4dsed.txt:Note1 "Character set table prepared by Maria Błońska"
+
+ \pismoPL{Florian Ungler druga drukarnia 9. Pismo tekstowe, szwabacha zromanizowana M⁸¹. Stopień 20 ww. =  80/81 mm. — Tabl. 244.}
+  
+ \pismoEN{Florian Ungler second house 9. Schwabacher romanized text font, typeface M⁸¹. Type size 20 lines = 80/81 mm. — Plate 244.}
+
+\plate{244}{V}{1964}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Maria Błońska.
+
+\bigskip
+
+\exampleBib{V:66}
+
+\bigskip \exampleDesc{MICHAEL VRATISLAVIENSIS: Prosarum dilucidatio. Kraków, Florian Ungler, [po 1 III 1530]. 4⁰.}
+
+
+\medskip
+\examplePage{\textit{Karta tytułowa verso.}}
+
+  \bigskip
+  \exampleLib{Biblioteka Narodowa. Warszawa.}
+
+\bigskip \exampleRef{\textit{Estreicher XXXII 359. Wierzbowski 750, 1071.}}
+
+ \bigskip
+
+ % \exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/943/} page 9}
+
+
+%Pismo 4: wiersz I, 5. — Pismo 10: wiersz 2—4. — Pismo 9: tekst i zestaw. — Rubryka \eta{}?. — Cyfry 5. — lInicjał 18 (P).
+
+% \examplePL{}
+
+
+% \exampleEN{}
+
+
+\bigskip
+
+\fontID{U2-09}{58}
+
+\fontstat{138}
+
+% \exdisplay \bg \gla
+ \input {t58_glyphs.tex}
+%//
+%\glpismo%
+ \input {t58_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 59,Ungler2-10_PT05_245.djvu,Ungler2,10,05,245
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Ungler2-10_PT05_245_4dsed.txt:Note "10. Pismo tekstowe, rotunda M¹⁸. Stopień 20 ww. = 66 mm. — Tabl. 245."
+% Ungler2-10_PT05_245_4dsed.txt:Note1 "Character set table prepared by Maria Błońska and Anna Wolińska"
+
+ \pismoPL{Florian Ungler druga drukarnia 10. Pismo tekstowe, rotunda M¹⁸. Stopień 20 ww. = 66 mm. — Tabl. 245 [pierwszy zestaw].}
+  
+ \pismoEN{Florian Ungler second house 10. Rotunda text font, typeface M¹⁸. Type size 20 lines = 66 mm. — Plate 245 [first set].}
+
+\plate{245[1]}{V}{1964}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak,  Maria Błońska and Anna Wolińska.
+
+\bigskip
+
+\exampleBib{V:66}
+
+\bigskip \exampleDesc{MICHAEL VRATISLAVIENSIS: Prosarum dilucidatio. Kraków, Florian Ungler, [po 1 III 1530]. 4⁰.}
+
+
+\medskip
+\examplePage{\textit{Karta 5 b.}}
+
+  \bigskip
+  \exampleLib{Archiwum Kapituły Metropolitalnej. Kraków.}
+
+\bigskip \exampleRef{\textit{Estreicher XXX 359. Wierzbowski 750, 1071.}}
+
+ \bigskip
+
+ % \exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/943/} page 9}
+
+% Pismo 4: nagłówek. — Pismo 10: tekst i pierwszy zestaw. — Pismo 11: drugi zestaw. — Rubryka ?: z pismem 10. — Cyfry 7: z pismem 10.
+
+% \examplePL{}
+
+
+% \exampleEN{}
+
+
+\bigskip
+
+\fontID{U2-10}{59}
+
+\fontstat{123}
+
+% \exdisplay \bg \gla
+ \input {t59_glyphs.tex}
+%//
+%\glpismo%
+ \input {t59_glyphids.tex}
+% //
+%\endgl \xe
+
+
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 60,Ungler2-11_PT05_245.djvu,Ungler2,11,05,245
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Ungler2-11_PT05_245_4dsed.txt:Note "11. Pismo tekstowe, antykwa. Stopień 1 w. = 3 mm. — Tabl. 245.
+% Ungler2-11_PT05_245_4dsed.txt:Note1 "Character set table prepared by Maria Błońska and Anna Wolińska"
+
+ \pismoPL{Florian Ungler druga drukarnia 11. Pismo tekstowe, antykwa. Stopień 1 w. = 3 mm. — Tabl. 245 [drugi zestaw].}
+  
+ \pismoEN{Florian Ungler second house 11. Roman text font. Type size 1 line = 3 mm. — Plate 245 [second set].}
+
+\plate{245[2]}{V}{1964}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak,  Maria Błońska and Anna Wolińska.
+
+\bigskip
+
+% \exampleBib{V:66}
+
+% \bigskip \exampleDesc{MICHAEL VRATISLAVIENSIS: Prosarum dilucidatio. Kraków, Florian Ungler, [po 1 III 1530]. 4⁰.}
+
+
+% \medskip
+% \examplePage{\textit{Karta 5 b.}
+
+%   \bigskip
+%   \exampleLib{Archiwum Kapituły Metropolitalnej. Kraków.}
+
+% \bigskip \exampleRef{\textit{Estreicher XXX 359. Wierzbowski 750, 1071.}}
+
+%  \bigskip
+
+ % \exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/943/} page 9}
+
+% Pismo 4: nagłówek. — Pismo 10: tekst i pierwszy zestaw. — Pismo 11: drugi zestaw. — Rubryka ?: z pismem 10. — Cyfry 7: z pismem 10.
+
+% \examplePL{}
+
+
+% \exampleEN{}
+
+
+\bigskip
+
+\fontID{U2-11}{60}
+
+\fontstat{19}
+
+% \exdisplay \bg \gla
+ \input {t60_glyphs.tex}
+%//
+%\glpismo%
+ \input {t60_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 61,Ungler2-12_PT05_243.djvu,Ungler2,12,05,243
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Ungler2-12_PT05_243_4dsed.txt:Note "12. Wersaliki tytułowe, antykwa. Wysokość 8 mm. — Tabl. 243."
+% Ungler2-12_PT05_243_4dsed.txt:Note1 "Character set table prepared by Anna Wolińska." !!!
+
+ \pismoPL{Florian Ungler druga drukarnia 12. Wersaliki tytułowe, antykwa. Wysokość 8 mm. — Tabl. 243 [trzeci zestaw].}
+  
+ \pismoEN{Florian Ungler second house 10. Roman title capitals font. Type size [1 line =] 8 mm. — Plate 243 [third set] .}
+
+\plate{243[3]}{V}{1964}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Anna Wolińska.
+
+\bigskip
+
+% \exampleBib{V:66}
+
+% \bigskip \exampleDesc{MICHAEL VRATISLAVIENSIS: Prosarum dilucidatio. Kraków, Florian Ungler, [po 1 III 1530]. 4⁰.}
+
+
+% \medskip
+% \examplePage{\textit{Karta 5 b.}
+
+%   \bigskip
+%   \exampleLib{Archiwum Kapituły Metropolitalnej. Kraków.}
+
+% \bigskip \exampleRef{\textit{Estreicher XXX 359. Wierzbowski 750, 1071.}}
+
+%  \bigskip
+
+ % \exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/943/} page 9}
+
+%  Pismo 5: tekst i pierwszy zestaw. — Rubryka a: z pismem 5. — Pismo 12: trzeci zestaw. — Pismo 13: drugi zestaw. — Przerywnik 1: z pismem 12.
+
+% \examplePL{}
+
+
+% \exampleEN{}
+
+
+\bigskip
+
+\fontID{U2-12}{61}
+
+\fontstat{23}
+
+% \exdisplay \bg \gla
+ \input {t61_glyphs.tex}
+%//
+%\glpismo%
+ \input {t61_glyphids.tex}
+% //
+%\endgl \xe
+
+
+\newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 62,Ungler2-13_PT05_243.djvu,Ungler2,13,05,243
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Ungler2-13_PT05_243_4dsed.txt:Note "13. Wersaliki tytułowe, antykwa. Wysokość 8 mm. — Tabl. 243."
+% Ungler2-13_PT05_243_4dsed.txt:Note1 "Character set table prepared by Maria Błońska"
+
+ \pismoPL{Florian Ungler druga drukarnia 13. Wersaliki tytułowe, antykwa. Wysokość 8 mm. — Tabl. 243 [drugi zestaw].}
+  
+ \pismoEN{Florian Ungler second house 13. Roman title capitals font. Type size [1 line =] 8 mm. — Plate 243 [second set].}
+
+\plate{243[2]}{V}{1964}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Maria Błońska.
+
+\bigskip
+
+% \exampleBib{V:66}
+
+% \bigskip \exampleDesc{MICHAEL VRATISLAVIENSIS: Prosarum dilucidatio. Kraków, Florian Ungler, [po 1 III 1530]. 4⁰.}
+
+
+% \medskip
+% \examplePage{\textit{Karta 5 b.}
+
+%   \bigskip
+%   \exampleLib{Archiwum Kapituły Metropolitalnej. Kraków.}
+
+% \bigskip \exampleRef{\textit{Estreicher XXX 359. Wierzbowski 750, 1071.}}
+
+%  \bigskip
+
+ % \exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/943/} page 9}
+
+%  Pismo 5: tekst i pierwszy zestaw. — Rubryka a: z pismem 5. — Pismo 12: trzeci zestaw. — Pismo 13: drugi zestaw. — Przerywnik 1: z pismem 12.
+
+% \examplePL{}
+
+
+% \exampleEN{}
+
+
+\bigskip
+
+\fontID{U2-13}{62}
+
+\fontstat{23}
+
+% \exdisplay \bg \gla
+ \input {t62_glyphs.tex}
+%//
+%\glpismo%
+ \input {t62_glyphids.tex}
+% //
+%\endgl \xe
+
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 63,Ungler2-14_PT07_357.djvu,Ungler2,14,07,357
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+% from dsed4test:
+%  Ungler2-14_PT07_357_4dsed.txt:Note "14.  Pismo tytułowe i nagłówkowe, fraktura Neudörffer-Andreae. Stopień 5 ww. = 65 mm. — Tabl. 357."
+% Ungler2-14_PT07_357_4dsed.txt:Note1 "Character set table prepared by Anna Wolińska"
+
+ \pismoPL{Florian Ungler druga drukarnia 14.  Pismo tytułowe i
+   nagłówkowe, fraktura Neudörffer-Andreae. Stopień 5 ww. = 65 mm. —
+   Tabl. 357 [drugi zestaw].}
+  
+ \pismoEN{Florian Ungler second house 14. Title and header font, Neudörffer-Andreae Fraktur. Type size 5 lines = 65 mm. — Plate 357 [second set].}
+
+\plate{357[2]}{VII}{1970}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Anna Wolińska.
+
+\bigskip
+
+% \exampleBib{VII:113}
+
+% \bigskip \exampleDesc{ADAM TUSSINUS a Tarnów: ludicium et significatio cometae qui apparuit in fine dierum Iunii sub anno 1533.
+% Kraków, Florian Ungler, [po 26 VI 1533]. 8⁰.}
+
+
+%  \medskip
+%  \examplePage{\textit{Karta B₂b.}}
+
+%   \bigskip
+%   \exampleLib{Biblioteka Narodowa. Warszawa.}
+
+%  \bigskip \exampleRef{\textit{Estreicher XXXI 425. Wierzbowski 1103.}}
+
+%  \bigskip
+
+ % \exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/943/} page 9}
+
+ % Pismo 14: drugi zestaw. — Pismo 17: kolumna tekstu i pierwszy
+ % zestaw. — Pismo 18: nagłówek (wiersz 1). — Pismo 20: nagłówek
+ % (wiersz 2). — Rubryka &:
+% z pismem 17. — Cyfry 14: z pismem 14.
+
+% \examplePL{}
+
+
+% \exampleEN{}
+
+
+\bigskip
+
+\fontID{U2-14}{63}
+
+\fontstat{64}
+
+% \exdisplay \bg \gla
+ \input {t63_glyphs.tex}
+%//
+%\glpismo%
+ \input {t63_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 64,Ungler2-15_PT07_358.djvu,Ungler2,15,07,358
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Ungler2-15_PT07_358_4dsed.txt:Note "15 a-b.Pismo tekstowe, antykwa Qu|(G). Stopień 20 ww. = 91 mm. — Tabl. 358."
+% Ungler2-15_PT07_358_4dsed.txt:Note1 "Character set table prepared by Anna Wolińska"
+
+ \pismoPL{Florian Ungler druga drukarnia 15${a-b}$. Pismo tekstowe, antykwa Qu|(G). Stopień 20 ww. = 91 mm. — Tabl. 358.}
+  
+ \pismoEN{Florian Ungler second house 15${a-b}$. Roman text font, [typeface] Qu|(G). Type size 20 lines = 91 mm. — Plate 358.}
+
+\plate{358}{VII}{1970}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Anna Wolińska.
+
+\bigskip
+
+15${a}$: \exampleBib{VII:69}
+
+\bigskip \exampleDesc{MATHEOLUS PERUSINUS: De memoria augenda. [Kraków, Florian Ungler, po 22 X 1530]. 8⁰.}
+
+
+ \medskip
+ \examplePage{\textit{Karta A₃b.}}
+
+  \bigskip
+  \exampleLib{Biblioteka Narodowa. Warszawa.}
+
+  \bigskip \exampleRef{\textit{Estreicher XXII 231.}}
+
+  % Pismo 15%, — Rubryka t. — Cyfry 10% (w zestawie).
+
+\bigskip\bigskip  
+15${b}$: \exampleBib{VII:76}
+
+\bigskip \exampleDesc{MODUS legendi abbreviaturas. Kraków, Florian Ungler, [1531]. 8⁰.}
+
+% https://www.wbc.poznan.pl/dlibra/publication/496742/edition/434947 1524?
+% https://www.ariadna.bs.katowice.pl/details/1f6fb9232dadf5725a77
+%https://integro.bs.katowice.pl/site/recorddetail/0033105534713
+ \medskip
+ \examplePage{\textit{Karta tytułowa verso.}}
+
+  \bigskip
+  \exampleLib{Biblioteka PAN. Kraków (76).}
+
+  \bigskip \exampleRef{\textit{Estreicher XXXI 271. Wierzbowski 782.}}
+
+%Pismo 15%. — Inicjał 34.
+
+  % 
+  
+%  \bigskip
+
+ % \exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/943/} page 9}
+
+ % Pismo 14: drugi zestaw. — Pismo 17: kolumna tekstu i pierwszy
+ % zestaw. — Pismo 18: nagłówek (wiersz 1). — Pismo 20: nagłówek
+ % (wiersz 2). — Rubryka &:
+% z pismem 17. — Cyfry 14: z pismem 14.
+
+% \examplePL{}
+
+
+% \exampleEN{}
+
+
+\bigskip
+
+\fontID{U2-15}{64}
+
+\fontstat{107}
+
+% \exdisplay \bg \gla
+ \input {t64_glyphs.tex}
+%//
+%\glpismo%
+ \input {t64_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 65,Ungler2-16_PT07_359.djvu,Ungler2,16,07,359
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Ungler2-16_PT07_359_4dsed.txt:Note "16. Pismo tekstowe, rotunda zbliżona do M⁵⁰ (druga forma). Stopień 20 ww. = 65 mm. — Tabl. 359."
+% Ungler2-16_PT07_359_4dsed.txt:Note1 "Character set table prepared by Anna Wolińska"
+
+ \pismoPL{Florian Ungler druga drukarnia 16. Pismo tekstowe, rotunda
+   zbliżona do M⁵⁰ (druga forma). Stopień 20 ww. = 65 mm. —
+   Tabl. 359.}
+  
+ \pismoEN{Florian Ungler second house 16. Rotunda text font, typeface
+   similar to M⁵⁰ (second form). Type size 20 lines = 65 mm. — Plate
+   359.}
+
+\plate{359}{VII}{1970}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Anna Wolińska.
+
+\bigskip
+
+\exampleBib{VII:75}
+
+\bigskip \exampleDesc{GREGORIUS DE SZAMOTUŁY: Processus iuris brevior Ioannis Andreae pro tyrunculis resolutus.
+Kraków, Florian Ungler, 1531. 8⁰.}
+
+
+ \medskip
+ \examplePage{\textit{Karta K₁b.}}
+
+  \bigskip
+  \exampleLib{Biblioteka Narodowa. Warszawa.}
+
+  \bigskip \exampleRef{\textit{Estreicher XXX 197. Wierzbowski 80.}}
+
+  % Pismo 15%: nagłówek. — Pismo 16: tekst i zestaw. — Rubryki x, 8. — Cyfry 11. — Znaki kalendarzowe 6.
+
+\bigskip
+
+\fontID{U2-16}{65}
+
+\fontstat{135}
+
+% \exdisplay \bg \gla
+ \input {t65_glyphs.tex}
+%//
+%\glpismo%
+ \input {t65_glyphids.tex}
+% //
+%\endgl \xe
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 66,Ungler2-17_PT07_357.djvu,Ungler2,17,07,357
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Ungler2-17_PT07_357_4dsed.txt:Note "17. Pismo tekstowe, rotunda M⁸⁷. Stopień 20 ww. = 75 mm. — Tabl. 357."
+% Ungler2-17_PT07_357_4dsed.txt:Note1 "Character set table prepared by Anna Wolińska"
+
+ \pismoPL{Florian Ungler druga drukarnia 17. Pismo tekstowe, rotunda M⁸⁷. Stopień 20 ww. = 75 mm. — Tabl. 357 [pierwszy zestaw]}
+  
+ \pismoEN{Florian Ungler second house 17. Rotunda text font, typeface
+   M⁸⁷. Type size 20 lines = 75 mm. — Plate 357 [first set].}
+
+\plate{357[1]}{VII}{1970}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Anna Wolińska.
+
+\bigskip
+
+\exampleBib{VII:113}
+
+\bigskip \exampleDesc{ADAM TUSSINUS a Tarnów: ludicium et significatio cometae qui apparuit in fine dierum Iunii sub anno 1533.
+Kraków, Florian Ungler, [po 26 VI 1533]. 8⁰.}
+
+
+ \medskip
+ \examplePage{\textit{Karta B₂b.}}
+
+  \bigskip
+  \exampleLib{Biblioteka Narodowa. Warszawa.}
+
+ \bigskip \exampleRef{\textit{Estreicher XXXI 425. Wierzbowski 1103.}}
+
+%  \bigskip
+
+ % \exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/943/} page 9}
+
+ % Pismo 14: drugi zestaw. — Pismo 17: kolumna tekstu i pierwszy
+ % zestaw. — Pismo 18: nagłówek (wiersz 1). — Pismo 20: nagłówek
+ % (wiersz 2). — Rubryka &:
+% z pismem 17. — Cyfry 14: z pismem 14.
+
+\bigskip
+
+\fontID{U2-17}{66}
+
+\fontstat{129}
+
+% \exdisplay \bg \gla
+ \input {t66_glyphs.tex}
+%//
+%\glpismo%
+ \input {t66_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ \newpage
+
+% 19 poprawić !!!!
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 67,Ungler2-18_PT07_360.djvu,Ungler2,18,07,360
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Ungler2-18_PT07_360_4dsed.txt:Note "18. Pismo nagłówkowe i tekstowe, fraktura Neudörffer-Andreae. Stopień 10 ww. == 73 mm. — Tabl. 360."
+% Ungler2-18_PT07_360_4dsed.txt:Note1 "Character set table prepared by Anna Wolińska"
+
+ \pismoPL{Florian Ungler druga drukarnia 18. Pismo nagłówkowe i
+   tekstowe, fraktura Neudörffer-Andreae. Stopień 10 ww. == 73 mm. —
+   Tabl. 360 [drugi zestaw]}
+  
+ \pismoEN{Florian Ungler second house 18. Neudörffer-Andreae Fraktur
+   header and text font. Type size 10 lines = 73 mm. — Plate 360
+   [second set].}
+
+\plate{360[2]}{VII}{1970}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Anna Wolińska.
+
+\bigskip
+
+% \exampleBib{VII:113}
+
+% \bigskip \exampleDesc{ADAM TUSSINUS a Tarnów: ludicium et significatio cometae qui apparuit in fine dierum Iunii sub anno 1533.
+% Kraków, Florian Ungler, [po 26 VI 1533]. 8⁰.}
+
+
+%  \medskip
+%  \examplePage{\textit{Karta B₂b.}}
+
+%   \bigskip
+%   \exampleLib{Biblioteka Narodowa. Warszawa.}
+
+%  \bigskip \exampleRef{\textit{Estreicher XXXI 425. Wierzbowski 1103.}}
+
+% %  \bigskip
+
+%  % \exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/943/} page 9}
+
+% Pismo 18: drugi zestaw. — Pismo 19: tekst i pierwszy zestaw. — Rubryka t: z pismem 19. — Rubryka A: z pismem 18. — Cyfry 12: z pismem 18. —
+% Cyfry 13: z pismem 19.
+
+\bigskip
+
+\fontID{U2-18}{67}
+
+\fontstat{84}
+
+% \exdisplay \bg \gla
+ \input {t67_glyphs.tex}
+%//
+%\glpismo%
+ \input {t67_glyphids.tex}
+% //
+%\endgl \xe
+
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 68,Ungler2-19_PT07_360.djvu,Ungler2,19,07,360
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Ungler2-19_PT07_360_4dsed.txt:Note "19. Pismo tekstowe, fraktura Neudörffer-Andreae. Stopień 20 ww. = 90—91 mm. — Tabl. 360."
+% Ungler2-19_PT07_360_4dsed.txt:Note1 "Character set table prepared by Anna Wolińska"
+
+ \pismoPL{Florian Ungler druga drukarnia 19. Pismo tekstowe, fraktura
+  Neudörffer-Andreae. Stopień 20 ww. = 90—91 mm. — Tabl. 360 [pierwszy
+  zestaw]}
+  
+ \pismoEN{Florian Ungler second house 19. Neudörffer-Andreae Fraktur
+    text font. Type size 20 lines = 90—91 mm. — Plate 360
+   [first set].}
+
+\plate{360[1]}{VII}{1970}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Anna Wolińska.
+
+\bigskip
+
+\exampleBib{VII:83}
+
+\bigskip \exampleDesc{NICOLAUS DE SZADEK: [udicium et significatio cometae visi anno 1531.
+Kraków, Florian Ungler, [po VIII] 1531. 8⁰.}
+
+ \medskip
+ \examplePage{\textit{Karta B₅b.}}
+
+  \bigskip
+  \exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+ \bigskip \exampleRef{\textit{Estreicher XXX 183/4.}}
+
+% %  \bigskip
+
+%  % \exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/943/} page 9}
+
+% Pismo 18: drugi zestaw. — Pismo 19: tekst i pierwszy zestaw. — Rubryka t: z pismem 19. — Rubryka A: z pismem 18. — Cyfry 12: z pismem 18. —
+% Cyfry 13: z pismem 19.
+
+\bigskip
+
+\fontID{U2-19}{68}
+
+\fontstat{114}
+
+% \exdisplay \bg \gla
+ \input {t68_glyphs.tex}
+%//
+%\glpismo%
+ \input {t68_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 69,Ungler2-20_PT07_361.djvu,Ungler2,20,07,361
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Ungler2-20_PT07_361_4dsed.txt:Note "20. Pismo tekstowe, antykwa Qu|(G). Stopień 20 ww. == 90-—91 mm. — Tabl. 361."
+% Ungler2-20_PT07_361_4dsed.txt:Note1 "Character set table prepared by Anna Wolińska"
+
+ \pismoPL{Florian Ungler druga drukarnia 20. Pismo tekstowe, antykwa
+   Qu|(G). Stopień 20 ww. == 90-—91 mm. — Tabl. 361.}
+  
+ \pismoEN{Florian Ungler second house 20. Roman text font, typeface Qu|(G). Type size 20 lines = 90—91 mm. — Plate 361.}
+
+\plate{361}{VII}{1970}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Anna Wolińska.
+
+\bigskip
+
+\exampleBib{VII:101}
+
+\bigskip \exampleDesc{CONSTITUTIONES et articuli synodi Lanciciensis
+  anno 1527 celebratae. Item synodi Piotrkoviensis anno 1530 et 1532
+  celebratae. Ed. Matthias Drzewicki. Kraków, Florian Ungler, 5 IX
+  1532. 4⁰.}
+
+ \medskip
+ \examplePage{\textit{Karta tytułowa verso.}}
+
+  \bigskip
+  \exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+ \bigskip \exampleRef{\textit{Estreicher XIV 382.}}
+
+% %  \bigskip
+
+ \exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/27252/}
+   page 4, \url{https://dbc.wroc.pl/dlibra/publication/13405/} page 6}
+
+  % https://cyfrowe.mnk.pl/dlibra/publication/27252/edition/26931/constitutiones-et-articuli-synodi-lancicien-sis-anno-domini-millesimoquige-n-tesimouigesimoseptimo-celebratae-ite-m-synodi-piotrkouien-sis-anno-domini-millesimoqvingentesimotricesimo-die-lunae-ante-festum-sanctae-margaretae-celebratae-item-synodi-piotrkouien-sis-anno-domini-millesimiqvingentesimotricesimosecundo-celebratae-ecclesia-catholica-leczyca-synod-1527?language=pl
+
+ % https://dbc.wroc.pl/dlibra/publication/13405/edition/11917?language=pl
+ 
+%  Pismo 14: wiersz 1. — Pismo 18: wiersz 2. — Rubryki e, t. — Cyfry 10P. — Inicjał 29.
+
+\bigskip
+
+\fontID{U2-20}{69}
+
+\fontstat{128}
+
+% \exdisplay \bg \gla
+ \input {t69_glyphs.tex}
+%//
+%\glpismo%
+ \input {t69_glyphids.tex}
+% //
+%\endgl \xe
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 70,Ungler2-21_PT07_362.djvu,Ungler2,21,07,362
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Ungler2-21_PT07_362_4dsed.txt:Note "21. Pismo tekstowe, antykwa Qu|(H). Stopień 20 ww. = 113 mm. — Tabl. 362."
+% Ungler2-21_PT07_362_4dsed.txt:Note1 "Character set table prepared by Anna Wolińska"
+
+ \pismoPL{Florian Ungler druga drukarnia 21. Pismo tekstowe, antykwa Qu|(H). Stopień 20 ww. = 113
+   mm. — Tabl. 362 [pierwszy zestaw].}
+  
+ \pismoEN{Florian Ungler second house 21. Roman text font, typeface
+   Qu|(H). Type size 20 lines = 113 mm. — Plate 362 [first set].}
+
+\plate{362[1]}{VII}{1970}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Anna Wolińska.
+
+\bigskip
+
+\exampleBib{VII:142}
+
+\bigskip \exampleDesc{GEORGIUS LIBANUS: In sponsalibus Ioachimi
+  Brandenburgensis cum Hedvige Sigismundi regis Poloniae filia oratio.
+  Kraków, Florian Ungler, [po 7 IX] 1535. 8⁰.}
+
+ \medskip
+ \examplePage{\textit{Karta B₄a.}}
+
+  \bigskip
+  \exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+ \bigskip \exampleRef{\textit{Estreicher XXI 255. Wierzbowski 2182.}}
+
+% %  \bigskip
+
+ % \exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/27252/}
+ %   page 4, \url{https://dbc.wroc.pl/dlibra/publication/13405/} page 6}
+ 
+
+ % Pismo 21: tekst i pierwszy zestaw. — Pismo 22: drugi zestaw. — Przerywnik 3: z pismem 22.
+\bigskip
+
+\fontID{U2-21}{70}
+
+\fontstat{78}
+
+% \exdisplay \bg \gla
+ \input {t70_glyphs.tex}
+%//
+%\glpismo%
+ \input {t70_glyphids.tex}
+% //
+%\endgl \xe
+
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 71,Ungler2-22_PT07_362.djvu,Ungler2,22,07,362
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Ungler2-22_PT07_362_4dsed.txt:Note "22. Pismo tytułowe i nagłówkowe, antykwa Q|u(C). Wysokość 1 ww. = 9 mm. - Tabl. 362."
+% Ungler2-22_PT07_362_4dsed.txt:Note1 "Character set table prepared by Henryk Bułhak and Anna Wolińska"
+
+
+ \pismoPL{Florian Ungler druga drukarnia 22. Pismo tytułowe i nagłówkowe, antykwa Q|u(C). Wysokość 1 ww. = 9 mm. - Tabl. 362 [drugi zestaw].}
+  
+ \pismoEN{Florian Ungler second house 22. Roman title and header font, typeface
+   Q|u(C). Type size 1 line = 362 mm. — Plate 362 [second set].}
+
+\plate{361[2]}{VII}{1970}
+
+The plate prepared by Henryk Bułhak.\\
+The font table prepared by Henryk Bułhak and Anna Wolińska.
+
+\bigskip
+
+% \exampleBib{VII:142}
+
+% \bigskip \exampleDesc{142. GEORGIUS LIBANUS: In sponsalibus Ioachimi
+%   Brandenburgensis cum Hedvige Sigismundi regis Poloniae filia oratio.
+%   Kraków, Florian Ungler, [po 7 IX] 1535. 8⁰.}
+
+%  \medskip
+%  \examplePage{\textit{Karta B₄a.}}
+
+%   \bigskip
+%   \exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+%  \bigskip \exampleRef{\textit{Estreicher XXI 255. Wierzbowski 2182.}}
+
+% %  \bigskip
+
+ % \exampleDig{\url{https://cyfrowe.mnk.pl/dlibra/publication/27252/}
+ %   page 4, \url{https://dbc.wroc.pl/dlibra/publication/13405/} page 6}
+ 
+
+ % Pismo 21: tekst i pierwszy zestaw. — Pismo 22: drugi zestaw. — Przerywnik 3: z pismem 22.
+\bigskip
+
+\fontID{U2-22}{71}
+
+\fontstat{50}
+
+% \exdisplay \bg \gla
+ \input {t71_glyphs.tex}
+%//
+%\glpismo%
+ \input {t71_glyphids.tex}
+% //
+%\endgl \xe
+
+ 
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 72,Wirzbięta-01_PT09_469.djvu,Wirzbięta,01,09,469
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Wirzbięta-01_PT09_469_4dsed.txt:Note "1. Pismo nagłówkowe, fraktura H. Schönspergera. Stopień 1 w, = 14,5 mm. — Tabl. 417, 419, 420, 457, 464, 467, 469, 471. [469]"
+% Wirzbięta-01_PT09_469_4dsed.txt:Note1 "Character set table prepared by Alodia Kawecka Gryczowa"
+
+
+ \pismoPL{Maciej Wirzbięta 1. Pismo nagłówkowe, fraktura H. Schönspergera. Stopień 1 w. = 14,5 mm. — Tabl. 417, 419, 420, 457, 464, 467, 469, 471.}
+  
+ \pismoEN{Maciej Wirzbięta 1. Header font, H. Schönsperger
+   Fraktur. Type size 1 line = 14,5 mm. — Plates 417, 419, 420, 457,
+   464, 467, 469, 471.}
+
+\plate{469[1]}{IX}{1974}
+
+The plate prepared by Alodia Kawecka Gryczowa.\\
+The font table prepared by Alodia Kawecka Gryczowa.
+
+\bigskip
+
+\exampleBib{IX:1}
+
+\bigskip \exampleDesc{[MIKOŁAJ REJ]: Postylla. Kraków, Maciej Wirzbięta, [po 5 I] 1557. 2⁰.}
+  
+%   Brandenburgensis cum Hedvige Sigismundi regis Poloniae filia oratio.
+%   Kraków, Florian Ungler, [po 7 IX] 1535. 8⁰.}
+
+%  \medskip
+%  \examplePage{\textit{Karta B₄a.}}
+% Karta Pppbsa: przerywnik 8.
+%   \bigskip
+%   \exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+  \bigskip \exampleRef{\textit{Estreicher XXVI 180. Rostkowska 12.}}
+
+% %  \bigskip
+
+  \exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/383976/},
+    \url{https://www.dbc.wroc.pl/dlibra/publication/2204/}}.
+% https://www.wbc.poznan.pl/dlibra/publication/383976/edition/298223
+% https://www.dbc.wroc.pl/dlibra/publication/2204/edition/2248?language=en
+
+ % Pisma 1—5. Rubryki a—qn. Qyfry 1—3. Przerywnik 8.
+\bigskip
+
+\fontID{Wi-01}{71}
+
+\fontstat{85}
+
+% \exdisplay \bg \gla
+ \input {t72_glyphs.tex}
+%//
+%\glpismo%
+ \input {t72_glyphids.tex}
+% //
+%\endgl \xe
+
+
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 73,Wirzbięta-01u_PT11_570.djvu,Wirzbięta,01u,11,570
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Wirzbięta-01u_PT11_570_4dsed.txt:Note "1. Uzupełnienie. [570]"
+% Wirzbięta-01u_PT11_570_4dsed.txt:Note1 "Character set table prepared by Alodia Kawecka Gryczowa and Anna Wolińska"
+% Wirzbięta-01u_PT11_570_4dsed.txt:Note2 "Photo (taken at  Warsaw Public Library - Central Library of the Masovian Voivodeship) converted to
+
+
+ \pismoPL{Maciej Wirzbięta 1. Uzupełnienie. [Tabl. 570]}
+  
+ \pismoEN{Maciej Wirzbięta 1. A supplement.[Plate 570]}
+
+\plate{570[1]}{XI}{1981}
+
+The plate prepared by Alodia Kawecka Gryczowa.\\
+The font table prepared by Alodia Kawecka Gryczowa and Anna Wrońska.
+
+\bigskip
+
+% \exampleBib{IX:1}
+
+% \bigskip \exampleDesc{[MIKOŁAJ REJ]: Postylla. Kraków, Maciej Wirzbięta, [po 5 I] 1557. 2⁰.}
+  
+%   Brandenburgensis cum Hedvige Sigismundi regis Poloniae filia oratio.
+%   Kraków, Florian Ungler, [po 7 IX] 1535. 8⁰.}
+
+%  \medskip
+%  \examplePage{\textit{Karta B₄a.}}
+% Karta Pppbsa: przerywnik 8.
+%   \bigskip
+%   \exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+%  \bigskip \exampleRef{\textit{Estreicher XXVI 180. Rostkowska 12.}}
+
+% %  \bigskip
+
+  \exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/383976/},
+    \url{https://www.dbc.wroc.pl/dlibra/publication/2204/}}.
+% https://www.wbc.poznan.pl/dlibra/publication/383976/edition/298223
+% https://www.dbc.wroc.pl/dlibra/publication/2204/edition/2248?language=en
+
+ % Pisma 1—5. Rubryki a—qn. Qyfry 1—3. Przerywnik 8.
+\bigskip
+
+\fontID{Wi-01u}{73}
+
+\fontstat{4}
+
+% \exdisplay \bg \gla
+ \input {t73_glyphs.tex}
+%//
+%\glpismo%
+ \input {t73_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 74,Wirzbięta-02_PT09_469.djvu,Wirzbięta,02,09,469
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Wirzbięta-02_PT09_469_4dsed.txt:Note "2. Pismo nagłówkowe i tekstowe, fraktura H. Schönspergera. Stopień 20 ww. = ca 160 mm. — Tabl. 420, 464, 469. [469]"
+% Wirzbięta-02_PT09_469_4dsed.txt:Note1 "Character set table prepared by Alodia Kawecka Gryczowa"
+
+
+ \pismoPL{Maciej Wirzbięta 2. Pismo nagłówkowe i tekstowe, fraktura
+   H. Schönspergera. Stopień 20 ww. = ca 160 mm. — Tabl. 420, 464,
+   469. [drugi zestaw]}
+  
+ \pismoEN{Maciej Wirzbięta 2. Header font, H. Schönsperger
+   Fraktur. Type size 20 lines =  ca 160 mm. — Plates 420, 464, 469. [second set]}
+
+\plate{469[2]}{IX}{1974}
+
+The plate prepared by Alodia Kawecka Gryczowa.\\
+The font table prepared by Alodia Kawecka Gryczowa.
+
+\bigskip
+
+\exampleBib{IX:1}
+
+\bigskip \exampleDesc{[MIKOŁAJ REJ]: Postylla. Kraków, Maciej Wirzbięta, [po 5 I] 1557. 2⁰.}
+  
+%   Brandenburgensis cum Hedvige Sigismundi regis Poloniae filia oratio.
+%   Kraków, Florian Ungler, [po 7 IX] 1535. 8⁰.}
+
+%  \medskip
+%  \examplePage{\textit{Karta B₄a.}}
+% Karta Pppbsa: przerywnik 8.
+%   \bigskip
+%   \exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+  \bigskip \exampleRef{\textit{Estreicher XXVI 180. Rostkowska 12.}}
+
+% %  \bigskip
+
+  \exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/383976/},
+    \url{https://www.dbc.wroc.pl/dlibra/publication/2204/}}.
+% https://www.wbc.poznan.pl/dlibra/publication/383976/edition/298223
+% https://www.dbc.wroc.pl/dlibra/publication/2204/edition/2248?language=en
+
+ % Pisma 1—5. Rubryki a—qn. Qyfry 1—3. Przerywnik 8.
+\bigskip
+
+\fontID{Wi-02}{74}
+
+\fontstat{72}
+
+% \exdisplay \bg \gla
+ \input {t74_glyphs.tex}
+%//
+%\glpismo%
+ \input {t74_glyphids.tex}
+% //
+%\endgl \xe
+ 
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 75,Wirzbięta-02u_PT11_570.djvu,Wirzbięta,02u,11,570
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Wirzbięta-02u_PT11_570_4dsed.txt:Note "2. Uzupełnienie. [570]"
+% Wirzbięta-02u_PT11_570_4dsed.txt:Note1 "Character set table prepared by Alodia Kawecka Gryczowa and Anna Wolińska"
+
+ \pismoPL{Maciej Wirzbięta 2. Uzupełnienie. [Tabl. 570]}
+  
+ \pismoEN{Maciej Wirzbięta 2. A supplement.[Plate 570]}
+
+\plate{570[3]}{XI}{1981}
+
+The plate prepared by Alodia Kawecka Gryczowa.\\
+The font table prepared by Alodia Kawecka Gryczowa and Anna Wrońska.
+
+\bigskip
+
+% \exampleBib{IX:1}
+
+% \bigskip \exampleDesc{[MIKOŁAJ REJ]: Postylla. Kraków, Maciej Wirzbięta, [po 5 I] 1557. 2⁰.}
+  
+%   Brandenburgensis cum Hedvige Sigismundi regis Poloniae filia oratio.
+%   Kraków, Florian Ungler, [po 7 IX] 1535. 8⁰.}
+
+%  \medskip
+%  \examplePage{\textit{Karta B₄a.}}
+% Karta Pppbsa: przerywnik 8.
+%   \bigskip
+%   \exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+%  \bigskip \exampleRef{\textit{Estreicher XXVI 180. Rostkowska 12.}}
+
+% %  \bigskip
+
+  \exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/383976/},
+    \url{https://www.dbc.wroc.pl/dlibra/publication/2204/}}.
+% https://www.wbc.poznan.pl/dlibra/publication/383976/edition/298223
+% https://www.dbc.wroc.pl/dlibra/publication/2204/edition/2248?language=en
+
+ % Pisma 1—5. Rubryki a—qn. Qyfry 1—3. Przerywnik 8.
+\bigskip
+
+\fontID{Wi-02u}{75}
+
+\fontstat{12}
+
+% \exdisplay \bg \gla
+ \input {t75_glyphs.tex}
+%//
+%\glpismo%
+ \input {t75_glyphids.tex}
+% //
+%\endgl \xe
+
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 76,Wirzbięta-03_PT09_469.djvu,Wirzbięta,03,09,469
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Wirzbięta-03_PT09_469_4dsed.txt:Note "3. Pismo tekstowe, szwabacha M⁸¹, Stopień 20 ww. = 113 mm. — Tabl. 417, 419, 420, 456—458, 464, 467—470. [469]"
+% Wirzbięta-03_PT09_469_4dsed.txt:Note1 "Character set table prepared by Alodia Kawecka Gryczowa"
+
+
+ \pismoPL{Maciej Wirzbięta 3. Pismo tekstowe, szwabacha M⁸¹, Stopień
+   20 ww. = 113 mm. — Tabl. 417, 419, 420, 456—458,
+   464, 467—470. [469 trzeci zestaw]}
+  
+ \pismoEN{Maciej Wirzbięta 3. Text font, H. Schönsperger
+   Fraktur. Type size 20 lines =  113 mm. — Plates 417, 419, 420, 456--458, 464, 467-470. [469 third set]}
+
+\plate{469[3]}{IX}{1974}
+
+The plate prepared by Alodia Kawecka Gryczowa.\\
+The font table prepared by Alodia Kawecka Gryczowa.
+
+\bigskip
+
+\exampleBib{IX:1}
+
+\bigskip \exampleDesc{[MIKOŁAJ REJ]: Postylla. Kraków, Maciej Wirzbięta, [po 5 I] 1557. 2⁰.}
+  
+%   Brandenburgensis cum Hedvige Sigismundi regis Poloniae filia oratio.
+%   Kraków, Florian Ungler, [po 7 IX] 1535. 8⁰.}
+
+%  \medskip
+%  \examplePage{\textit{Karta B₄a.}}
+% Karta Pppbsa: przerywnik 8.
+%   \bigskip
+%   \exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+  \bigskip \exampleRef{\textit{Estreicher XXVI 180. Rostkowska 12.}}
+
+% %  \bigskip
+
+  \exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/383976/},
+    \url{https://www.dbc.wroc.pl/dlibra/publication/2204/}}.
+% https://www.wbc.poznan.pl/dlibra/publication/383976/edition/298223
+% https://www.dbc.wroc.pl/dlibra/publication/2204/edition/2248?language=en
+
+ % Pisma 1—5. Rubryki a—qn. Qyfry 1—3. Przerywnik 8.
+\bigskip
+
+\fontID{Wi-03}{76}
+
+\fontstat{95}
+
+% \exdisplay \bg \gla
+ \input {t76_glyphs.tex}
+%//
+%\glpismo%
+ \input {t76_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 77,Wirzbięta-03u_PT11_570.djvu,Wirzbięta,03u,11,570
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Wirzbięta-03u_PT11_570_4dsed.txt:Note "3. Uzupełnienie. [570]"
+% Wirzbięta-03u_PT11_570_4dsed.txt:Note1 "Character set table prepared by Alodia Kawecka Gryczowa and Anna Wolińska"
+
+ \pismoPL{Maciej Wirzbięta 3. Uzupełnienie. [Tabl. 570]}
+  
+ \pismoEN{Maciej Wirzbięta 3. A supplement. [Plate 570]}
+
+\plate{570[3]}{XI}{1981}
+
+The plate prepared by Alodia Kawecka Gryczowa.\\
+The font table prepared by Alodia Kawecka Gryczowa and Anna Wrońska.
+
+\bigskip
+
+% \exampleBib{IX:1}
+
+% \bigskip \exampleDesc{[MIKOŁAJ REJ]: Postylla. Kraków, Maciej Wirzbięta, [po 5 I] 1557. 2⁰.}
+  
+%   Brandenburgensis cum Hedvige Sigismundi regis Poloniae filia oratio.
+%   Kraków, Florian Ungler, [po 7 IX] 1535. 8⁰.}
+
+%  \medskip
+%  \examplePage{\textit{Karta B₄a.}}
+% Karta Pppbsa: przerywnik 8.
+%   \bigskip
+%   \exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+%  \bigskip \exampleRef{\textit{Estreicher XXVI 180. Rostkowska 12.}}
+
+% %  \bigskip
+
+  \exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/383976/},
+    \url{https://www.dbc.wroc.pl/dlibra/publication/2204/}}.
+% https://www.wbc.poznan.pl/dlibra/publication/383976/edition/298223
+% https://www.dbc.wroc.pl/dlibra/publication/2204/edition/2248?language=en
+
+ % Pisma 1—5. Rubryki a—qn. Qyfry 1—3. Przerywnik 8.
+\bigskip
+
+\fontID{Wi-03u}{77}
+
+\fontstat{1}
+
+% \exdisplay \bg \gla
+ \input {t77_glyphs.tex}
+%//
+%\glpismo%
+ \input {t77_glyphids.tex}
+% //
+%\endgl \xe
+
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 78,Wirzbięta-03uu_PT11_570.djvu,Wirzbięta,03uu,11,570 OLD
+% 78,Wirzbięta-03d_PT11_570.djvu,Wirzbięta,03uu,11,570
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Wirzbięta-03uu_PT11_570_4dsed.txt:Note "3. Uzupełnienie - cyfry. [570]"
+% Wirzbięta-03uu_PT11_570_4dsed.txt:Note1 "Character set table prepared by Alodia Kawecka Gryczowa and Anna Wolińska"
+
+ \pismoPL{Maciej Wirzbięta 3[?]. Uzupełnienie. [Tabl. 570]}
+  
+ \pismoEN{Maciej Wirzbięta 3[?]. A supplement. [Plate 570]}
+
+\plate{570[4]}{XI}{1981}
+
+The plate prepared by Alodia Kawecka Gryczowa.\\
+The font table prepared by Alodia Kawecka Gryczowa and Anna Wrońska.
+
+\bigskip
+
+% \exampleBib{IX:1}
+
+% \bigskip \exampleDesc{[MIKOŁAJ REJ]: Postylla. Kraków, Maciej Wirzbięta, [po 5 I] 1557. 2⁰.}
+  
+%   Brandenburgensis cum Hedvige Sigismundi regis Poloniae filia oratio.
+%   Kraków, Florian Ungler, [po 7 IX] 1535. 8⁰.}
+
+%  \medskip
+%  \examplePage{\textit{Karta B₄a.}}
+% Karta Pppbsa: przerywnik 8.
+%   \bigskip
+%   \exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+%  \bigskip \exampleRef{\textit{Estreicher XXVI 180. Rostkowska 12.}}
+
+% %  \bigskip
+
+  \exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/383976/},
+    \url{https://www.dbc.wroc.pl/dlibra/publication/2204/}}.
+% https://www.wbc.poznan.pl/dlibra/publication/383976/edition/298223
+% https://www.dbc.wroc.pl/dlibra/publication/2204/edition/2248?language=en
+
+ % Pisma 1—5. Rubryki a—qn. Qyfry 1—3. Przerywnik 8.
+\bigskip
+
+\fontID{Wi-03d}{78}
+
+\fontstat{10}
+
+% \exdisplay \bg \gla
+ \input {t78_glyphs.tex}
+%//
+%\glpismo%
+% names changed
+ \input {t78_glyphids.tex}
+% //
+%\endgl \xe
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 79,Wirzbięta-04_PT09_469.djvu,Wirzbięta,04,09,469
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Wirzbięta-04_PT09_469_4dsed.txt:Note "4. Pismo tekstowe, szwabacha M⁸¹, Stopień 20 ww. == 88 mm. — Tabl. 457, 468—470. [469]"
+% Wirzbięta-04_PT09_469_4dsed.txt:Note1 "Character set table prepared by Alodia Kawecka Gryczowa"
+
+
+ \pismoPL{Maciej Wirzbięta 4. Pismo tekstowe, szwabacha M⁸¹, Stopień
+   20 ww. = 88 mm. — Tabl. Tabl. 457, 468—470. [469 czwarty zestaw]}
+  
+ \pismoEN{Maciej Wirzbięta 3. Schwabacher text font M⁸¹.
+Type size 20 lines =  88 mm. — Plates 457, 468—470. [469 fourth set]}
+
+\plate{469[4]}{IX}{1974}
+
+The plate prepared by Alodia Kawecka Gryczowa.\\
+The font table prepared by Alodia Kawecka Gryczowa.
+
+\bigskip
+
+\exampleBib{IX:1}
+
+\bigskip \exampleDesc{[MIKOŁAJ REJ]: Postylla. Kraków, Maciej Wirzbięta, [po 5 I] 1557. 2⁰.}
+  
+%   Brandenburgensis cum Hedvige Sigismundi regis Poloniae filia oratio.
+%   Kraków, Florian Ungler, [po 7 IX] 1535. 8⁰.}
+
+%  \medskip
+%  \examplePage{\textit{Karta B₄a.}}
+% Karta Pppbsa: przerywnik 8.
+%   \bigskip
+%   \exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+  \bigskip \exampleRef{\textit{Estreicher XXVI 180. Rostkowska 12.}}
+
+% %  \bigskip
+
+  \exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/383976/},
+    \url{https://www.dbc.wroc.pl/dlibra/publication/2204/}}.
+% https://www.wbc.poznan.pl/dlibra/publication/383976/edition/298223
+% https://www.dbc.wroc.pl/dlibra/publication/2204/edition/2248?language=en
+
+ % Pisma 1—5. Rubryki a—qn. Qyfry 1—3. Przerywnik 8.
+\bigskip
+
+\fontID{Wi-04}{79}
+
+\fontstat{100}
+
+% \exdisplay \bg \gla
+ \input {t79_glyphs.tex}
+%//
+%\glpismo%
+ \input {t79_glyphids.tex}
+% //
+%\endgl \xe
+
+
+
+ 
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 80,Wirzbięta-04u_PT11_570.djvu,Wirzbięta,04u,11,570
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Wirzbięta-04_PT09_469_4dsed.txt:Note "4. Pismo tekstowe, szwabacha M⁸¹, Stopień 20 ww. == 88 mm. — Tabl. 457, 468—470. [469]"
+% Wirzbięta-04_PT09_469_4dsed.txt:Note1 "Character set table prepared by Alodia Kawecka Gryczowa"
+
+
+ \pismoPL{Maciej Wirzbięta 4. Pismo tekstowe, szwabacha M⁸¹, Stopień
+   20 ww. = 88 mm. — Tabl. Tabl. 457, 468—470. [469 czwarty zestaw]}
+  
+ \pismoEN{Maciej Wirzbięta 3. Schwabacher text font M⁸¹.
+Type size 20 lines =  88 mm. — Plates 457, 468—470. [469 fourth set]}
+
+\plate{570[4]}{XI}{1981}
+
+The plate prepared by Alodia Kawecka Gryczowa.\\
+The font table prepared by Alodia Kawecka Gryczowa.
+
+\bigskip
+
+\exampleBib{IX:1}
+
+\bigskip \exampleDesc{[MIKOŁAJ REJ]: Postylla. Kraków, Maciej Wirzbięta, [po 5 I] 1557. 2⁰.}
+  
+%   Brandenburgensis cum Hedvige Sigismundi regis Poloniae filia oratio.
+%   Kraków, Florian Ungler, [po 7 IX] 1535. 8⁰.}
+
+%  \medskip
+%  \examplePage{\textit{Karta B₄a.}}
+% Karta Pppbsa: przerywnik 8.
+%   \bigskip
+%   \exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+  \bigskip \exampleRef{\textit{Estreicher XXVI 180. Rostkowska 12.}}
+
+% %  \bigskip
+
+  \exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/383976/},
+    \url{https://www.dbc.wroc.pl/dlibra/publication/2204/}}.
+% https://www.wbc.poznan.pl/dlibra/publication/383976/edition/298223
+% https://www.dbc.wroc.pl/dlibra/publication/2204/edition/2248?language=en
+
+ % Pisma 1—5. Rubryki a—qn. Qyfry 1—3. Przerywnik 8.
+\bigskip
+
+\fontID{Wi-04u}{80}
+
+\fontstat{5}
+
+% \exdisplay \bg \gla
+ \input {t80_glyphs.tex}
+%//
+%\glpismo%
+ \input {t80_glyphids.tex}
+% //
+%\endgl \xe
+ 
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 81,Wirzbięta-05_PT09_469.djvu,Wirzbięta,05,09,469
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Wirzbięta-05_PT09_469_4dsed.txt:Note "5. Pismo komentarzowe, szwabacha M⁸¹. Stopień 20 ww. = 71/2 mm. — Tabl. 456, 457, 469, 470. [469]"
+% Wirzbięta-05_PT09_469_4dsed.txt:Note1 "Character set table prepared by Alodia Kawecka Gryczowa"
+
+
+ \pismoPL{Maciej Wirzbięta 5. Pismo tekstowe, szwabacha M⁸¹, Stopień
+   20 ww. = 71/2 mm. — Tabl. 456, 457, 469, 470. [469 piąty zestaw]}
+  
+ \pismoEN{Maciej Wirzbięta 5. Schwabacher text font M⁸¹.
+Type size 20 lines =  71/2 mm. — Plates 456, 457, 469, 470. [469 fifth set]}
+
+\plate{469[5]}{IX}{1974}
+
+The plate prepared by Alodia Kawecka Gryczowa.\\
+The font table prepared by Alodia Kawecka Gryczowa.
+
+\bigskip
+
+\exampleBib{IX:1}
+
+\bigskip \exampleDesc{[MIKOŁAJ REJ]: Postylla. Kraków, Maciej Wirzbięta, [po 5 I] 1557. 2⁰.}
+  
+%   Brandenburgensis cum Hedvige Sigismundi regis Poloniae filia oratio.
+%   Kraków, Florian Ungler, [po 7 IX] 1535. 8⁰.}
+
+%  \medskip
+%  \examplePage{\textit{Karta B₄a.}}
+% Karta Pppbsa: przerywnik 8.
+%   \bigskip
+%   \exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+  \bigskip \exampleRef{\textit{Estreicher XXVI 180. Rostkowska 12.}}
+
+% %  \bigskip
+
+  \exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/383976/},
+    \url{https://www.dbc.wroc.pl/dlibra/publication/2204/}}.
+% https://www.wbc.poznan.pl/dlibra/publication/383976/edition/298223
+% https://www.dbc.wroc.pl/dlibra/publication/2204/edition/2248?language=en
+
+ % Pisma 1—5. Rubryki a—qn. Qyfry 1—3. Przerywnik 8.
+\bigskip
+
+\fontID{Wi-05}{81}
+
+\fontstat{80}
+
+% \exdisplay \bg \gla
+ \input {t81_glyphs.tex}
+%//
+%\glpismo%
+ \input {t81_glyphids.tex}
+% //
+%\endgl \xe
+ 
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 82,Wirzbięta-05u_PT11_570.djvu,Wirzbięta,05u,11,570
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Wirzbięta-05u_PT11_570_4dsed.txt:Note "5. Uzupełnienie. [570]"
+% Wirzbięta-05u_PT11_570_4dsed.txt:Note1 "Character set table prepared by Alodia Kawecka Gryczowa and Anna Wolińska"
+
+ \pismoPL{Maciej Wirzbięta 5. Uzupełnienie. [Tabl. 570]}
+  
+ \pismoEN{Maciej Wirzbięta 5. A supplement. [Plate 570]}
+
+\plate{570[5]}{XI}{1981}
+
+The plate prepared by Alodia Kawecka Gryczowa.\\
+The font table prepared by Alodia Kawecka Gryczowa and Anna Wrońska.
+
+\bigskip
+
+% \exampleBib{IX:1}
+
+% \bigskip \exampleDesc{[MIKOŁAJ REJ]: Postylla. Kraków, Maciej Wirzbięta, [po 5 I] 1557. 2⁰.}
+  
+%   Brandenburgensis cum Hedvige Sigismundi regis Poloniae filia oratio.
+%   Kraków, Florian Ungler, [po 7 IX] 1535. 8⁰.}
+
+%  \medskip
+%  \examplePage{\textit{Karta B₄a.}}
+% Karta Pppbsa: przerywnik 8.
+%   \bigskip
+%   \exampleLib{Biblioteka Jagiellońska. Kraków.}
+
+%  \bigskip \exampleRef{\textit{Estreicher XXVI 180. Rostkowska 12.}}
+
+% %  \bigskip
+
+  \exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/383976/},
+    \url{https://www.dbc.wroc.pl/dlibra/publication/2204/}}.
+% https://www.wbc.poznan.pl/dlibra/publication/383976/edition/298223
+% https://www.dbc.wroc.pl/dlibra/publication/2204/edition/2248?language=en
+
+ % Pisma 1—5. Rubryki a—qn. Qyfry 1—3. Przerywnik 8.
+\bigskip
+
+\fontID{Wi-05u}{82}
+
+\fontstat{10}
+
+% \exdisplay \bg \gla
+ \input {t82_glyphs.tex}
+%//
+%\glpismo%
+ \input {t82_glyphids.tex}
+% //
+%\endgl \xe
+
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 83,Wirzbięta-09_PT11_562.djvu,Wirzbięta,09,11,562
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Wirzbięta-09_PT11_562_4dsed.txt:Note "9. Pismo tekstowe, antykwa. Stopień 20 ww. 92 mm. — Tabl. 458, 514, 515, 562, 568. [562]"
+% Wirzbięta-09_PT11_562_4dsed.txt:Note1 "Character set table prepared by Anna Wolińska"
+
+
+ \pismoPL{Maciej Wirzbięta 9. Pismo tekstowe, antykwa. Stopień 20
+   ww. 92 mm. — Tabl. 458, 514, 515, 562, 568.}
+  
+ \pismoEN{Maciej Wirzbięta 5. Roman text font.
+Type size 20 lines =  92 mm. — Plates 458, 514, 515, 562, 568.}
+
+\plate{562}{XI}{1981}
+
+The plate prepared by Alodia Kawecka Gryczowa.\\
+The font table prepared by Alodia Kawecka Gryczowa and Anna Wolińska.
+
+\bigskip
+
+\exampleBib{IX:77}
+
+\bigskip \exampleDesc{ANDRZEJ WOLAN: De libertate politica sive
+  civii. — Acc. Augustinus Rotundus [Mieleski]: [Epistola] Generoso
+  Domino Andreae Volano... Dat. 10 XII 1571  etc. Kraków, Maciej
+  Wirzbięta, [po 5 I| 1572. 4⁰.}
+
+
+  \medskip
+  \examplePage{\textit{Karta O₄b.}}
+
+  \bigskip \exampleRef{\textit{Estreicher XXAIII 245.}}
+
+  \bigskip
+
+  \exampleDig{\url{https://www.dbc.wroc.pl/dlibra/doccontent?id=7489} page  ???}
+
+    %https://wbc.poznan.pl/dlibra/publication/320603/edition/263343 brak!?
+
+% https://neriton.pl/produkt/de-libertate-politica-sive-civili-stanislaw-dubingowicz-o-wolnosci-rzeczypospolitej-slacheckiej-wyd-m-eder-r-mazurkiewicz-red-j-axer/
+    
+
+\bigskip
+
+\fontID{Wi-09}{83}
+
+\fontstat{126}
+
+% \exdisplay \bg \gla
+ \input {t83_glyphs.tex}
+%//
+%\glpismo%
+ \input {t83_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 84,Wirzbięta-10+8_PT11_563.djvu,Wirzbięta,10+8,11,563
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Wirzbięta-10+8_PT11_563_4dsed.txt:Note "10. Pismo tekstowe, antykwa. Stopień 20 ww. == 113/114 mm. Zob. p. 8. — Tabl. 494, 514, 522, 529, % 563, 568. [563]"
+% Wirzbięta-10+8_PT11_563_4dsed.txt:Note0 "8. Antykwa polska dorobiona do pisma 10. — Tabl. 458. Zob. p. 10."
+% Wirzbięta-10+8_PT11_563_4dsed.txt:Note1 "Character set table prepared by Anna Śliwa"
+
+
+ \pismoPL{Maciej Wirzbięta 10. Pismo tekstowe, antykwa. Stopień 20 ww. == 113/114 mm. Zob. p. 8. — Tabl. 494, 514, 522, 529,  563, 568.}
+ \pismoPL{Maciej Wirzbięta 8. Antykwa polska dorobiona do pisma 10. — Tabl. 458. Zob. p. 10.}
+  
+ \pismoEN{Maciej Wirzbięta 10. Roman text font. 
+Type size 20 lines =  113/114 mm. — See font 8. — Plates 494, 514, 522, 529,  563, 568.}
+
+ \pismoEN{Maciej Wirzbięta 8. Roman Polish font supplementing font 10. Plates. 458. See font 10.}
+
+
+\plate{563}{XI}{1981}
+
+The plate prepared by Alodia Kawecka Gryczowa.\\
+The font table prepared by Alodia Kawecka Gryczowa and Anna Śliwa.
+
+\bigskip
+
+\exampleBib{IX:14}
+
+\bigskip \exampleDesc{[MIKOŁAJ REJ]: Zwierzyniec. [Wyd. 1]. Kraków, Maciej Wirzbięta, [1561/1562]. 4⁰.}
+
+
+  \medskip
+  \examplePage{\textit{Karta A₂b.}}
+
+  \bigskip \exampleRef{\textit{Estreicher XXVI 178, 189-190. Rostkowska 31.}}
+
+  \bigskip
+
+%  \exampleDig{\url{https://polona.pl/preview/75bc2fa5-636e-468d-a04c-f3ce81264f15}
+
+
+
+%   Pismo 11: wiersz 1-2, wersalik N w wierszu 3. 
+
+\bigskip
+
+\fontID{Wi-10+8}{84}
+
+\fontstat{105}
+
+% \exdisplay \bg \gla
+ \input {t84_glyphs.tex}
+%//
+%\glpismo%
+ \input {t84_glyphids.tex}
+% //
+%\endgl \xe
+ 
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 85,Wirzbięta-11+11a_PT11_564.djvu,Wirzbięta,11+11a,11,564
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Wirzbięta-11+11a_PT11_564_4dsed.txt:Note "11. Wersaliki tytułowe, antykwa. Wysokość 7 mm. — Tabl. 514, 522, 529, 540, 563, 564, 568. [564]"
+% Wirzbięta-11+11a_PT11_564_4dsed.txt:Note0 "11a. Wersaliki tytułowe greckie, dorobione do p. 11. — Tabl. 564."
+%Wirzbięta-11+11a_PT11_564_4dsed.txt:Note1 "Character set table prepared by Anna Śliwa"
+
+ \pismoPL{Maciej Wirzbięta 11. Wersaliki tytułowe, antykwa. Wysokość 7
+   mm. — Tabl. 514, 522, 529, 540, 563, 564 [pierwszy zestaw], 568.}
+
+ \pismoPL{Maciej Wirzbięta 11a. Wersaliki tytułowe greckie, dorobione
+   do p. 11. — Tabl. 564 [first set].}
+  
+ \pismoEN{Maciej Wirzbięta 10. Roman capital font.  Type size [1
+   line?] = 7 mm. — Plates 514, 522, 529, 540, 563, 564, 568.}
+
+ \pismoEN{Maciej Wirzbięta 11a. Greek capital font supplementing font 11. Plates 564}
+
+
+\plate{564[1]}{XI}{1981}
+
+The plate prepared by Alodia Kawecka Gryczowa.\\
+The font table prepared by Alodia Kawecka Gryczowa and Anna Śliwa
+
+\bigskip
+
+\exampleBib{IX:109}
+
+\bigskip \exampleDesc{ALEXANDER GUAGNINUS: Sarmatiae Europeae descriptio.
+Kraków, Maciej Wirzbięta, [po 20 VI 1578]. 2⁰.}
+
+
+  \medskip
+  \examplePage{\textit{Karta aaa₁a}}
+
+  \bigskip \exampleRef{\textit{Estreicher XVII 484. Wierzbowski 729. Horyniec 83.}
+
+  \bigskip
+
+  \exampleDig{\url{https://www.dbc.wroc.pl/dlibra/doccontent?id=5021} page  224}
+
+  
+%  https://wbc.poznan.pl/dlibra/publication/493318/edition/425366?language=pl brak
+
+
+%  Pismo Ir, Ira: zestaw 1. —Pismo 12: zestaw 2 i kolumna. —Przerywnik 20.
+
+
+\bigskip
+
+\fontID{Wi-11+11a}{85}
+
+\fontstat{31}
+
+% \exdisplay \bg \gla
+ \input {t85_glyphs.tex}
+%//
+%\glpismo%
+ \input {t85_glyphids.tex}
+% //
+%\endgl \xe
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 86,Wirzbięta-12_PT11_564.djvu,Wirzbięta,12,11,564
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Wirzbięta-12_PT11_564_4dsed.txt:Note "12. Pismo nagłówkowe, antykwa. Stopień 5 ww. = 70 mm, wersaliki 10 mm. — Tabl. 522, 529-532, 540, 543, 556, 564. [564]"
+% Wirzbięta-12_PT11_564_4dsed.txt:Note1 "Character set table prepared by Anna Śliwa"
+
+ \pismoPL{Maciej Wirzbięta 12. Pismo nagłówkowe, antykwa. Stopień 5
+   ww. = 70 mm, wersaliki 10 mm. — Tabl. 522, 529-532, 540, 543, 556,
+   564 [drugi zestaw].}
+
+ % \pismoPL{Maciej Wirzbięta 11a. Wersaliki tytułowe
+ %   greckie, dorobione do p. 11. — Tabl. 564.}
+  
+ \pismoEN{Maciej Wirzbięta 12. Roman header font.  Type size 5
+   lines = 70 mm, capitals 10 mm. — Plates Tabl. 522, 529-532, 540, 543, 556,
+   564 [second set].}
+
+% \pismoEN{Maciej Wirzbięta 11a. Greek capital font supplementing font 11. Plates 564}
+
+
+\plate{564[2]}{XI}{1981}
+
+The plate prepared by Alodia Kawecka Gryczowa.\\
+The font table prepared by Alodia Kawecka Gryczowa and Anna Śliwa.
+
+\bigskip
+
+\exampleBib{IX:109}
+
+\bigskip \exampleDesc{ALEXANDER GUAGNINUS: Sarmatiae Europeae descriptio.
+Kraków, Maciej Wirzbięta, [po 20 VI 1578]. 2⁰.}
+
+
+  \medskip
+  \examplePage{\textit{Karta aaa₁a}}
+
+  \bigskip \exampleRef{\textit{Estreicher XVII 484. Wierzbowski 729. Horyniec 83.}
+
+  \bigskip
+
+  \exampleDig{\url{https://www.dbc.wroc.pl/dlibra/doccontent?id=5021} page  224}
+
+  
+%  https://wbc.poznan.pl/dlibra/publication/493318/edition/425366?language=pl brak
+
+
+%  Pismo Ir, Ira: zestaw 1. —Pismo 12: zestaw 2 i kolumna. —Przerywnik 20.
+
+
+\bigskip
+
+\fontID{Wi-12}{86}
+
+\fontstat{31}
+
+% \exdisplay \bg \gla
+ \input {t86_glyphs.tex}
+%//
+%\glpismo%
+ \input {t86_glyphids.tex}
+% //
+%\endgl \xe
+ 
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 87,Wirzbięta-13_PT11_565.djvu,Wirzbięta,13,11,565
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Wirzbięta-13_PT11_565_4dsed.txt:Note "13. Pismo komentarzowe, kursywa. Stopień 20 ww. = 76 mm. — Tabl. 565."
+% Wirzbięta-13_PT11_565_4dsed.txt:Note1 "Character set table prepared by Anna Wolińska"
+
+ \pismoPL{Maciej Wirzbięta 13. Pismo komentarzowe, kursywa. Stopień 20 ww. = 76 mm. — Tabl. 565 [pierwszy zestaw].}
+
+ % \pismoPL{Maciej Wirzbięta 11a. Wersaliki tytułowe
+ %   greckie, dorobione do p. 11. — Tabl. 564.}
+  
+ \pismoEN{Maciej Wirzbięta 13. Cursive comment font.  Type size 20
+   lines = 76 mm. — Plate 565 [first set].}
+   564.}
+
+% \pismoEN{Maciej Wirzbięta 11a. Greek capital font supplementing font 11. Plates 564}
+
+
+\plate{565[1]}{XI}{1981}
+
+The plate prepared by Alodia Kawecka Gryczowa.\\
+The font table prepared by Alodia Kawecka Gryczowa and Anna Wolińska}
+
+\bigskip
+
+% \exampleBib{IX:17}
+
+% \bigskip \exampleDesc{ANDRZEJ FRYCZ MODRZEWSKI: Orichovius sive depulsio calumniarum Stanislai Orichovii.
+% [Kraków, Maciej Wirzbięta, po 24 XII 1562]. 8⁰.}
+
+
+%   \medskip
+%   \examplePage{\textit{Karta F₂a}}
+
+% \exampleLib{Biblioteka Narodowa. Warszawa.}
+  
+  % \bigskip \exampleRef{\textit{Estreicher Estreicher XXII 491. Andrzej Frycz Modrzewski. Bibliografia I 26.}
+
+  % \bigskip
+
+  % \exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/494486} page 87}
+
+% Pismo 13: zestaw pierwszy. — Pismo 14: kolumna i zestaw drugi. — Przerywnik 25% pod zestawem pisma 13.
+
+
+
+\bigskip
+
+\fontID{Wi-13}{87}
+
+\fontstat{62}
+
+% \exdisplay \bg \gla
+ \input {t87_glyphs.tex}
+%//
+%\glpismo%
+ \input {t87_glyphids.tex}
+% //
+
+
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 88,Wirzbięta-14_PT11_565.djvu,Wirzbięta,14,11,565
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Wirzbięta-14_PT11_565_4dsed.txt:Note "14. Pismo tekstowe, kursywa. Stopień 20 ww. = 88/89 mm. — Tabl. 487, 493, 494, 521-523, 540, 561, 565, 568. [565]"
+% Wirzbięta-14_PT11_565_4dsed.txt:Note1 "Character set table prepared by Anna Wolińska"
+
+ \pismoPL{Maciej Wirzbięta 14. Pismo tekstowe, kursywa. Stopień 20
+   ww. = 88/89 mm. — Tabl. 487, 493, 494, 521-523, 540, 561, 565,
+   568. [Tabl. 565 drugi zestaw].}
+
+ % \pismoPL{Maciej Wirzbięta 11a. Wersaliki tytułowe
+ %   greckie, dorobione do p. 11. — Tabl. 564.}
+  
+ \pismoEN{Maciej Wirzbięta 14. Cursive text font.  Type size 20 lines
+   = 88/89 mm. — Plate 487, 493, 494, 521-523, 540, 561, 565, 568
+   [plate 565 second set].}
+
+
+% \pismoEN{Maciej Wirzbięta 11a. Greek capital font supplementing font 11. Plates 564}
+
+
+\plate{565[2]}{XI}{1981}
+
+The plate prepared by Alodia Kawecka Gryczowa.\\
+The font table prepared by Alodia Kawecka Gryczowa and Anna Wolińska.
+
+\bigskip
+
+\exampleBib{IX:17}
+
+\bigskip \exampleDesc{ANDRZEJ FRYCZ MODRZEWSKI: Orichovius sive depulsio calumniarum Stanislai Orichovii.
+[Kraków, Maciej Wirzbięta, po 24 XII 1562]. 8⁰.}
+
+
+  \medskip
+  \examplePage{\textit{Karta F₂a}}
+
+\exampleLib{Biblioteka Narodowa. Warszawa.}
+  
+  \bigskip \exampleRef{\textit{Estreicher Estreicher XXII 491. Andrzej Frycz Modrzewski. Bibliografia I 26.}
+
+  \bigskip
+
+  \exampleDig{\url{https://www.wbc.poznan.pl/dlibra/publication/494486} page 87}
+
+% Pismo 13: zestaw pierwszy. — Pismo 14: kolumna i zestaw drugi. — Przerywnik 25% pod zestawem pisma 13.
+
+
+
+\bigskip
+
+\fontID{Wi-14}{88}
+
+\fontstat{133}
+
+% \exdisplay \bg \gla
+ \input {t88_glyphs.tex}
+%//
+%\glpismo%
+ \input {t88_glyphids.tex}
+% //
+%\endgl \xe
+ 
+ \newpage
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% from meta.csv
+% 89,Wirzbięta-15_PT11_566.djvu,Wirzbięta,15,11,566
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+% from dsed4test:
+% Wirzbięta-15_PT11_566_4dsed.txt:Note "15. Pismo tekstowe, kursywa. Stopień 20 ww. = 113/114. mm. — Tabl. 494, 514, 521, 522, 566, 567. [566]"
+% Wirzbięta-15_PT11_566_4dsed.txt:Note1 "Character set table prepared by Anna Wolińska"
+
+ \pismoPL{Maciej Wirzbięta 15. Pismo tekstowe, kursywa. Stopień 20 ww. = 113/114. mm. — Tabl. 494, 514, 521, 522, 566, 567.}
+
+ % \pismoPL{Maciej Wirzbięta 11a. Wersaliki tytułowe
+ %   greckie, dorobione do p. 11. — Tabl. 564.}
+  
+ \pismoEN{Maciej Wirzbięta 14. Cursive text font.  Type size 20 lines
+   = 113/114 mm. — Plates 494, 514, 521, 522, 566, 567.}
+
+
+% \pismoEN{Maciej Wirzbięta 11a. Greek capital font supplementing font 11. Plates 564}
+
+
+\plate{566}{XI}{1981}
+
+The plate prepared by Alodia Kawecka Gryczowa.\\
+The font table prepared by Alodia Kawecka Gryczowa and Anna Wolińska}
+
+\bigskip
+
+\exampleBib{IX:77}
+
+\bigskip \exampleDesc{ANDRZEJ WOLAN: De libertate politica sive
+  civili. — \textit{Acc}. Augustinus Rotundus [Mieleski]: [Epistola]
+  Generoso Domino Andreae Volano... Dat. 10 XII 1571 etc. Kraków,
+  Maciej Wirzbięta, [po 5 1] 1572. 4⁰.}
+
+
+  \medskip
+  \examplePage{\textit{Karta F₂a}}
+
+\exampleLib{Biblioteka Jagiellońska. Kraków.}
+  
+  \bigskip \exampleRef{\textit{Estreicher XXXIII 245.}}
+
+  \bigskip
+
+    \exampleDig{\url{https://www.dbc.wroc.pl/dlibra/doccontent?id=7489} page  ???}
+
+
+\bigskip
+
+\fontID{Wi-15}{89}
+
+\fontstat{129}
+
+% \exdisplay \bg \gla
+ \input {t89_glyphs.tex}
+%//
+%\glpismo%
+ \input {t89_glyphids.tex}
+% //
+%\endgl \xe
+
+\end{document}
+
+
+%%% Local Variables: 
+%%% coding: utf-8-unix
+%%% mode: latex
+%%% TeX-master: t
+%%% TeX-PDF-mode: t
+%%% TeX-engine: xetex
+%%% End: 
