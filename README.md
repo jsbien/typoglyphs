@@ -7,4 +7,4 @@ into images of individual glyphs, which were used to reconstruct the
 tables in a *LuaLaTeX* document. The images can also be browsed using
 the *geeqie* program or a similar tool.
 
-![Qeegie screenshot](geeqie/geeqie.png.png?raw=true "Qeegie screenshot")
+![Qeegie screenshot](geeqie/geeqie.png?raw=true "Qeegie screenshot")
