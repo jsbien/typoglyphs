@@ -26,12 +26,21 @@
     <div id="lightbox-caption"></div>
   </div>
 
-  <!-- ✅ Load CSS + JS with cache-busting version -->
+  <!-- ✅ Load CSS + JS with cache-busting timestamp -->
   <script>
-    const v = "2025-10-02-2"; // version marker
+    // Generate version string as YYYY-MM-DD-HHMMSS
+    const now = new Date();
+    const v = now.getFullYear() + "-" +
+              String(now.getMonth() + 1).padStart(2, "0") + "-" +
+              String(now.getDate()).padStart(2, "0") + "-" +
+              String(now.getHours()).padStart(2, "0") +
+              String(now.getMinutes()).padStart(2, "0") +
+              String(now.getSeconds()).padStart(2, "0");
+
     // Show version in badge
     document.getElementById("version").innerText = v;
-    // Load CSS + JS with version
+
+    // Load CSS and JS with version to break cache
     document.getElementById("css-link").href = `style.css?v=${v}`;
     const s = document.createElement("script");
     s.src = `script.js?v=${v}`;
