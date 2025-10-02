@@ -1,11 +1,5 @@
-// ✅ Version marker
-const APP_VERSION = "2025-10-02-2";
-
-document.addEventListener("DOMContentLoaded", () => {
-  const versionEl = document.getElementById("version");
-  if (versionEl) versionEl.textContent = APP_VERSION;
-});
-console.log("script.js loaded, version:", APP_VERSION);
+// ✅ Version marker (auto-set by index.html now)
+console.log("script.js loaded");
 
 const gallery = document.getElementById("gallery");
 const descContent = document.getElementById("desc-content");
@@ -22,7 +16,7 @@ function parseCSV(csv) {
   return rows.map(line => {
     const fields = line.split(",");
     while (fields.length < headers.length) {
-      fields.push("");
+      fields.push(""); // fill missing trailing fields
     }
     return Object.fromEntries(fields.map((v, i) => [headers[i], fields[i].trim()]));
   });
@@ -85,6 +79,7 @@ async function loadMarkdown(entry) {
     const res = await fetch(url);
     if (!res.ok) throw new Error("Not found");
     const md = await res.text();
+    console.log("Fetched markdown length:", md.length);
     descContent.innerHTML = marked.parse(md);
   } catch (err) {
     descContent.innerHTML = `<div class="loading">No description found.</div>`;
