@@ -28,7 +28,10 @@
 
   <!-- ✅ Load CSS + JS with cache-busting version -->
   <script>
-    const v = "2025-10-02-2"; // keep in sync with APP_VERSION
+    const v = "2025-10-02-2"; // version marker
+    // Show version in badge
+    document.getElementById("version").innerText = v;
+    // Load CSS + JS with version
     document.getElementById("css-link").href = `style.css?v=${v}`;
     const s = document.createElement("script");
     s.src = `script.js?v=${v}`;
