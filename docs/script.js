@@ -25,10 +25,10 @@ function createGalleryItem(entry) {
 
   const img = document.createElement("img");
   img.src = `https://raw.githubusercontent.com/jsbien/typoglyphs/main/${entry.image_path}`;
-  img.alt = entry["glyph-id"];
+  img.alt = entry["glyph_id"];
 
   const label = document.createElement("div");
-  label.textContent = entry["glyph-id"];
+  label.textContent = entry["glyph_id"];
 
   div.appendChild(img);
   div.appendChild(label);
@@ -38,14 +38,14 @@ function createGalleryItem(entry) {
 }
 
 async function loadMarkdown(entry) {
-  descContent.innerHTML = `<div class="loading">Loading description for <strong>${entry["glyph-id"]}</strong>...</div>`;
+  descContent.innerHTML = `<div class="loading">Loading description for <strong>${entry["glyph_id"]}</strong>...</div>`;
 
   const tryPath = entry["has_description"].trim() === "1"
     ? entry["description_path"]
     : entry["keyword_path"];
 
   try {
-    const res = await fetch(tryPath);
+    const res = await fetch(`https://raw.githubusercontent.com/jsbien/typoglyphs/main/${tryPath}`);
     if (!res.ok) throw new Error("Not found");
     const md = await res.text();
     descContent.innerHTML = marked.parse(md);
@@ -60,6 +60,7 @@ async function initGallery() {
     data.forEach(createGalleryItem);
   } catch (err) {
     gallery.innerHTML = `<div class="loading">Failed to load CSV index.</div>`;
+    console.error("CSV load error:", err);
   }
 }
 
