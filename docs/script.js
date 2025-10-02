@@ -13,7 +13,7 @@ function parseCSV(csv) {
   return rows.map(line => {
     const fields = line.split(",");
     while (fields.length < headers.length) {
-      fields.push(""); // fill missing trailing fields with empty string
+      fields.push(""); // fill missing trailing fields
     }
     return Object.fromEntries(fields.map((v, i) => [headers[i], fields[i]]));
   });
@@ -35,7 +35,12 @@ function createGalleryItem(entry) {
   div.appendChild(img);
   div.appendChild(label);
 
-  div.onclick = () => loadMarkdown(entry);
+  // On click → show description + lightbox
+  div.onclick = () => {
+    loadMarkdown(entry);
+    openLightbox(entry);
+  };
+
   gallery.appendChild(div);
 }
 
@@ -55,6 +60,29 @@ async function loadMarkdown(entry) {
     descContent.innerHTML = `<div class="loading">No description found.</div>`;
   }
 }
+
+/* 🔍 Lightbox functions */
+function openLightbox(entry) {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxCaption = document.getElementById("lightbox-caption");
+
+  lightboxImg.src = `https://raw.githubusercontent.com/jsbien/typoglyphs/main/${entry.image_path}`;
+  lightboxImg.alt = entry["glyph_id"];
+  lightboxCaption.textContent = entry["glyph_id"];
+
+  lightbox.style.display = "flex";
+}
+
+document.getElementById("lightbox-close").onclick = () => {
+  document.getElementById("lightbox").style.display = "none";
+};
+
+document.getElementById("lightbox").onclick = (e) => {
+  if (e.target.id === "lightbox") {
+    document.getElementById("lightbox").style.display = "none";
+  }
+};
 
 async function initGallery() {
   try {

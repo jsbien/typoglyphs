@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Typoglyphs Gallery</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
+  <h1>Typoglyphs Gallery</h1>
 
-  <div class="gallery-container">
-    <div class="gallery" id="gallery">
-      <!-- Images will be injected here -->
-    </div>
-    <div class="description-panel" id="desc-panel">
-      <h2>Glyph Description</h2>
-      <div id="desc-content" class="loading">Click on a glyph to view details.</div>
-    </div>
+  <div id="gallery" class="gallery"></div>
+  <div id="description" class="description">
+    <h2>Description</h2>
+    <div id="desc-content">Click on a glyph to see details</div>
+  </div>
+
+  <!-- 🔍 Lightbox overlay -->
+  <div id="lightbox" class="lightbox">
+    <span id="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+    <div id="lightbox-caption"></div>
   </div>
 
   <script src="script.js"></script>
