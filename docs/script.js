@@ -2,7 +2,7 @@ const gallery = document.getElementById("gallery");
 const descContent = document.getElementById("desc-content");
 
 async function loadCSV() {
-  const res = await fetch("typoglyphs.csv");
+  const res = await fetch("typoglyphs.txt");
   const text = await res.text();
   return parseCSV(text);
 }
