@@ -12,6 +12,10 @@ function parseCSV(csv) {
   const headers = rows.shift().split(",");
   return rows.map(line => {
     const fields = line.split(",");
+    // Fill missing trailing fields with empty strings
+    while (fields.length < headers.length) {
+      fields.push("");
+    }
     return Object.fromEntries(fields.map((v, i) => [headers[i], v]));
   });
 }
