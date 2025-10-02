@@ -41,9 +41,9 @@ function createGalleryItem(entry) {
 async function loadMarkdown(entry) {
   descContent.innerHTML = `<div class="loading">Loading description for <strong>${entry["glyph-id"]}</strong>...</div>`;
 
-  const tryPath = entry.has_description === "1"
-    ? `${entry.description_path}`
-    : `${entry.keyword_path}`;
+  const tryPath = entry["has_description"].trim() === "1"
+    ? entry["description_path"]
+    : entry["keyword_path"];
 
   try {
     const res = await fetch(tryPath);
