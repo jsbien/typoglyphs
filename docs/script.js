@@ -20,6 +20,8 @@ function parseCSV(csv) {
 }
 
 function createGalleryItem(entry) {
+  console.log("Parsed entry:", entry); // 🔍 Debugging log
+
   const div = document.createElement("div");
   div.className = "item";
 
