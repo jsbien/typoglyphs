@@ -1,4 +1,12 @@
-console.log("script.js loaded");
+// ✅ Version marker
+const APP_VERSION = "2025-10-02-1";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const versionEl = document.getElementById("version");
+  if (versionEl) versionEl.textContent = APP_VERSION;
+});
+
+console.log("script.js loaded, version:", APP_VERSION);
 
 const gallery = document.getElementById("gallery");
 const descContent = document.getElementById("desc-content");
