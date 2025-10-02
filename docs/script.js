@@ -22,9 +22,9 @@ function parseCSV(csv) {
   return rows.map(line => {
     const fields = line.split(",");
     while (fields.length < headers.length) {
-      fields.push(""); // fill missing trailing fields
+      fields.push("");
     }
-    return Object.fromEntries(fields.map((v, i) => [headers[i], fields[i]]));
+    return Object.fromEntries(fields.map((v, i) => [headers[i], fields[i].trim()]));
   });
 }
 
