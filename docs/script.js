@@ -70,8 +70,19 @@ async function loadMarkdown(entry) {
     ? entry["description_path"]
     : entry["keyword_path"];
 
+  console.log("Resolved tryPath for", entry["glyph_id"], "=", JSON.stringify(tryPath));
+
   try {
-    const res = await fetch(`https://raw.githubusercontent.com/jsbien/typoglyphs/main/${tryPath}`);
+    if (!tryPath) {
+      console.warn("No path available for", entry["glyph_id"]);
+      descContent.innerHTML = `<div class="loading">No description found (empty path).</div>`;
+      return;
+    }
+
+    const url = `https://raw.githubusercontent.com/jsbien/typoglyphs/main/${tryPath}`;
+    console.log("Fetching:", url);
+
+    const res = await fetch(url);
     if (!res.ok) throw new Error("Not found");
     const md = await res.text();
     descContent.innerHTML = marked.parse(md);
