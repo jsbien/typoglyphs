@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.gallery-container {
+  display: flex;
+  height: 100vh;
+}
+
+.gallery {
+  width: 70%;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  gap: 12px;
+  background: #f9f9f9;
+}
+
+.item {
+  width: 120px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.item img {
+  max-width: 100px;
+  max-height: 100px;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+.description-panel {
+  width: 30%;
+  padding: 20px;
+  border-left: 1px solid #ccc;
+  overflow-y: scroll;
+  background: #fff;
+}
+
+.loading {
+  font-style: italic;
+  color: #777;
+}
