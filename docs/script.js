@@ -9,13 +9,9 @@ async function loadCSV() {
 
 function parseCSV(csv) {
   const rows = csv.trim().split("\n");
-  const headers = rows.shift().split(",");
+  const headers = ['glyph_id', 'image_path', 'keyword_path', 'has_description', 'description_path'];
   return rows.map(line => {
     const fields = line.split(",");
-    // Fill missing trailing fields with empty strings
-    while (fields.length < headers.length) {
-      fields.push("");
-    }
     return Object.fromEntries(fields.map((v, i) => [headers[i], v]));
   });
 }
