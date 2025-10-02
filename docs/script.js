@@ -1,3 +1,5 @@
+console.log("script.js loaded");
+
 const gallery = document.getElementById("gallery");
 const descContent = document.getElementById("desc-content");
 
@@ -34,13 +36,14 @@ function createGalleryItem(entry) {
   label.textContent = entry["glyph_id"];
   label.style.cursor = "pointer";
 
-  // 🔍 Clicking image opens fullscreen
+  // 🔍 Clicking image opens fullscreen AND updates metadata
   img.onclick = (e) => {
     e.stopPropagation();
     openLightbox(entry);
+    loadMarkdown(entry);
   };
 
-  // 📖 Clicking label loads metadata panel
+  // 📖 Clicking label updates metadata only
   label.onclick = (e) => {
     e.stopPropagation();
     loadMarkdown(entry);
