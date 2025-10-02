@@ -21,7 +21,7 @@ function createGalleryItem(entry) {
   div.className = "item";
 
   const img = document.createElement("img");
-  img.src = `../${entry.image_path}`;
+  img.src = `${entry.image_path}`;
   img.alt = entry["glyph-id"];
 
   const label = document.createElement("div");
@@ -38,8 +38,8 @@ async function loadMarkdown(entry) {
   descContent.innerHTML = `<div class="loading">Loading description for <strong>${entry["glyph-id"]}</strong>...</div>`;
 
   const tryPath = entry.has_description === "1"
-    ? `../${entry.description_path}`
-    : `../${entry.keyword_path}`;
+    ? `${entry.description_path}`
+    : `${entry.keyword_path}`;
 
   try {
     const res = await fetch(tryPath);
