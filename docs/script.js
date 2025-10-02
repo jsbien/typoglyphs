@@ -25,7 +25,7 @@ function createGalleryItem(entry) {
   div.className = "item";
 
   const img = document.createElement("img");
-  img.src = `${entry.image_path}`;
+  img.src = `https://raw.githubusercontent.com/jsbien/typoglyphs/main/${entry.image_path}`;
   img.alt = entry["glyph-id"];
 
   const label = document.createElement("div");
