@@ -78,3 +78,11 @@ body {
   border-radius: 4px;
   z-index: 2000;
 }
+
+/* ✅ Glyph label clickable styling */
+.glyph-label {
+  color: #0056cc;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 5px;
+}

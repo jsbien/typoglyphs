@@ -1,11 +1,10 @@
 // ✅ Version marker
-const APP_VERSION = "2025-10-02-1";
+const APP_VERSION = "2025-10-02-2";
 
 document.addEventListener("DOMContentLoaded", () => {
   const versionEl = document.getElementById("version");
   if (versionEl) versionEl.textContent = APP_VERSION;
 });
-
 console.log("script.js loaded, version:", APP_VERSION);
 
 const gallery = document.getElementById("gallery");
@@ -42,18 +41,16 @@ function createGalleryItem(entry) {
 
   const label = document.createElement("div");
   label.textContent = entry["glyph_id"];
-  label.style.cursor = "pointer";
+  label.className = "glyph-label";
 
   // 🔍 Clicking image opens fullscreen AND updates metadata
-  img.onclick = (e) => {
-    e.stopPropagation();
+  img.onclick = () => {
     openLightbox(entry);
     loadMarkdown(entry);
   };
 
   // 📖 Clicking label updates metadata only
-  label.onclick = (e) => {
-    e.stopPropagation();
+  label.onclick = () => {
     loadMarkdown(entry);
   };
 
