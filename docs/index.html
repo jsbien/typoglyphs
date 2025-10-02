@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Typoglyphs Gallery</title>
-  <link rel="stylesheet" href="style.css">
+  <link id="css-link" rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
@@ -26,6 +26,13 @@
     <div id="lightbox-caption"></div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- ✅ Load CSS + JS with cache-busting version -->
+  <script>
+    const v = "2025-10-02-2"; // keep in sync with APP_VERSION
+    document.getElementById("css-link").href = `style.css?v=${v}`;
+    const s = document.createElement("script");
+    s.src = `script.js?v=${v}`;
+    document.body.appendChild(s);
+  </script>
 </body>
 </html>

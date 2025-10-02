@@ -51,6 +51,7 @@ function createGalleryItem(entry) {
 
   // 📖 Clicking label updates metadata only
   label.onclick = () => {
+    console.log("Label clicked for", entry["glyph_id"]);
     loadMarkdown(entry);
   };
 
@@ -61,6 +62,8 @@ function createGalleryItem(entry) {
 }
 
 async function loadMarkdown(entry) {
+  console.log("Loading metadata for", entry["glyph_id"], entry);
+
   descContent.innerHTML = `<div class="loading">Loading description for <strong>${entry["glyph_id"]}</strong>...</div>`;
 
   const tryPath = entry["has_description"].trim() === "1"
@@ -74,6 +77,7 @@ async function loadMarkdown(entry) {
     descContent.innerHTML = marked.parse(md);
   } catch (err) {
     descContent.innerHTML = `<div class="loading">No description found.</div>`;
+    console.error("Failed to load markdown for", entry["glyph_id"], tryPath, err);
   }
 }
 
