@@ -12,7 +12,10 @@ function parseCSV(csv) {
   const headers = ['glyph_id', 'image_path', 'keyword_path', 'has_description', 'description_path'];
   return rows.map(line => {
     const fields = line.split(",");
-    return Object.fromEntries(fields.map((v, i) => [headers[i], v]));
+    while (fields.length < headers.length) {
+      fields.push(""); // fill missing trailing fields with empty string
+    }
+    return Object.fromEntries(fields.map((v, i) => [headers[i], fields[i]]));
   });
 }
 
