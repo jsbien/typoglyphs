@@ -3,8 +3,15 @@ body {
   margin: 20px;
 }
 
+/* Two-column layout */
+.layout {
+  display: flex;
+  gap: 20px;
+}
+
 /* Gallery grid */
 .gallery {
+  flex: 2;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 10px;
@@ -30,9 +37,11 @@ body {
   margin-top: 5px;
 }
 
-/* Detail view */
-.detail-view {
-  margin-top: 20px;
+/* Metadata panel */
+.details {
+  flex: 1;
+  border-left: 2px solid #333;
+  padding-left: 15px;
 }
 
 #detail-image img {
@@ -43,16 +52,6 @@ body {
   border: 1px solid #ccc;
   background: #fff;
   padding: 5px;
-}
-
-#back-button {
-  margin-bottom: 10px;
-  padding: 5px 10px;
-  cursor: pointer;
-  background: #333;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
 }
 
 /* Version badge */

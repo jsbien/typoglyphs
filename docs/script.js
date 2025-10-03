@@ -1,6 +1,8 @@
-console.log("script.js loaded (gallery + detail toggle)");
+console.log("script.js loaded (gallery + always-visible metadata)");
 
 const gallery = document.getElementById("gallery");
+const detailImage = document.getElementById("detail-image");
+const descContent = document.getElementById("desc-content");
 
 async function loadCSV() {
   const res = await fetch("typoglyphs.txt");
@@ -33,7 +35,6 @@ function createGalleryItem(entry) {
   label.textContent = entry["glyph_id"];
   label.className = "glyph-label";
 
-  // Clicking either image or label opens detail view
   img.onclick = () => showDetail(entry);
   label.onclick = () => showDetail(entry);
 
@@ -43,24 +44,15 @@ function createGalleryItem(entry) {
 }
 
 function showDetail(entry) {
-  // Hide gallery, show detail view
-  document.getElementById("gallery").style.display = "none";
-  const detailView = document.getElementById("detail-view");
-  detailView.style.display = "block";
-
-  // Show enlarged image
-  const detailImage = document.getElementById("detail-image");
+  // Show enlarged image in metadata panel
   detailImage.innerHTML = `
     <img src="https://raw.githubusercontent.com/jsbien/typoglyphs/main/${entry.image_path}" 
          alt="${entry["glyph_id"]}">
   `;
-
-  // Load description
   loadMarkdown(entry);
 }
 
 async function loadMarkdown(entry) {
-  const descContent = document.getElementById("desc-content");
   descContent.innerHTML = `<div class="loading">Loading description for <strong>${entry["glyph_id"]}</strong>...</div>`;
 
   const tryPath = entry["has_description"].trim() === "1"
@@ -84,12 +76,6 @@ async function loadMarkdown(entry) {
     console.error("Failed to load markdown for", entry["glyph_id"], tryPath, err);
   }
 }
-
-// Back button
-document.getElementById("back-button").onclick = () => {
-  document.getElementById("detail-view").style.display = "none";
-  document.getElementById("gallery").style.display = "grid";
-};
 
 async function initGallery() {
   try {

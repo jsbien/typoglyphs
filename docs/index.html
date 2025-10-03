@@ -13,14 +13,16 @@
   <!-- ✅ Version badge -->
   <div id="version" class="version"></div>
 
-  <!-- Gallery grid -->
-  <div id="gallery" class="gallery"></div>
+  <div class="layout">
+    <!-- Gallery grid -->
+    <div id="gallery" class="gallery"></div>
 
-  <!-- Detail view (hidden at first) -->
-  <div id="detail-view" class="detail-view" style="display:none;">
-    <button id="back-button">← Back to Gallery</button>
-    <div id="detail-image"></div>
-    <div id="desc-content">Click on a glyph to see details</div>
+    <!-- Metadata panel -->
+    <div id="details" class="details">
+      <h2>Details</h2>
+      <div id="detail-image"></div>
+      <div id="desc-content">Click on a glyph to see details</div>
+    </div>
   </div>
 
   <!-- ✅ Load CSS + JS with cache-busting timestamp -->
