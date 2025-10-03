@@ -3,6 +3,7 @@ body {
   margin: 20px;
 }
 
+/* Gallery grid */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -13,60 +14,48 @@ body {
   border: 1px solid #ccc;
   padding: 5px;
   text-align: center;
-  cursor: pointer;
   background: #f9f9f9;
 }
 
 .item img {
   max-width: 100px;
   max-height: 100px;
-}
-
-.description {
-  margin-top: 20px;
-  border-top: 2px solid #333;
-  padding-top: 10px;
-}
-
-/* 🔍 Lightbox styling */
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.9);
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 80%;
-  margin-top: 5%;
-}
-
-#lightbox-close {
-  position: absolute;
-  top: 20px;
-  right: 40px;
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
   cursor: pointer;
 }
 
-#lightbox-caption {
-  margin-top: 15px;
-  color: white;
-  font-size: 18px;
+.glyph-label {
+  color: #0056cc;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 5px;
 }
 
-/* ✅ Version badge */
+/* Detail view */
+.detail-view {
+  margin-top: 20px;
+}
+
+#detail-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 5px;
+}
+
+#back-button {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+/* Version badge */
 .version {
   position: fixed;
   top: 10px;
@@ -78,13 +67,4 @@ body {
   padding: 4px 8px;
   border-radius: 4px;
   z-index: 2000;
-}
-
-
-/* ✅ Glyph label clickable styling */
-.glyph-label {
-  color: #0056cc;
-  text-decoration: underline;
-  cursor: pointer;
-  margin-top: 5px;
 }

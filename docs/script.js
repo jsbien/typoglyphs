@@ -1,8 +1,6 @@
-// ✅ Version marker (auto-set by index.html now)
-console.log("script.js loaded");
+console.log("script.js loaded (gallery + detail toggle)");
 
 const gallery = document.getElementById("gallery");
-const descContent = document.getElementById("desc-content");
 
 async function loadCSV() {
   const res = await fetch("typoglyphs.txt");
@@ -16,15 +14,13 @@ function parseCSV(csv) {
   return rows.map(line => {
     const fields = line.split(",");
     while (fields.length < headers.length) {
-      fields.push(""); // fill missing trailing fields
+      fields.push("");
     }
     return Object.fromEntries(fields.map((v, i) => [headers[i], fields[i].trim()]));
   });
 }
 
 function createGalleryItem(entry) {
-  console.log("Parsed entry:", entry);
-
   const div = document.createElement("div");
   div.className = "item";
 
@@ -37,49 +33,51 @@ function createGalleryItem(entry) {
   label.textContent = entry["glyph_id"];
   label.className = "glyph-label";
 
-  // 🔍 Clicking image opens fullscreen AND updates metadata
-  img.onclick = () => {
-    openLightbox(entry);
-    loadMarkdown(entry);
-  };
-
-  // 📖 Clicking label updates metadata only
-  label.onclick = () => {
-    console.log("Label clicked for", entry["glyph_id"]);
-    loadMarkdown(entry);
-  };
+  // Clicking either image or label opens detail view
+  img.onclick = () => showDetail(entry);
+  label.onclick = () => showDetail(entry);
 
   div.appendChild(img);
   div.appendChild(label);
-
   gallery.appendChild(div);
 }
 
-async function loadMarkdown(entry) {
-  console.log("Loading metadata for", entry["glyph_id"], entry);
+function showDetail(entry) {
+  // Hide gallery, show detail view
+  document.getElementById("gallery").style.display = "none";
+  const detailView = document.getElementById("detail-view");
+  detailView.style.display = "block";
 
+  // Show enlarged image
+  const detailImage = document.getElementById("detail-image");
+  detailImage.innerHTML = `
+    <img src="https://raw.githubusercontent.com/jsbien/typoglyphs/main/${entry.image_path}" 
+         alt="${entry["glyph_id"]}">
+  `;
+
+  // Load description
+  loadMarkdown(entry);
+}
+
+async function loadMarkdown(entry) {
+  const descContent = document.getElementById("desc-content");
   descContent.innerHTML = `<div class="loading">Loading description for <strong>${entry["glyph_id"]}</strong>...</div>`;
 
   const tryPath = entry["has_description"].trim() === "1"
     ? entry["description_path"]
     : entry["keyword_path"];
 
-  console.log("Resolved tryPath for", entry["glyph_id"], "=", JSON.stringify(tryPath));
+  if (!tryPath) {
+    descContent.innerHTML = `<div class="loading">No description found.</div>`;
+    return;
+  }
+
+  const url = `https://raw.githubusercontent.com/jsbien/typoglyphs/main/${tryPath}`;
 
   try {
-    if (!tryPath) {
-      console.warn("No path available for", entry["glyph_id"]);
-      descContent.innerHTML = `<div class="loading">No description found (empty path).</div>`;
-      return;
-    }
-
-    const url = `https://raw.githubusercontent.com/jsbien/typoglyphs/main/${tryPath}`;
-    console.log("Fetching:", url);
-
     const res = await fetch(url);
     if (!res.ok) throw new Error("Not found");
     const md = await res.text();
-    console.log("Fetched markdown length:", md.length);
     descContent.innerHTML = marked.parse(md);
   } catch (err) {
     descContent.innerHTML = `<div class="loading">No description found.</div>`;
@@ -87,27 +85,10 @@ async function loadMarkdown(entry) {
   }
 }
 
-/* 🔍 Lightbox functions */
-function openLightbox(entry) {
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const lightboxCaption = document.getElementById("lightbox-caption");
-
-  lightboxImg.src = `https://raw.githubusercontent.com/jsbien/typoglyphs/main/${entry.image_path}`;
-  lightboxImg.alt = entry["glyph_id"];
-  lightboxCaption.textContent = entry["glyph_id"];
-
-  lightbox.style.display = "flex";
-}
-
-document.getElementById("lightbox-close").onclick = () => {
-  document.getElementById("lightbox").style.display = "none";
-};
-
-document.getElementById("lightbox").onclick = (e) => {
-  if (e.target.id === "lightbox") {
-    document.getElementById("lightbox").style.display = "none";
-  }
+// Back button
+document.getElementById("back-button").onclick = () => {
+  document.getElementById("detail-view").style.display = "none";
+  document.getElementById("gallery").style.display = "grid";
 };
 
 async function initGallery() {
