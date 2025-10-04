@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typoglyphs Gallery</title>
+  <link id="css-link" rel="stylesheet">
+</head>
+<body>
+  <h1>Typoglyphs Gallery</h1>
+
+  <!-- ✅ Version badge -->
+  <div id="version" class="version"></div>
+
+  <!-- Gallery grid -->
+  <div id="gallery" class="gallery"></div>
+
+  <!-- Detail view (hidden at first) -->
+  <div id="detail-view" class="detail-view" style="display:none;">
+    <button id="back-button">← Back to Gallery</button>
+    <div id="detail-image"></div>
+  </div>
+
+  <!-- ✅ Load CSS + JS with cache-busting timestamp -->
+  <script>
+    const now = new Date();
+    const v = now.getFullYear() + "-" +
+              String(now.getMonth() + 1).padStart(2, "0") + "-" +
+              String(now.getDate()).padStart(2, "0") + "-" +
+              String(now.getHours()).padStart(2, "0") +
+              String(now.getMinutes()).padStart(2, "0") +
+              String(now.getSeconds()).padStart(2, "0");
+
+    document.getElementById("version").innerText = v;
+    document.getElementById("css-link").href = `style.css?v=${v}`;
+    const s = document.createElement("script");
+    s.src = `script.js?v=${v}`;
+    document.body.appendChild(s);
+  </script>
+</body>
+</html>
