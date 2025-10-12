@@ -1862,7 +1862,7 @@ Ha-04_0319,typoglyphs/23_glyphs/t23_l03g19.png,keywords/23_keywords/t23_l03g19.m
 Ha-04_0320,typoglyphs/23_glyphs/t23_l03g20.png,keywords/23_keywords/t23_l03g20.md,0,
 Ha-04_0321,typoglyphs/23_glyphs/t23_l03g21.png,keywords/23_keywords/t23_l03g21.md,0,
 Ha-04_0322,typoglyphs/23_glyphs/t23_l03g22.png,keywords/23_keywords/t23_l03g22.md,0,
-Ha-04_0323,typoglyphs/23_glyphs/t23_l03g23.png,keywords/23_keywords/t23_l03g23.md,0,
+Ha-04_0323,typoglyphs/23_glyphs/t23_l03g23.png,keywords/23_keywords/t23_l03g23.md,1,descriptions/23_descriptions/t23_l03g23.md
 Ha-04_0324,typoglyphs/23_glyphs/t23_l03g24.png,keywords/23_keywords/t23_l03g24.md,0,
 Ha-04_0325,typoglyphs/23_glyphs/t23_l03g25.png,keywords/23_keywords/t23_l03g25.md,0,
 Ha-04_0326,typoglyphs/23_glyphs/t23_l03g26.png,keywords/23_keywords/t23_l03g26.md,0,
@@ -1880,7 +1880,7 @@ Ha-04_0337,typoglyphs/23_glyphs/t23_l03g37.png,keywords/23_keywords/t23_l03g37.m
 Ha-04_0338,typoglyphs/23_glyphs/t23_l03g38.png,keywords/23_keywords/t23_l03g38.md,0,
 Ha-04_0339,typoglyphs/23_glyphs/t23_l03g39.png,keywords/23_keywords/t23_l03g39.md,0,
 Ha-04_0401,typoglyphs/23_glyphs/t23_l04g01.png,keywords/23_keywords/t23_l04g01.md,0,
-Ha-04_0402,typoglyphs/23_glyphs/t23_l04g02.png,keywords/23_keywords/t23_l04g02.md,0,
+Ha-04_0402,typoglyphs/23_glyphs/t23_l04g02.png,keywords/23_keywords/t23_l04g02.md,1,descriptions/23_descriptions/t23_l04g02.md
 Ha-04_0403,typoglyphs/23_glyphs/t23_l04g03.png,keywords/23_keywords/t23_l04g03.md,0,
 Ha-04_0404,typoglyphs/23_glyphs/t23_l04g04.png,keywords/23_keywords/t23_l04g04.md,0,
 Ha-04_0405,typoglyphs/23_glyphs/t23_l04g05.png,keywords/23_keywords/t23_l04g05.md,0,
