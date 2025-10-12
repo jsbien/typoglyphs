@@ -94,13 +94,33 @@ async function initGallery() {
     const data = await loadCSV();
     console.log("Loaded CSV entries:", data.length);
     data.forEach(createGalleryItem);
+    enableFiltering(); // activate the filter after loading
   } catch (err) {
     gallery.innerHTML = `<div class="loading">Failed to load CSV index.</div>`;
     console.error("CSV load error:", err);
   }
 }
 
+function enableFiltering() {
+  const filterInput = document.getElementById("filter-input");
+  if (!filterInput) return;
+
+  filterInput.addEventListener("input", e => {
+    const query = e.target.value.toLowerCase();
+    const items = gallery.querySelectorAll(".item");
+
+    items.forEach(item => {
+      const label = item.querySelector(".glyph-label");
+      const text = label ? label.textContent.toLowerCase() : "";
+      item.style.display = text.includes(query) ? "" : "none";
+    });
+  });
+}
+
+
 initGallery();
+
+
 
 function makeZoomable(img) {
   img.addEventListener("click", () => {
