@@ -70,3 +70,7 @@ body {
   border-radius: 4px;
   z-index: 2000;
 }
+
+.detail-img {
+  cursor: zoom-in;
+}

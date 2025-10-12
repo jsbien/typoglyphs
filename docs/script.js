@@ -47,12 +47,20 @@ function createGalleryItem(entry) {
   gallery.appendChild(div);
 }
 
+
 function showDetail(entry) {
   // Show enlarged image in metadata panel
   detailImage.innerHTML = `
-    <img src="https://raw.githubusercontent.com/jsbien/typoglyphs/main/${entry.image_path}" 
-         alt="${entry["glyph_id"]}">
+    <img src="https://raw.githubusercontent.com/jsbien/typoglyphs/main/${entry.image_path}"
+         alt="${entry.glyph_id}"
+         class="detail-img">
   `;
+
+  // Make the metadata image zoomable too
+  const detailImg = detailImage.querySelector("img");
+  if (detailImg) makeZoomable(detailImg);
+
+  // Load its markdown description
   loadMarkdown(entry);
 }
 
@@ -98,35 +106,79 @@ function makeZoomable(img) {
   img.addEventListener("click", () => {
     const overlay = document.createElement("div");
     overlay.style.cssText = `
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
+      width: 100%;
+      height: 100%;
       background: rgba(0,0,0,0.9);
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 500;
+      overflow: hidden;
+      cursor: grab;
+      z-index: 9999;
     `;
 
     const zoomed = document.createElement("img");
     zoomed.src = img.src;
     zoomed.alt = img.alt;
     zoomed.style.cssText = `
-      max-width: 95%;
-      max-height: 95%;
-      object-fit: contain;
-      cursor: zoom-out;
+      transform-origin: center center;
+      transition: transform 0.2s ease;
+      cursor: grab;
+      user-select: none;
     `;
 
     overlay.appendChild(zoomed);
+    document.body.appendChild(overlay);
 
-    /* append inside the nearest .gallery container */
-    const galleryContainer = img.closest(".gallery");
-    (galleryContainer || document.body).appendChild(overlay);
+    // --- Interactive zoom and pan ---
+    let scale = 1;
+    let isDragging = false;
+    let startX, startY, offsetX = 0, offsetY = 0;
 
-    overlay.addEventListener("click", () => overlay.remove());
+    function updateTransform() {
+      zoomed.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+    }
+
+    overlay.addEventListener("wheel", e => {
+      e.preventDefault();
+      const delta = e.deltaY < 0 ? 0.2 : -0.2;
+      scale = Math.min(Math.max(0.5, scale + delta), 6);
+      updateTransform();
+    });
+
+    zoomed.addEventListener("mousedown", e => {
+      isDragging = true;
+      startX = e.clientX - offsetX;
+      startY = e.clientY - offsetY;
+      overlay.style.cursor = "grabbing";
+    });
+
+    overlay.addEventListener("mouseup", () => {
+      isDragging = false;
+      overlay.style.cursor = "grab";
+    });
+
+    overlay.addEventListener("mouseleave", () => {
+      isDragging = false;
+      overlay.style.cursor = "grab";
+    });
+
+    overlay.addEventListener("mousemove", e => {
+      if (!isDragging) return;
+      offsetX = e.clientX - startX;
+      offsetY = e.clientY - startY;
+      updateTransform();
+    });
+
+    // click background (not image) to close
+    overlay.addEventListener("click", e => {
+      if (e.target === overlay) overlay.remove();
+    });
+
+    // initial fit
+    updateTransform();
   });
 }
-
