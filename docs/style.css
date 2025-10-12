@@ -11,10 +11,13 @@ body {
 
 /* Gallery grid */
 .gallery {
+  position: relative;
   flex: 2;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 10px;
+  max-height: 100vh;   /* ← prevent runaway height */
+  overflow-y: auto;    /* scroll if needed */
 }
 
 .item {
@@ -66,4 +69,27 @@ body {
   padding: 4px 8px;
   border-radius: 4px;
   z-index: 2000;
+}
+
+.detail-img {
+  cursor: zoom-in;
+}
+
+#filter-bar {
+  margin: 10px 0 5px 0;
+  text-align: left;
+}
+
+#filter-input {
+  width: 60%;
+  max-width: 320px;
+  padding: 6px 8px;
+  font-size: 14px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  outline: none;
+}
+
+#filter-input:focus {
+  border-color: #555;
 }
