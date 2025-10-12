@@ -28,14 +28,18 @@ function createGalleryItem(entry) {
 
   const img = document.createElement("img");
   img.src = `https://raw.githubusercontent.com/jsbien/typoglyphs/main/${entry.image_path}`;
-  img.alt = entry["glyph_id"];
-  img.style.cursor = "pointer";
+  img.alt = entry.glyph_id;
+
+  // clicking loads metadata
+  img.onclick = () => showDetail(entry);
+  // zoom overlay
+  makeZoomable(img);
 
   const label = document.createElement("div");
-  label.textContent = entry["glyph_id"];
+  label.textContent = entry.glyph_id;
   label.className = "glyph-label";
 
-  img.onclick = () => showDetail(entry);
+  // clicking label also loads metadata
   label.onclick = () => showDetail(entry);
 
   div.appendChild(img);
@@ -89,3 +93,40 @@ async function initGallery() {
 }
 
 initGallery();
+
+function makeZoomable(img) {
+  img.addEventListener("click", () => {
+    const overlay = document.createElement("div");
+    overlay.style.cssText = `
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 500;
+    `;
+
+    const zoomed = document.createElement("img");
+    zoomed.src = img.src;
+    zoomed.alt = img.alt;
+    zoomed.style.cssText = `
+      max-width: 95%;
+      max-height: 95%;
+      object-fit: contain;
+      cursor: zoom-out;
+    `;
+
+    overlay.appendChild(zoomed);
+
+    /* append inside the nearest .gallery container */
+    const galleryContainer = img.closest(".gallery");
+    (galleryContainer || document.body).appendChild(overlay);
+
+    overlay.addEventListener("click", () => overlay.remove());
+  });
+}
+
