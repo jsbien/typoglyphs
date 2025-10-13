@@ -143,6 +143,7 @@ function saveFilterToHistory(query) {
 
 function enableFiltering() {
   const filterInput = document.getElementById("filter-input");
+  loadFilterHistory();
   if (!filterInput) return;
 
   filterInput.addEventListener("input", e => {
