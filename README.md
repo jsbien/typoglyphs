@@ -6,7 +6,7 @@
 into images of individual glyphs, which were used to reconstruct the
 tables in a *LuaLaTeX* document. 
 
-A simple browser is available at http://localhost:8000/.
+A simple browser is available at https://jsbien.github.io/typoglyphs/.
 
 ![Gallery screenshot](docs/gallery.png?raw=true "Gallery screenshot")
 
