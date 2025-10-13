@@ -93,3 +93,12 @@ body {
 #filter-input:focus {
   border-color: #555;
 }
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1000;
+  padding: 0.5em;
+  border-bottom: 1px solid #ccc;
+}
