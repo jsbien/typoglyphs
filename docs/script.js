@@ -117,6 +117,29 @@ async function initGallery() {
     console.error("CSV load error:", err);
   }
 }
+function loadFilterHistory() {
+  const list = document.getElementById("filter-history");
+  if (!list) return;
+  const saved = JSON.parse(localStorage.getItem("filter-history") || "[]");
+  list.innerHTML = "";
+  saved.forEach(q => {
+    const opt = document.createElement("option");
+    opt.value = q;
+    list.appendChild(opt);
+  });
+  return saved;
+}
+
+function saveFilterToHistory(query) {
+  query = query.trim();
+  if (!query) return;
+  let saved = JSON.parse(localStorage.getItem("filter-history") || "[]");
+  if (saved.includes(query)) return;
+  saved.unshift(query);
+  if (saved.length > 10) saved = saved.slice(0, 10);
+  localStorage.setItem("filter-history", JSON.stringify(saved));
+}
+
 
 function enableFiltering() {
   const filterInput = document.getElementById("filter-input");
