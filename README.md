@@ -7,6 +7,7 @@ into images of individual glyphs, which were used to reconstruct the
 tables in a *LuaLaTeX* document. 
 
 A simple browser is available at http://localhost:8000/.
+
 ![Gallery screenshot](docs/gallery.png?raw=true "Gallery screenshot")
 
 More sophisticated functions can be provided the *geeqie* program or a
