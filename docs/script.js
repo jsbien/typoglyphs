@@ -146,6 +146,7 @@ function enableFiltering() {
   loadFilterHistory();
   if (!filterInput) return;
 
+    saveFilterToHistory(query);
   filterInput.addEventListener("input", e => {
     const query = e.target.value.toLowerCase().trim();
     const items = gallery.querySelectorAll(".item");
