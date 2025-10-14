@@ -10,7 +10,7 @@ A simple browser is available at https://jsbien.github.io/typoglyphs/.
 
 ![Gallery screenshot](docs/gallery.png?raw=true "Gallery screenshot")
 
-More sophisticated functions can be provided the *geeqie* program or a
+More sophisticated functions can be provided by the *geeqie* program or a
 similar tool.
 
 ![Qeegie screenshot](geeqie/rubryka.png?raw=true "Qeegie screenshot")
