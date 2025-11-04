@@ -10,7 +10,7 @@ A simple browser is available at https://jsbien.github.io/typoglyphs/.
 
 Clicking on the glyph ID displayes the metadata in the side panel. The
 metadata consists of the content of the appropriate keywords file,
-which always exists, and the appropriate description file, which exits
+which always exists, and the appropriate description file, which exists
 only for some glyphs.
 
 Clicking on the glyph images switches the display to a special windows
