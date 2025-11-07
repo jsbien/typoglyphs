@@ -100,7 +100,7 @@ Au-01_0330,typoglyphs/01_glyphs/t01_l03g30.png,keywords/01_keywords/t01_l03g30.m
 Au-01_0331,typoglyphs/01_glyphs/t01_l03g31.png,keywords/01_keywords/t01_l03g31.md,0,
 Au-01_0332,typoglyphs/01_glyphs/t01_l03g32.png,keywords/01_keywords/t01_l03g32.md,0,
 Au-01_0333,typoglyphs/01_glyphs/t01_l03g33.png,keywords/01_keywords/t01_l03g33.md,0,
-Au-01_0334,typoglyphs/01_glyphs/t01_l03g34.png,keywords/01_keywords/t01_l03g34.md,0,
+Au-01_0334,typoglyphs/01_glyphs/t01_l03g34.png,keywords/01_keywords/t01_l03g34.md,1,descriptions/01_descriptions/t01_l03g34.md
 Au-01_0335,typoglyphs/01_glyphs/t01_l03g35.png,keywords/01_keywords/t01_l03g35.md,0,
 Au-01_0336,typoglyphs/01_glyphs/t01_l03g36.png,keywords/01_keywords/t01_l03g36.md,0,
 Au-01_0337,typoglyphs/01_glyphs/t01_l03g37.png,keywords/01_keywords/t01_l03g37.md,0,
@@ -178,7 +178,7 @@ Au-01_0541,typoglyphs/01_glyphs/t01_l05g41.png,keywords/01_keywords/t01_l05g41.m
 Au-01_0542,typoglyphs/01_glyphs/t01_l05g42.png,keywords/01_keywords/t01_l05g42.md,0,
 Au-01_0601,typoglyphs/01_glyphs/t01_l06g01.png,keywords/01_keywords/t01_l06g01.md,0,
 Au-01_0602,typoglyphs/01_glyphs/t01_l06g02.png,keywords/01_keywords/t01_l06g02.md,0,
-Au-01_0603,typoglyphs/01_glyphs/t01_l06g03.png,keywords/01_keywords/t01_l06g03.md,0,
+Au-01_0603,typoglyphs/01_glyphs/t01_l06g03.png,keywords/01_keywords/t01_l06g03.md,1,descriptions/01_descriptions/t01_l06g03.md
 Au-01_0604,typoglyphs/01_glyphs/t01_l06g04.png,keywords/01_keywords/t01_l06g04.md,1,descriptions/01_descriptions/t01_l06g04.md
 Au-01_0605,typoglyphs/01_glyphs/t01_l06g05.png,keywords/01_keywords/t01_l06g05.md,0,
 Au-01_0606,typoglyphs/01_glyphs/t01_l06g06.png,keywords/01_keywords/t01_l06g06.md,0,
@@ -274,7 +274,7 @@ Au-02_0119,typoglyphs/04_glyphs/t04_l01g19.png,keywords/04_keywords/t04_l01g19.m
 Au-02_0120,typoglyphs/04_glyphs/t04_l01g20.png,keywords/04_keywords/t04_l01g20.md,0,
 Au-02_0121,typoglyphs/04_glyphs/t04_l01g21.png,keywords/04_keywords/t04_l01g21.md,0,
 Au-02_0122,typoglyphs/04_glyphs/t04_l01g22.png,keywords/04_keywords/t04_l01g22.md,0,
-Au-02_0123,typoglyphs/04_glyphs/t04_l01g23.png,keywords/04_keywords/t04_l01g23.md,0,
+Au-02_0123,typoglyphs/04_glyphs/t04_l01g23.png,keywords/04_keywords/t04_l01g23.md,1,descriptions/04_descriptions/t04_l01g23.md
 Au-02_0124,typoglyphs/04_glyphs/t04_l01g24.png,keywords/04_keywords/t04_l01g24.md,0,
 Au-02_0125,typoglyphs/04_glyphs/t04_l01g25.png,keywords/04_keywords/t04_l01g25.md,0,
 Au-02_0126,typoglyphs/04_glyphs/t04_l01g26.png,keywords/04_keywords/t04_l01g26.md,0,
@@ -335,7 +335,7 @@ Au-02_0310,typoglyphs/04_glyphs/t04_l03g10.png,keywords/04_keywords/t04_l03g10.m
 Au-02_0311,typoglyphs/04_glyphs/t04_l03g11.png,keywords/04_keywords/t04_l03g11.md,0,
 Au-02_0312,typoglyphs/04_glyphs/t04_l03g12.png,keywords/04_keywords/t04_l03g12.md,0,
 Au-02_0313,typoglyphs/04_glyphs/t04_l03g13.png,keywords/04_keywords/t04_l03g13.md,0,
-Au-02_0314,typoglyphs/04_glyphs/t04_l03g14.png,keywords/04_keywords/t04_l03g14.md,0,
+Au-02_0314,typoglyphs/04_glyphs/t04_l03g14.png,keywords/04_keywords/t04_l03g14.md,1,descriptions/04_descriptions/t04_l03g14.md
 Au-02_0315,typoglyphs/04_glyphs/t04_l03g15.png,keywords/04_keywords/t04_l03g15.md,0,
 Au-02_0316,typoglyphs/04_glyphs/t04_l03g16.png,keywords/04_keywords/t04_l03g16.md,0,
 Au-02_0317,typoglyphs/04_glyphs/t04_l03g17.png,keywords/04_keywords/t04_l03g17.md,0,
@@ -404,8 +404,8 @@ Au-02_0527,typoglyphs/04_glyphs/t04_l05g27.png,keywords/04_keywords/t04_l05g27.m
 Au-02_0528,typoglyphs/04_glyphs/t04_l05g28.png,keywords/04_keywords/t04_l05g28.md,0,
 Au-02_0529,typoglyphs/04_glyphs/t04_l05g29.png,keywords/04_keywords/t04_l05g29.md,0,
 Au-02_0530,typoglyphs/04_glyphs/t04_l05g30.png,keywords/04_keywords/t04_l05g30.md,0,
-Au-02_0531,typoglyphs/04_glyphs/t04_l05g31.png,keywords/04_keywords/t04_l05g31.md,0,
-Au-02_0532,typoglyphs/04_glyphs/t04_l05g32.png,keywords/04_keywords/t04_l05g32.md,0,
+Au-02_0531,typoglyphs/04_glyphs/t04_l05g31.png,keywords/04_keywords/t04_l05g31.md,1,descriptions/04_descriptions/t04_l05g31.md
+Au-02_0532,typoglyphs/04_glyphs/t04_l05g32.png,keywords/04_keywords/t04_l05g32.md,1,descriptions/04_descriptions/t04_l05g32.md
 Au-02_0533,typoglyphs/04_glyphs/t04_l05g33.png,keywords/04_keywords/t04_l05g33.md,0,
 Au-02_0534,typoglyphs/04_glyphs/t04_l05g34.png,keywords/04_keywords/t04_l05g34.md,0,
 Au-02_0535,typoglyphs/04_glyphs/t04_l05g35.png,keywords/04_keywords/t04_l05g35.md,0,
@@ -511,7 +511,7 @@ Au-03_0419,typoglyphs/06_glyphs/t06_l04g19.png,keywords/06_keywords/t06_l04g19.m
 Au-03_0420,typoglyphs/06_glyphs/t06_l04g20.png,keywords/06_keywords/t06_l04g20.md,0,
 Au-03_0421,typoglyphs/06_glyphs/t06_l04g21.png,keywords/06_keywords/t06_l04g21.md,0,
 Au-03_0422,typoglyphs/06_glyphs/t06_l04g22.png,keywords/06_keywords/t06_l04g22.md,0,
-Au-03_0423,typoglyphs/06_glyphs/t06_l04g23.png,keywords/06_keywords/t06_l04g23.md,0,
+Au-03_0423,typoglyphs/06_glyphs/t06_l04g23.png,keywords/06_keywords/t06_l04g23.md,1,descriptions/06_descriptions/t06_l04g23.md
 Au-03_0424,typoglyphs/06_glyphs/t06_l04g24.png,keywords/06_keywords/t06_l04g24.md,1,descriptions/06_descriptions/t06_l04g24.md
 Au-03_0425,typoglyphs/06_glyphs/t06_l04g25.png,keywords/06_keywords/t06_l04g25.md,0,
 Au-03_0426,typoglyphs/06_glyphs/t06_l04g26.png,keywords/06_keywords/t06_l04g26.md,0,
@@ -1008,7 +1008,7 @@ Au-12_0115,typoglyphs/14_glyphs/t14_l01g15.png,keywords/14_keywords/t14_l01g15.m
 Au-12_0116,typoglyphs/14_glyphs/t14_l01g16.png,keywords/14_keywords/t14_l01g16.md,0,
 Au-12_0117,typoglyphs/14_glyphs/t14_l01g17.png,keywords/14_keywords/t14_l01g17.md,0,
 Au-12_0118,typoglyphs/14_glyphs/t14_l01g18.png,keywords/14_keywords/t14_l01g18.md,0,
-Au-12_0119,typoglyphs/14_glyphs/t14_l01g19.png,keywords/14_keywords/t14_l01g19.md,0,
+Au-12_0119,typoglyphs/14_glyphs/t14_l01g19.png,keywords/14_keywords/t14_l01g19.md,1,descriptions/14_descriptions/t14_l01g19.md
 Au-12_0120,typoglyphs/14_glyphs/t14_l01g20.png,keywords/14_keywords/t14_l01g20.md,0,
 Au-12_0121,typoglyphs/14_glyphs/t14_l01g21.png,keywords/14_keywords/t14_l01g21.md,0,
 Au-12_0122,typoglyphs/14_glyphs/t14_l01g22.png,keywords/14_keywords/t14_l01g22.md,0,
@@ -1168,7 +1168,7 @@ Au-14_0506,typoglyphs/16_glyphs/t16_l05g06.png,keywords/16_keywords/t16_l05g06.m
 Au-14_0507,typoglyphs/16_glyphs/t16_l05g07.png,keywords/16_keywords/t16_l05g07.md,0,
 Au-14_0508,typoglyphs/16_glyphs/t16_l05g08.png,keywords/16_keywords/t16_l05g08.md,0,
 Au-14_0509,typoglyphs/16_glyphs/t16_l05g09.png,keywords/16_keywords/t16_l05g09.md,0,
-Au-14_0510,typoglyphs/16_glyphs/t16_l05g10.png,keywords/16_keywords/t16_l05g10.md,0,
+Au-14_0510,typoglyphs/16_glyphs/t16_l05g10.png,keywords/16_keywords/t16_l05g10.md,1,descriptions/16_descriptions/t16_l05g10.md
 Au-14_0511,typoglyphs/16_glyphs/t16_l05g11.png,keywords/16_keywords/t16_l05g11.md,1,descriptions/16_descriptions/t16_l05g11.md
 Au-14_0512,typoglyphs/16_glyphs/t16_l05g12.png,keywords/16_keywords/t16_l05g12.md,0,
 Au-14_0513,typoglyphs/16_glyphs/t16_l05g13.png,keywords/16_keywords/t16_l05g13.md,0,
@@ -2265,8 +2265,8 @@ Ha-07_0504,typoglyphs/26_glyphs/t26_l05g04.png,keywords/26_keywords/t26_l05g04.m
 Ha-07_0505,typoglyphs/26_glyphs/t26_l05g05.png,keywords/26_keywords/t26_l05g05.md,0,
 Ha-07_0506,typoglyphs/26_glyphs/t26_l05g06.png,keywords/26_keywords/t26_l05g06.md,0,
 Ha-07_0507,typoglyphs/26_glyphs/t26_l05g07.png,keywords/26_keywords/t26_l05g07.md,0,
-Ha-07_0508,typoglyphs/26_glyphs/t26_l05g08.png,keywords/26_keywords/t26_l05g08.md,0,
-Ha-07_0509,typoglyphs/26_glyphs/t26_l05g09.png,keywords/26_keywords/t26_l05g09.md,0,
+Ha-07_0508,typoglyphs/26_glyphs/t26_l05g08.png,keywords/26_keywords/t26_l05g08.md,1,descriptions/26_descriptions/t26_l05g08.md
+Ha-07_0509,typoglyphs/26_glyphs/t26_l05g09.png,keywords/26_keywords/t26_l05g09.md,1,descriptions/26_descriptions/t26_l05g09.md
 Ha-07_0510,typoglyphs/26_glyphs/t26_l05g10.png,keywords/26_keywords/t26_l05g10.md,0,
 Ha-08_0101,typoglyphs/27_glyphs/t27_l01g01.png,keywords/27_keywords/t27_l01g01.md,0,
 Ha-08_0102,typoglyphs/27_glyphs/t27_l01g02.png,keywords/27_keywords/t27_l01g02.md,0,
@@ -4002,7 +4002,7 @@ U1-02_0122,typoglyphs/43_glyphs/t43_l01g22.png,keywords/43_keywords/t43_l01g22.m
 U1-02_0123,typoglyphs/43_glyphs/t43_l01g23.png,keywords/43_keywords/t43_l01g23.md,0,
 U1-02_0124,typoglyphs/43_glyphs/t43_l01g24.png,keywords/43_keywords/t43_l01g24.md,0,
 U1-02_0125,typoglyphs/43_glyphs/t43_l01g25.png,keywords/43_keywords/t43_l01g25.md,0,
-U1-02_0126,typoglyphs/43_glyphs/t43_l01g26.png,keywords/43_keywords/t43_l01g26.md,0,
+U1-02_0126,typoglyphs/43_glyphs/t43_l01g26.png,keywords/43_keywords/t43_l01g26.md,1,descriptions/43_descriptions/t43_l01g26.md
 U1-02_0127,typoglyphs/43_glyphs/t43_l01g27.png,keywords/43_keywords/t43_l01g27.md,0,
 U1-02_0128,typoglyphs/43_glyphs/t43_l01g28.png,keywords/43_keywords/t43_l01g28.md,0,
 U1-02_0129,typoglyphs/43_glyphs/t43_l01g29.png,keywords/43_keywords/t43_l01g29.md,0,
@@ -4118,7 +4118,7 @@ U1-03_0118,typoglyphs/44_glyphs/t44_l01g18.png,keywords/44_keywords/t44_l01g18.m
 U1-03_0119,typoglyphs/44_glyphs/t44_l01g19.png,keywords/44_keywords/t44_l01g19.md,0,
 U1-03_0120,typoglyphs/44_glyphs/t44_l01g20.png,keywords/44_keywords/t44_l01g20.md,0,
 U1-03_0121,typoglyphs/44_glyphs/t44_l01g21.png,keywords/44_keywords/t44_l01g21.md,0,
-U1-03_0122,typoglyphs/44_glyphs/t44_l01g22.png,keywords/44_keywords/t44_l01g22.md,0,
+U1-03_0122,typoglyphs/44_glyphs/t44_l01g22.png,keywords/44_keywords/t44_l01g22.md,1,descriptions/44_descriptions/t44_l01g22.md
 U1-03_0123,typoglyphs/44_glyphs/t44_l01g23.png,keywords/44_keywords/t44_l01g23.md,0,
 U1-03_0201,typoglyphs/44_glyphs/t44_l02g01.png,keywords/44_keywords/t44_l02g01.md,0,
 U1-03_0202,typoglyphs/44_glyphs/t44_l02g02.png,keywords/44_keywords/t44_l02g02.md,0,
@@ -4196,7 +4196,7 @@ U1-03_0407,typoglyphs/44_glyphs/t44_l04g07.png,keywords/44_keywords/t44_l04g07.m
 U1-03_0408,typoglyphs/44_glyphs/t44_l04g08.png,keywords/44_keywords/t44_l04g08.md,0,
 U1-03_0409,typoglyphs/44_glyphs/t44_l04g09.png,keywords/44_keywords/t44_l04g09.md,0,
 U1-03_0410,typoglyphs/44_glyphs/t44_l04g10.png,keywords/44_keywords/t44_l04g10.md,1,descriptions/44_descriptions/t44_l04g10.md
-U1-03_0411,typoglyphs/44_glyphs/t44_l04g11.png,keywords/44_keywords/t44_l04g11.md,0,
+U1-03_0411,typoglyphs/44_glyphs/t44_l04g11.png,keywords/44_keywords/t44_l04g11.md,1,descriptions/44_descriptions/t44_l04g11.md
 U1-03_0412,typoglyphs/44_glyphs/t44_l04g12.png,keywords/44_keywords/t44_l04g12.md,0,
 U1-03_0413,typoglyphs/44_glyphs/t44_l04g13.png,keywords/44_keywords/t44_l04g13.md,0,
 U1-03_0414,typoglyphs/44_glyphs/t44_l04g14.png,keywords/44_keywords/t44_l04g14.md,0,
@@ -5533,8 +5533,8 @@ U2-09_0125,typoglyphs/58_glyphs/t58_l01g25.png,keywords/58_keywords/t58_l01g25.m
 U2-09_0126,typoglyphs/58_glyphs/t58_l01g26.png,keywords/58_keywords/t58_l01g26.md,0,
 U2-09_0127,typoglyphs/58_glyphs/t58_l01g27.png,keywords/58_keywords/t58_l01g27.md,0,
 U2-09_0128,typoglyphs/58_glyphs/t58_l01g28.png,keywords/58_keywords/t58_l01g28.md,0,
-U2-09_0129,typoglyphs/58_glyphs/t58_l01g29.png,keywords/58_keywords/t58_l01g29.md,0,
-U2-09_0130,typoglyphs/58_glyphs/t58_l01g30.png,keywords/58_keywords/t58_l01g30.md,0,
+U2-09_0129,typoglyphs/58_glyphs/t58_l01g29.png,keywords/58_keywords/t58_l01g29.md,1,descriptions/58_descriptions/t58_l01g29.md
+U2-09_0130,typoglyphs/58_glyphs/t58_l01g30.png,keywords/58_keywords/t58_l01g30.md,1,descriptions/58_descriptions/t58_l01g30.md
 U2-09_0131,typoglyphs/58_glyphs/t58_l01g31.png,keywords/58_keywords/t58_l01g31.md,0,
 U2-09_0132,typoglyphs/58_glyphs/t58_l01g32.png,keywords/58_keywords/t58_l01g32.md,0,
 U2-09_0201,typoglyphs/58_glyphs/t58_l02g01.png,keywords/58_keywords/t58_l02g01.md,0,
@@ -6095,7 +6095,7 @@ U2-16_0322,typoglyphs/65_glyphs/t65_l03g22.png,keywords/65_keywords/t65_l03g22.m
 U2-16_0323,typoglyphs/65_glyphs/t65_l03g23.png,keywords/65_keywords/t65_l03g23.md,0,
 U2-16_0324,typoglyphs/65_glyphs/t65_l03g24.png,keywords/65_keywords/t65_l03g24.md,0,
 U2-16_0325,typoglyphs/65_glyphs/t65_l03g25.png,keywords/65_keywords/t65_l03g25.md,0,
-U2-16_0326,typoglyphs/65_glyphs/t65_l03g26.png,keywords/65_keywords/t65_l03g26.md,0,
+U2-16_0326,typoglyphs/65_glyphs/t65_l03g26.png,keywords/65_keywords/t65_l03g26.md,1,descriptions/65_descriptions/t65_l03g26.md
 U2-16_0327,typoglyphs/65_glyphs/t65_l03g27.png,keywords/65_keywords/t65_l03g27.md,0,
 U2-16_0328,typoglyphs/65_glyphs/t65_l03g28.png,keywords/65_keywords/t65_l03g28.md,0,
 U2-16_0329,typoglyphs/65_glyphs/t65_l03g29.png,keywords/65_keywords/t65_l03g29.md,0,
@@ -7409,7 +7409,7 @@ Wi-10+80403,typoglyphs/84_glyphs/t84_l04g03.png,keywords/84_keywords/t84_l04g03.
 Wi-10+80404,typoglyphs/84_glyphs/t84_l04g04.png,keywords/84_keywords/t84_l04g04.md,0,
 Wi-10+80405,typoglyphs/84_glyphs/t84_l04g05.png,keywords/84_keywords/t84_l04g05.md,0,
 Wi-10+80406,typoglyphs/84_glyphs/t84_l04g06.png,keywords/84_keywords/t84_l04g06.md,0,
-Wi-10+80407,typoglyphs/84_glyphs/t84_l04g07.png,keywords/84_keywords/t84_l04g07.md,0,
+Wi-10+80407,typoglyphs/84_glyphs/t84_l04g07.png,keywords/84_keywords/t84_l04g07.md,1,descriptions/84_descriptions/t84_l04g07.md
 Wi-10+80408,typoglyphs/84_glyphs/t84_l04g08.png,keywords/84_keywords/t84_l04g08.md,0,
 Wi-10+80409,typoglyphs/84_glyphs/t84_l04g09.png,keywords/84_keywords/t84_l04g09.md,0,
 Wi-10+80410,typoglyphs/84_glyphs/t84_l04g10.png,keywords/84_keywords/t84_l04g10.md,0,
@@ -7517,7 +7517,7 @@ Wi-12_0407,typoglyphs/86_glyphs/t86_l04g07.png,keywords/86_keywords/t86_l04g07.m
 Wi-12_0408,typoglyphs/86_glyphs/t86_l04g08.png,keywords/86_keywords/t86_l04g08.md,0,
 Wi-12_0409,typoglyphs/86_glyphs/t86_l04g09.png,keywords/86_keywords/t86_l04g09.md,0,
 Wi-12_0410,typoglyphs/86_glyphs/t86_l04g10.png,keywords/86_keywords/t86_l04g10.md,0,
-Wi-12_0411,typoglyphs/86_glyphs/t86_l04g11.png,keywords/86_keywords/t86_l04g11.md,0,
+Wi-12_0411,typoglyphs/86_glyphs/t86_l04g11.png,keywords/86_keywords/t86_l04g11.md,1,descriptions/86_descriptions/t86_l04g11.md
 Wi-12_0412,typoglyphs/86_glyphs/t86_l04g12.png,keywords/86_keywords/t86_l04g12.md,0,
 Wi-12_0413,typoglyphs/86_glyphs/t86_l04g13.png,keywords/86_keywords/t86_l04g13.md,0,
 Wi-12_0414,typoglyphs/86_glyphs/t86_l04g14.png,keywords/86_keywords/t86_l04g14.md,0,
@@ -7823,7 +7823,7 @@ Wi-15_0410,typoglyphs/89_glyphs/t89_l04g10.png,keywords/89_keywords/t89_l04g10.m
 Wi-15_0411,typoglyphs/89_glyphs/t89_l04g11.png,keywords/89_keywords/t89_l04g11.md,0,
 Wi-15_0412,typoglyphs/89_glyphs/t89_l04g12.png,keywords/89_keywords/t89_l04g12.md,0,
 Wi-15_0413,typoglyphs/89_glyphs/t89_l04g13.png,keywords/89_keywords/t89_l04g13.md,0,
-Wi-15_0414,typoglyphs/89_glyphs/t89_l04g14.png,keywords/89_keywords/t89_l04g14.md,0,
+Wi-15_0414,typoglyphs/89_glyphs/t89_l04g14.png,keywords/89_keywords/t89_l04g14.md,1,descriptions/89_descriptions/t89_l04g14.md
 Wi-15_0415,typoglyphs/89_glyphs/t89_l04g15.png,keywords/89_keywords/t89_l04g15.md,0,
 Wi-15_0416,typoglyphs/89_glyphs/t89_l04g16.png,keywords/89_keywords/t89_l04g16.md,0,
 Wi-15_0417,typoglyphs/89_glyphs/t89_l04g17.png,keywords/89_keywords/t89_l04g17.md,0,
