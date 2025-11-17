@@ -71,6 +71,20 @@ fileInput.addEventListener('change', async () => {
     })).sort((a, b) => a.distance - b.distance);
 
     displayResults(matches);
+    // Show uploaded image preview
+    const preview = document.getElementById('input-preview');
+    preview.innerHTML = '';
+    const label = document.createElement('div');
+    label.textContent = '🔍 Input image:';
+    label.style.marginBottom = '0.5em';
+    const uploadedImg = document.createElement('img');
+    uploadedImg.src = img.src;
+    uploadedImg.alt = 'Uploaded image';
+    uploadedImg.style.maxWidth = '150px';
+    uploadedImg.style.border = '1px solid #ccc';
+    uploadedImg.style.marginBottom = '1em';
+    preview.appendChild(label);
+    preview.appendChild(uploadedImg);
     statusDisplay.textContent = `✅ Found similar images.`;
   } catch (err) {
     statusDisplay.textContent = `❌ Error: ${err.message}`;
