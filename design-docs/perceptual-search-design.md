@@ -1,8 +1,21 @@
 ## Perceptual Hashing-Based Image Search for `typoglyphs`
 
 ### 📌 Objective
-To enable users to visually search for glyphs stored across the extensive `typoglyphs/` folder hierarchy (01_glyphs to 81_glyphs) using perceptual hashing, entirely on the client-side.
+To extend the existing simple search engine at
+https://jsbien.github.io/typoglyphs/ by enabling an additional option
+for the user, namely a visual search for glyphs. All the existing
+features, in particular previews and live image zoom, should be
+preserved.
 
+To the present site we add the buton "Beta" redirecting to the
+extended version, containing an additional field "Simple visual
+search" (to be supplemented later by another, MobileNet-based ML,
+visual search field), which uses using perceptual hashing, entirely on
+the client-side.
+
+
+
+There are several thousands of the glyph images to be searched.
 ---
 
 ### 🧱 Technology Stack
@@ -25,13 +38,13 @@ To enable users to visually search for glyphs stored across the extensive `typog
 
 ---
 
-### 🗂️ Folder Scope
+### 🗂️ Glyph images
 This version will support images from:
 - `typoglyphs/01_glyphs`
 - to
 - `typoglyphs/81_glyphs`
 
-Assuming images are in `.png` or `.svg` format (can be extended).
+Assuming images are in `.png` format (can be extended).
 
 ---
 
@@ -61,18 +74,19 @@ Assuming images are in `.png` or `.svg` format (can be extended).
 
 ### 🧭 Future Extensions
 - Add MobileNet-based ML search (user-selectable)
-- Previews and live image zoom
-- Batch-mode matching
 
 ---
 
 ### 🛠️ Tools to Use
 - [blockhash.js](https://github.com/commonsmachinery/blockhash-js)
-- Image processing script (Node.js or Python offline script)
+- Image processing script (Node.js or Python offline script - PLEASE ELABORATE)
 
 ---
 
 ### 📁 File Structure (in `search-dev` branch)
+
+The site is served from `docs`, so appropriate redirection should be provided.
+
 ```
 search-dev/
 ├── design-docs/
