@@ -1,14 +1,16 @@
-// Offline image indexer using blockhash-core
-// Run with: node tools/hash-indexer.js > perceptual-search/image-index.json
+// tools/hash-indexer.js
+import fs from 'fs';
+import path from 'path';
+import { createCanvas, loadImage } from 'canvas';
+import blockhash from 'blockhash-core';
 
-const fs = require('fs');
-const path = require('path');
-const { createCanvas, loadImage } = require('canvas');
-const blockhash = require('blockhash-core');
+const BASE_DIR = 'typoglyphs';
+const OUTPUT_DIR = 'perceptual-search/index';
+const GLYPH_DIRS = fs.readdirSync(BASE_DIR).filter(name => /^\d{2}_glyphs$/.test(name));
 
-const GLYPH_DIR = path.join(__dirname, '../typoglyphs');
-const SUBDIR_PATTERN = /^\d{2}_glyphs$/;
-const IMAGE_EXT = ['.png'];
+if (!fs.existsSync(OUTPUT_DIR)) {
+  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+}
 
 async function hashImage(imgPath) {
   try {
@@ -16,8 +18,8 @@ async function hashImage(imgPath) {
     const canvas = createCanvas(img.width, img.height);
     const ctx = canvas.getContext('2d');
     ctx.drawImage(img, 0, 0);
-    const imageData = ctx.getImageData(0, 0, img.width, img.height);
-    const hash = blockhash.bmvbhash(imageData.data, img.width, img.height, 8);
+    const imgData = ctx.getImageData(0, 0, img.width, img.height);
+    const hash = blockhash.bmvbhash(imgData.data, img.width, img.height, 8);
     return hash;
   } catch (err) {
     console.error(`❌ Failed to process ${imgPath}: ${err.message}`);
@@ -25,32 +27,31 @@ async function hashImage(imgPath) {
   }
 }
 
-async function indexImages() {
-  const index = [];
+async function processDirectory(dir) {
+  const dirPath = path.join(BASE_DIR, dir);
+  const files = fs.readdirSync(dirPath).filter(file => file.toLowerCase().endsWith('.png'));
+  const results = [];
 
-  const folders = fs
-    .readdirSync(GLYPH_DIR)
-    .filter((name) => SUBDIR_PATTERN.test(name));
-
-  for (const folder of folders) {
-    const fullDir = path.join(GLYPH_DIR, folder);
-    const files = fs
-      .readdirSync(fullDir)
-      .filter((f) => IMAGE_EXT.includes(path.extname(f)));
-
-    for (const file of files) {
-      const relPath = `typoglyphs/${folder}/${file}`;
-      const fullPath = path.join(fullDir, file);
-      const hash = await hashImage(fullPath);
-      if (hash) {
-        index.push({ path: relPath, hash });
-        console.log(`✅ Hashed: ${relPath}`);
-      }
+  for (const file of files) {
+    const fullPath = path.join(dirPath, file);
+    const hash = await hashImage(fullPath);
+    if (hash) {
+      results.push({
+        path: path.join(BASE_DIR, dir, file),
+        hash
+      });
     }
   }
 
-  console.error(`✅ Indexed ${index.length} images.`);
-  console.log(JSON.stringify(index, null, 2));
+  const outputPath = path.join(OUTPUT_DIR, `index-${dir}.json`);
+  fs.writeFileSync(outputPath, JSON.stringify(results, null, 2));
+  console.log(`✅ Saved ${results.length} hashes to ${outputPath}`);
 }
 
-indexImages();
+async function main() {
+  for (const dir of GLYPH_DIRS) {
+    await processDirectory(dir);
+  }
+}
+
+main();
