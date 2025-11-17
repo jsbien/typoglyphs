@@ -3,8 +3,8 @@
 
 const fs = require('fs');
 const path = require('path');
-const blockhash = require('blockhash-core');
 const { createCanvas, loadImage } = require('canvas');
+const blockhash = require('blockhash-core');
 
 const GLYPH_DIR = path.join(__dirname, '../typoglyphs');
 const SUBDIR_PATTERN = /^\d{2}_glyphs$/;
@@ -16,7 +16,8 @@ async function hashImage(imgPath) {
     const canvas = createCanvas(img.width, img.height);
     const ctx = canvas.getContext('2d');
     ctx.drawImage(img, 0, 0);
-    const hash = blockhash.bmvbhash(canvas, 8); // 8x8 bits
+    const imageData = ctx.getImageData(0, 0, img.width, img.height);
+    const hash = blockhash.bmvbhash(imageData.data, img.width, img.height, 8);
     return hash;
   } catch (err) {
     console.error(`❌ Failed to process ${imgPath}: ${err.message}`);
@@ -27,20 +28,28 @@ async function hashImage(imgPath) {
 async function indexImages() {
   const index = [];
 
-  const folders = fs.readdirSync(GLYPH_DIR).filter(name => SUBDIR_PATTERN.test(name));
+  const folders = fs
+    .readdirSync(GLYPH_DIR)
+    .filter((name) => SUBDIR_PATTERN.test(name));
 
   for (const folder of folders) {
     const fullDir = path.join(GLYPH_DIR, folder);
-    const files = fs.readdirSync(fullDir).filter(f => IMAGE_EXT.includes(path.extname(f)));
+    const files = fs
+      .readdirSync(fullDir)
+      .filter((f) => IMAGE_EXT.includes(path.extname(f)));
 
     for (const file of files) {
       const relPath = `typoglyphs/${folder}/${file}`;
-      const fullPath = path.join(GLYPH_DIR, folder, file);
+      const fullPath = path.join(fullDir, file);
       const hash = await hashImage(fullPath);
-      if (hash) index.push({ path: relPath, hash });
+      if (hash) {
+        index.push({ path: relPath, hash });
+        console.log(`✅ Hashed: ${relPath}`);
+      }
     }
   }
 
+  console.error(`✅ Indexed ${index.length} images.`);
   console.log(JSON.stringify(index, null, 2));
 }
 
