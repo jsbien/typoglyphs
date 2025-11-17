@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typoglyphs – Visual Search (Beta)</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 2rem;
+    }
+    .upload {
+      margin-bottom: 1.5rem;
+    }
+    #preview {
+      max-width: 200px;
+      margin-bottom: 1rem;
+    }
+    #results img {
+      height: 60px;
+      margin: 4px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔍 Visual Search (Beta)</h1>
+  <p><a href="../index.html">← Back to main site</a></p>
+
+  <div class="upload">
+    <label for="imageInput">Select an image to search:</label>
+    <input type="file" id="imageInput" accept="image/*" />
+    <br />
+    <img id="preview" alt="Preview will appear here" />
+  </div>
+
+  <div id="results">
+    <h3>🔗 Matching glyphs:</h3>
+    <div id="matches"></div>
+  </div>
+
+  <script src="search.js"></script>
+</body>
+</html>
