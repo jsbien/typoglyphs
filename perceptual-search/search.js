@@ -1,15 +1,33 @@
 // perceptual-search/search.js
-// Frontend image search using perceptual hashing
-
-import initBlockhash from 'https://cdn.skypack.dev/blockhash-core?min';
+import blockhash from 'https://cdn.skypack.dev/blockhash-core?min';
 
 const fileInput = document.getElementById('imageUpload');
 const resultsContainer = document.getElementById('results');
 const statusDisplay = document.getElementById('status');
 
-async function loadImageIndex() {
-  const res = await fetch('image-index.json');
-  return await res.json();
+const INDEX_DIR = 'index';
+const INDEX_PREFIX = 'index-';
+const INDEX_FILES = Array.from({ length: 81 }, (_, i) => {
+  const dir = String(i + 1).padStart(2, '0') + '_glyphs';
+  return `${INDEX_DIR}/${INDEX_PREFIX}${dir}.json`;
+});
+
+async function loadAllIndexes() {
+  const results = await Promise.allSettled(
+    INDEX_FILES.map(file =>
+      fetch(file)
+        .then(res => {
+          if (!res.ok) throw new Error(`HTTP ${res.status} on ${file}`);
+          return res.json();
+        })
+        .catch(err => {
+          console.warn(`⚠️ Skipped ${file}: ${err.message}`);
+          return [];
+        })
+    )
+  );
+
+  return results.flatMap(r => (r.status === 'fulfilled' ? r.value : []));
 }
 
 function loadImage(file) {
@@ -53,22 +71,23 @@ fileInput.addEventListener('change', async () => {
   const file = fileInput.files[0];
   if (!file) return;
 
-  statusDisplay.textContent = '⏳ Loading image and computing hash...';
+  statusDisplay.textContent = '⏳ Computing hash and loading indexes...';
 
   try {
-    const [blockhash, index] = await Promise.all([
-      initBlockhash(),
-      loadImageIndex(),
+    const [index, img] = await Promise.all([
+      loadAllIndexes(),
+      loadImage(file)
     ]);
 
-    const img = await loadImage(file);
     const imgData = imageToData(img);
     const queryHash = blockhash.bmvbhash(imgData.data, img.width, img.height, 8);
 
-    const matches = index.map(entry => ({
-      path: entry.path,
-      distance: hammingDistance(entry.hash, queryHash)
-    })).sort((a, b) => a.distance - b.distance);
+    const matches = index
+      .map(entry => ({
+        path: entry.path,
+        distance: hammingDistance(entry.hash, queryHash)
+      }))
+      .sort((a, b) => a.distance - b.distance);
 
     displayResults(matches);
     statusDisplay.textContent = `✅ Found similar images.`;
