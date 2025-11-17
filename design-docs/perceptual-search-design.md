@@ -77,7 +77,7 @@ Assuming images are in `.png` format (can be extended).
 
 ### 🛠️ Tools to Use
 - [blockhash.js](https://github.com/commonsmachinery/blockhash-js)
-- Image processing script (Node.js or Python offline script - PLEASE ELABORATE)
+- Image processing script (Node.js) 
 
 ---
 
