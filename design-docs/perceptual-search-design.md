@@ -1,17 +1,15 @@
 ## Perceptual Hashing-Based Image Search for `typoglyphs`
 
 ### 📌 Objective
-To extend the existing simple search engine at
-https://jsbien.github.io/typoglyphs/ by enabling an additional option
-for the user, namely a visual search for glyphs. All the existing
-features, in particular previews and live image zoom, should be
-preserved.
 
-To the present site we add the buton "Beta" redirecting to the
-extended version, containing an additional field "Simple visual
-search" (to be supplemented later by another, MobileNet-based ML,
-visual search field), which uses using perceptual hashing, entirely on
-the client-side.
+This extension enhances the current site at  
+https://jsbien.github.io/typoglyphs/ by enabling a new **visual search option** for glyphs.
+
+A **“Beta” button** will be added to the current UI. It redirects users to an extended version of the interface which includes a new field: **“Simple visual search”** based on perceptual hashing. This will later be complemented by a **MobileNet-based (ML) visual search** option.
+
+All existing features — such as glyph previews and live image zoom — must be preserved.
+
+There are **several thousand glyph images** to be indexed and searched.
 
 
 
