@@ -2,44 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Typoglyphs – Visual Search (Beta)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Visual Search — Typoglyphs</title>
   <style>
     body {
       font-family: sans-serif;
-      margin: 2rem;
-    }
-    .upload {
-      margin-bottom: 1.5rem;
-    }
-    #preview {
-      max-width: 200px;
-      margin-bottom: 1rem;
+      padding: 2rem;
+      background: #fdfdfd;
     }
     #results img {
-      height: 60px;
-      margin: 4px;
-      vertical-align: middle;
+      margin: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #status {
+      margin-top: 1rem;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <h1>🔍 Visual Search (Beta)</h1>
-  <p><a href="../index.html">← Back to main site</a></p>
+  <h1>🔍 Visual Search — Typoglyphs</h1>
 
-  <div class="upload">
-    <label for="imageInput">Select an image to search:</label>
-    <input type="file" id="imageInput" accept="image/*" />
-    <br />
-    <img id="preview" alt="Preview will appear here" />
-  </div>
+  <p>Select an image to find similar glyphs:</p>
+  <input type="file" id="imageUpload" accept="image/*" />
 
-  <div id="results">
-    <h3>🔗 Matching glyphs:</h3>
-    <div id="matches"></div>
-  </div>
+  <!-- preview of uploaded image -->
+  <div id="input-preview" style="margin: 1em 0;"></div>
+
+  <div id="status"></div>
+  <div id="results"></div>
+
+  <p><a href="../docs/index.html">← Back to Documentation</a></p>
 
   <script type="module" src="search.js"></script>
-
 </body>
 </html>
