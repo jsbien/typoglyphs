@@ -36,14 +36,14 @@
   import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.5.1';
 
   const status = document.getElementById('status');
+  status.textContent = '⏳ Loading CLIP image model...';
 
-  // Load CLIP vision encoder only
   const extractor = await pipeline('feature-extraction', 'Xenova/clip-vit-base-patch16', {
     quantized: true,
-    progress_callback: (x) => console.log('Loading...', x),
-    modality: 'vision'
+    revision: 'vision', // ensures vision encoder is used
   });
-  status.innerHTML = '✅ CLIP model loaded.';
+
+  status.textContent = '✅ CLIP image model loaded. Select folder...';
 
   function isImage(file) {
     return file.type.startsWith('image/');
