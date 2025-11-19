@@ -2,84 +2,113 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>CLIP Indexer (Image Only)</title>
-  <script src="https://cdn.jsdelivr.net/npm/@xenova/transformers@2.5.1/dist/transformers.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLIP Index Generator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    .status {
+      margin: 1em 0;
+    }
+    .error {
+      color: red;
+    }
+    .success {
+      color: green;
+    }
+    pre {
+      background: #eee;
+      padding: 1em;
+      overflow-x: auto;
+    }
+  </style>
 </head>
 <body>
-  <h1>CLIP Image Indexer</h1>
-  <input type="file" id="fileInput" multiple />
-  <p id="status">Waiting for input...</p>
-  <pre id="output"></pre>
+  <h2>CLIP Index Generator (Vision-only)</h2>
+  <p>This page generates a CLIP-based index of images from a folder. <br>
+     It uses <code>Xenova/clip-vit-base-patch16</code> via <code>transformers.js</code> for vision-only encoding.</p>
+  <div class="status" id="status">⏳ Loading CLIP model...</div>
+  <input type="file" id="fileInput" webkitdirectory multiple />
 
-  <script type="module">
-    const status = document.getElementById('status');
-    const output = document.getElementById('output');
+<script type="module">
+  import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.5.1';
 
-    let processor, model;
+  const status = document.getElementById('status');
+  status.textContent = '⏳ Loading CLIP image model...';
 
-    async function initModel() {
-      status.textContent = '⏳ Loading CLIP model...';
-      const model_id = 'Xenova/clip-vit-base-patch16';
+  const extractor = await pipeline('feature-extraction', 'Xenova/clip-vit-base-patch16', {
+    quantized: true,
+    revision: 'vision' // Force vision-only version of the model
+  });
 
-      // Load vision processor and model ONLY
-      [processor, model] = await Promise.all([
-        transformers.AutoProcessor.from_pretrained(model_id, { revision: 'vision' }),
-        transformers.CLIPVisionModelWithProjection.from_pretrained(model_id)
-      ]);
-      status.textContent = '✅ Model loaded. You can now select images.';
+  status.textContent = '✅ CLIP image model loaded. Select folder...';
+
+  function isImage(file) {
+    return file.type.startsWith('image/');
+  }
+
+  function readFileAsDataURL(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  async function encodeImage(file) {
+    try {
+      const dataURL = await readFileAsDataURL(file);
+      const img = new Image();
+      img.src = dataURL;
+
+      await new Promise((res) => (img.onload = res));
+      const result = await extractor(img, { pooling: 'mean', normalize: true });
+      return Array.from(result.data);
+    } catch (err) {
+      console.error(`❌ Failed to encode image ${file.name}:`, err);
+      return null;
     }
+  }
 
-    async function encodeImage(file) {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = async () => {
-          try {
-            const image = new Image();
-            image.onload = async () => {
-              const canvas = document.createElement('canvas');
-              canvas.width = image.width;
-              canvas.height = image.height;
-              const ctx = canvas.getContext('2d');
-              ctx.drawImage(image, 0, 0);
-              const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  function saveJSONFile(filename, data) {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
 
-              const imageTensor = await processor(imageData);
-              const output = await model(imageTensor);
-              const embedding = Array.from(output.image_embeds.data);
-              resolve({ name: file.name, embedding });
-            };
-            image.onerror = () => reject('❌ Failed to load image.');
-            image.src = reader.result;
-          } catch (err) {
-            reject(err);
-          }
-        };
-        reader.onerror = () => reject('❌ Failed to read image.');
-        reader.readAsDataURL(file);
-      });
-    }
+  document.getElementById('fileInput').addEventListener('change', async (event) => {
+    const files = Array.from(event.target.files);
+    const grouped = {};
 
-    document.getElementById('fileInput').addEventListener('change', async (event) => {
-      const files = event.target.files;
-      if (!model) await initModel();
-
-      status.textContent = `⏳ Processing ${files.length} files...`;
-
-      const results = [];
-      for (const file of files) {
-        try {
-          const result = await encodeImage(file);
-          results.push(result);
-          status.textContent = `✅ Processed ${file.name}`;
-        } catch (err) {
-          console.error(`❌ Failed to encode image ${file.name}:`, err);
-          status.textContent = `❌ Failed to encode ${file.name}: ${err}`;
-        }
+    for (const file of files) {
+      if (!isImage(file)) {
+        console.warn('⚠️ Skipping non-image file:', file.name);
+        continue;
       }
 
-      const outputJSON = JSON.stringify(results, null, 2);
-      output.textContent = outputJSON;
-    });
-  </script>
+      const parts = file.webkitRelativePath.split('/');
+      const dir = parts.length > 1 ? parts[0] : 'root';
+      if (!grouped[dir]) grouped[dir] = [];
+
+      const vector = await encodeImage(file);
+      if (vector) {
+        grouped[dir].push({ file: file.name, vector });
+      }
+    }
+
+    for (const dir in grouped) {
+      saveJSONFile(`${dir}_clip-index.json`, grouped[dir]);
+    }
+
+    status.textContent = '✅ Index files saved.';
+  });
+</script>
 </body>
 </html>
