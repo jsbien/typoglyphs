@@ -32,13 +32,13 @@
   <div class="status" id="status">🔄 Loading CLIP model...</div>
   <input type="file" id="fileInput" webkitdirectory multiple />
 
-  <script type="module">
-    import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.5.1';
+<script type="module">
+  import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.5.1';
 
-    let status = document.getElementById('status');
+  let status = document.getElementById('status');
 
-    const extractor = await pipeline('feature-extraction', 'Xenova/clip-vit-base-patch16');
-    status.innerHTML = '✅ CLIP model loaded.';
+  const extractor = await pipeline('feature-extraction', 'Xenova/clip-vit-base-patch16', { modality: 'vision' });
+  status.innerHTML = '✅ CLIP model loaded.';
 
     function isImage(file) {
       return file.type.startsWith('image/');
