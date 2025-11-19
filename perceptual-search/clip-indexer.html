@@ -33,12 +33,11 @@
   <input type="file" id="fileInput" webkitdirectory multiple />
 
   <script type="module">
-    import { CLIPModel, CLIPTokenizer } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.5.1';
+    import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.5.1';
 
     let status = document.getElementById('status');
 
-    const model = await CLIPModel.from_pretrained('Xenova/clip-vit-base-patch16');
-    const tokenizer = await CLIPTokenizer.from_pretrained('Xenova/clip-vit-base-patch16');
+    const extractor = await pipeline('feature-extraction', 'Xenova/clip-vit-base-patch16');
     status.innerHTML = '✅ CLIP model loaded.';
 
     function isImage(file) {
@@ -61,8 +60,8 @@
         image.src = dataURL;
 
         await new Promise((res) => (image.onload = res));
-        const prediction = await model.encode(image, { pooling: 'mean', normalize: true });
-        return Array.from(prediction.data);
+        const output = await extractor(image, { pooling: 'mean', normalize: true });
+        return Array.from(output.data);
       } catch (err) {
         console.error(`❌ Failed to encode image ${file.name}:`, err);
         return null;
