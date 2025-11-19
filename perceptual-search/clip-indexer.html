@@ -1,114 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CLIP Index Generator</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      padding: 20px;
+  <meta charset="UTF-8">
+  <title>CLIP Index Generator (Debug Mode)</title>
+  <script type="module">
+    import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.5.1';
+
+    let extractor;
+    let status;
+
+    async function loadModel() {
+      status.textContent = '⏳ Loading CLIP model...';
+      extractor = await pipeline('feature-extraction', 'Xenova/clip-vit-base-patch16');
+      status.textContent = '✅ Model loaded.';
     }
-    .status {
-      margin: 1em 0;
+
+    function isImage(file) {
+      return file.type.startsWith('image/');
     }
-    .error {
-      color: red;
+
+    function groupByDirectory(files) {
+      const groups = {};
+      for (const file of files) {
+        const path = file.webkitRelativePath || file.name;
+        const dir = path.split('/').slice(0, -1).join('/');
+        if (!groups[dir]) groups[dir] = [];
+        groups[dir].push(file);
+      }
+      return groups;
     }
-    .success {
-      color: green;
+
+    async function encodeImage(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = async () => {
+          const img = new Image();
+          img.onload = async () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            const tensor = await extractor._processor.imageToTensor(canvas);
+            const output = await extractor(tensor);
+            resolve(output.data);
+          };
+          img.onerror = reject;
+          img.src = reader.result;
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
     }
-    pre {
-      background: #eee;
-      padding: 1em;
-      overflow-x: auto;
+
+    async function generateIndex(event) {
+      const files = Array.from(event.target.files).filter(isImage);
+      const grouped = groupByDirectory(files);
+
+      for (const [dir, group] of Object.entries(grouped)) {
+        const index = [];
+        for (const file of group) {
+          try {
+            const embedding = await encodeImage(file);
+            index.push({ file: file.name, embedding });
+            console.log(`✅ Processed ${file.name}`);
+          } catch (e) {
+            console.error(`❌ Failed to encode image ${file.name}:`, e);
+          }
+        }
+
+        const blob = new Blob([JSON.stringify(index, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = dir.replaceAll('/', '_') + '_clip-index.json';
+        a.click();
+        URL.revokeObjectURL(url);
+      }
     }
-  </style>
+
+    window.addEventListener('DOMContentLoaded', () => {
+      status = document.getElementById('status');
+      loadModel();
+    });
+
+    window.generateIndex = generateIndex;
+  </script>
 </head>
 <body>
-  <h2>CLIP Index Generator (Vision-only)</h2>
-  <p>This page generates a CLIP-based index of images from a folder. <br>
-     It uses <code>Xenova/clip-vit-base-patch16</code> via <code>transformers.js</code> for vision-only encoding.</p>
-  <div class="status" id="status">⏳ Loading CLIP model...</div>
-  <input type="file" id="fileInput" webkitdirectory multiple />
-
-<script type="module">
-  import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.5.1';
-
-  const status = document.getElementById('status');
-  status.textContent = '⏳ Loading CLIP image model...';
-
-  const extractor = await pipeline('feature-extraction', 'Xenova/clip-vit-base-patch16', {
-    quantized: true,
-    revision: 'vision' // Force vision-only version of the model
-  });
-
-  status.textContent = '✅ CLIP image model loaded. Select folder...';
-
-  function isImage(file) {
-    return file.type.startsWith('image/');
-  }
-
-  function readFileAsDataURL(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = reject;
-      reader.readAsDataURL(file);
-    });
-  }
-
-  async function encodeImage(file) {
-    try {
-      const dataURL = await readFileAsDataURL(file);
-      const img = new Image();
-      img.src = dataURL;
-
-      await new Promise((res) => (img.onload = res));
-      const result = await extractor(img, { pooling: 'mean', normalize: true });
-      return Array.from(result.data);
-    } catch (err) {
-      console.error(`❌ Failed to encode image ${file.name}:`, err);
-      return null;
-    }
-  }
-
-  function saveJSONFile(filename, data) {
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    a.click();
-    URL.revokeObjectURL(url);
-  }
-
-  document.getElementById('fileInput').addEventListener('change', async (event) => {
-    const files = Array.from(event.target.files);
-    const grouped = {};
-
-    for (const file of files) {
-      if (!isImage(file)) {
-        console.warn('⚠️ Skipping non-image file:', file.name);
-        continue;
-      }
-
-      const parts = file.webkitRelativePath.split('/');
-      const dir = parts.length > 1 ? parts[0] : 'root';
-      if (!grouped[dir]) grouped[dir] = [];
-
-      const vector = await encodeImage(file);
-      if (vector) {
-        grouped[dir].push({ file: file.name, vector });
-      }
-    }
-
-    for (const dir in grouped) {
-      saveJSONFile(`${dir}_clip-index.json`, grouped[dir]);
-    }
-
-    status.textContent = '✅ Index files saved.';
-  });
-</script>
+  <h2>CLIP Index Generator (Debug Mode)</h2>
+  <p>This version logs detailed messages to console (F12).</p>
+  <p id="status">⏳ Initializing...</p>
+  <input type="file" webkitdirectory multiple onchange="generateIndex(event)">
 </body>
 </html>
