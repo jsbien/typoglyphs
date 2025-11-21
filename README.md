@@ -4,7 +4,7 @@
 *Polonia Typographica Saeculi Sedecimi*, published between 1962 and
 1981, contains 89 font tables. Scans of these tables have been split
 into images of individual glyphs, which were used to reconstruct the
-tables in a *LuaLaTeX* document. 
+tables in a *LuaLaTeX* document (https://zenodo.org/records/14992305).
 
 A simple browser is available at https://jsbien.github.io/typoglyphs/.
 
