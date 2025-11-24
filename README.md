@@ -3,10 +3,16 @@
 
 *Polonia Typographica Saeculi Sedecimi*, published between 1962 and
 1981, contains 89 font tables. Scans of these tables have been split
-into images of individual glyphs, which were used to reconstruct the
-tables in a *LuaLaTeX* document (https://zenodo.org/records/14992305).
+into images of individual glyphs, which were used to create a
+repository and reconstruct the tables in a *LuaLaTeX* document
+(https://zenodo.org/records/14992305).
 
-A simple browser is available at https://jsbien.github.io/typoglyphs/.
+More information is available in
+https://tug.org/TUGboat/tb46-3/tb144bien-typoglyphs.html and
+https://www.researchgate.net/publication/397770258.
+
+A simple repository browser is available at
+https://jsbien.github.io/typoglyphs/.
 
 Clicking on the glyph ID displayes the metadata in the side panel. The
 metadata consists of the content of the appropriate keywords file,
