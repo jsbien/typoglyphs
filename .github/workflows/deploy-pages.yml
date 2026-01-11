@@ -22,12 +22,7 @@ jobs:
       - name: ⬇️ Checkout
         uses: actions/checkout@v4
 
-      - name: 🏗️ Build site
-        run: |
-          mkdir -p site
-          cp -r docs/* site/  # Or whatever folder contains your built static site
-
-      - name: 📦 Upload artifact (Pages-compatible)
+       - name: 📦 Upload artifact (Pages-compatible)
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
@@ -44,3 +39,4 @@ jobs:
       - name: 🚀 Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+											
