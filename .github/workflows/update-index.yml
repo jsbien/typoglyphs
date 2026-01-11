@@ -1,4 +1,4 @@
-name: Update Typoglyphs CSV
+name: Update typoglyphs index
 
 on:
   push:
@@ -8,37 +8,26 @@ on:
       - 'descriptions/**'
       - 'keywords/**'
 
+  workflow_dispatch:  # 👈 Manual trigger from GitHub UI
+
+permissions:
+  contents: write  # 👈 Enables pushing to repo
+
 jobs:
-  regenerate-csv:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: ⬇️ Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: 🐍 Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+      - name: 🐍 Run index generator
+        run: python3 utils/generate_typoglyphs_index.py
 
-      - name: 📦 Install dependencies (if any)
+      - name: 📤 Commit updated CSV
         run: |
-          pip install --upgrade pip
-          # No dependencies listed, but place here if needed
-
-      - name: ⚙️ Run generate_typoglyphs_index.py
-        run: |
-          python utils/generate_typoglyphs_index.py . --dry-run || true
-          python utils/generate_typoglyphs_index.py .
-
-      - name: 📤 Commit and push if typoglyphs.csv changed
-        run: |
-          git config user.name "GitHub Action"
-          git config user.email "action@github.com"
-          if git diff --quiet typoglyphs.csv; then
-            echo "✅ No changes to typoglyphs.csv"
-          else
-            git add typoglyphs.csv
-            git commit -m "🔄 Auto-update typoglyphs.csv after changes in descriptions/ or keywords/"
-            git push
-          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add typoglyphs.csv
+          git commit -m "chore: auto-update typoglyphs.csv" || echo "No changes to commit"
+          git push
