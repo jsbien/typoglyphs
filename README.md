@@ -7,6 +7,10 @@ into images of individual glyphs, which were used to create a
 repository and reconstruct the tables in a *LuaLaTeX* document
 (https://zenodo.org/records/14992305).
 
+Typoglyphs are assigned identifiers with the table number, row number
+and the glyph number.  Row 0 is reserved for additions for specific
+tables, e.g. `t65_l00g01`.
+
 More information is available in
 https://tug.org/TUGboat/tb46-3/tb144bien-typoglyphs.html and
 https://www.researchgate.net/publication/397770258.
