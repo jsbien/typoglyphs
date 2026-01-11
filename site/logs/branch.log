@@ -1,0 +1,11 @@
+jsbien@JSBbookworm:~/git/typoglyphs/docs$ git push origin site-dev
+Enumerating objects: 12, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 1.84 KiB | 1.84 MiB/s, done.
+Total 8 (delta 5), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (5/5), completed with 3 local objects.        
+To https://github.com/jsbien/typoglyphs.git
+   85f81e6a..fa71263e  site-dev -> site-dev
+jsbien@JSBbookworm:~/git/typoglyphs/docs$ 

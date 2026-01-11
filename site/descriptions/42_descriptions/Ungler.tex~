@@ -1,0 +1,172 @@
+% https://apcz.umk.pl/czasopisma/index.php/sztukaedycji/index
+% https://apcz.umk.pl/czasopisma/index.php/sztukaedycji/about/submissions#authorGuidelines
+% Janusz S. Bień
+% Formal Linguistics Department, University of Warsaw, Dobra 55, 00-312 Warszawa, Poland
+% jsbien@uw.edu.pl
+% Debian: texlive-bibtex-extra, fonts-junicode, fonts-symbola
+
+\documentclass[withmarginpar, 12pt]{mwart}
+\usepackage[a4paper,margin=1.5cm]{geometry}
+\usepackage{fontspec}
+\defaultfontfeatures{
+  Ligatures={
+    NoCommon,
+    NoRequired,
+    NoContextual,
+    NoHistoric,
+    NoDiscretionary,
+    TeX
+  }}
+
+\usepackage{polyglossia}
+% po co:?
+% \usepackage{etoolbox}
+\setmainlanguage{polish}
+\setotherlanguage{english}
+\usepackage{csquotes}
+%\usepackage{wrapfig}
+
+%\usepackage[style=authoryear,backend=biber,backref=true,urldate=short]{biblatex}
+\usepackage[style=ext-authoryear,backend=biber]{biblatex}
+
+% https://tex.stackexchange.com/questions/16765/biblatex-author-year-square-brackets
+% \usepackage[style=authoryear,backend=biber,backref=true,urldate=short]{biblatex}
+%\usepackage[style=ext-authoryear,backend=biber,backref=true,urldate=short]{biblatex}
+\DeclareOuterCiteDelims{parencite}{\bibopenbracket}{\bibclosebracket}
+\addbibresource{all.bib}
+\DefineBibliographyStrings{polish}{%
+  byeditor = {red.},
+  urlseen = {dostęp},
+}
+
+% http://tex.stackexchange.com/questions/166337/quotation-mark-quotation-sign-xelatex-polyglossia-csquotes
+\DeclareQuoteStyle{polish}% I looked it up on Wikipedia, no idea if it's right
+  {\quotedblbase}
+  {\textquotedblright}
+  [0.05em]
+  {\textquoteleft}
+  {\textquoteright}
+
+% psuje tytuły???:
+%  \usepackage{ulem}
+\usepackage{metalogo}
+
+% \usepackage[polish]{varioref}
+\let\vref\ref
+
+\usepackage{xcolor}
+
+\setmainfont[Mapping=tex-text]{TeX Gyre Termes}
+\def\Hb#1{{\fontspec{Junicode}#1}}
+\def\Htest{{\fontspec{Unifont}M⁹¹}}
+% \newcommand{\J}[1]{{\fontspec[Path=/home/jsbien/Junicode/]{Junicode.ttf}#1}}
+% \def\Sł{{\fontspec[Path=/home/jsbien/Junicode/]{Junicode.ttf}\char"E8DF}}
+
+\newfontfamily\JX{JuniusX}
+\newfontfamily\bJ[Color=violet]{Junicode}
+\newfontfamily\znak[Color=violet]{Junicode}
+\newcommand{\J}[1]{{\bJ#1}}
+% \def\Sł{{\fontspec{Junicode.ttf}\char"E8DF}}
+% buster: Missing character: There is no  in font [Junicode.ttf]/OT:script=latn;language
+
+%\newfontfamily\bS[Color=violet]{Symbola}
+\newfontfamily\bS{Symbola}
+\newcommand{\Sy}[1]{{\bS#1}}
+\newcommand{\Ju}[1]{{\bJ#1}}
+
+\usepackage{relsize}
+
+% \usepackage{hyperref}
+
+\usepackage{graphicx}
+% [hyphens]: options clash
+\usepackage{url}
+%\usepackage{natbib}
+
+% program name
+\newcommand{\pname}[1]{\textsf{#1}}
+
+
+% file name
+\newcommand{\fname}[1]{\texttt{#1}}
+
+\newcommand{\uname}[1]{\texttt{'#1'}}
+\newcommand{\ucode}[1]{\texttt{U+#1}}
+\newcommand{\usi}[1]{\texttt{#1}}
+
+% Aletheia
+\newcommand{\aname}[1]{\texttt{#1}}
+\newcommand{\acode}[1]{\texttt{#1}}
+
+% MUFI
+\newcommand{\mname}[1]{\texttt{'#1 \textsc{<mufi>'}}}
+\newcommand{\mcode}[1]{\texttt{M+#1}}
+
+
+
+% \usepackage{draftwatermark}
+\usepackage[doublespacing]{setspace}
+
+\usepackage{xfrac}
+
+% nie działa:?
+%\renewcommand{\topfraction}{0.9}
+\renewcommand{\floatpagefraction}{0.9}	% require fuller float pages
+\setcounter{topnumber}{5}
+\setcounter{totalnumber}{5}  
+\renewcommand{\labelenumii}{\arabic{enumii}.}
+
+\disablehyphenation
+
+\begin{document}
+%\gappto\captionslingua{\renewcommand{\chaptername}{Caput}}
+\gappto\captionspolish{\renewcommand{\figurename}{Ilustracja}}
+
+% \newcommand{\uname}[1]{{\relsize{-1}\texttt{#1}}}
+% \newcommand{\ucode}[1]{\texttt{#1}}
+% \newcommand{\mname}[1]{\texttt{#1}}
+% \newcommand{\mcode}[1]{\texttt{#1}}
+% \newcommand{\aname}[1]{\texttt{#1}}
+% \newcommand{\acode}[1]{\texttt{#1}}
+% \newcommand{\prname}[1]{\textsf{#1}}
+
+
+% 
+%\title{Elektroniczna typemiczna transkrypcja traktatu Stanisława Zaborowskiego}
+\title{Repertuar znaków pisma nr 1\\ pierwszej drukarni Unglera
+  (1510-1516)\\na podstawie \textit{Polonia
+    Typographica}}
+% \footnote{Planowane zgłoszenie do publikacji w
+%     \textit{Acta Poligraphica}}}
+
+%\author{Janusz S. Bień}
+
+%\date{\today}
+\date{5 marca 2021 r.}
+%\date{21 października 2020\\drobne poprawki \today}
+
+\maketitle
+
+\catcode`\&=11
+\catcode`\|=11
+\catcode`\_=11
+
+\def\apostrof{`}
+% dodac indeks!:
+\catcode`\`=\active
+%\def`#1{\fbox{{\znak#1}}}
+\def`#1{{{\znak#1}}}
+
+
+\input JSB_repertuarXVI-tekst
+
+% redundantne:
+\end{document}
+
+%%% Local Variables: 
+%%% coding: utf-8-unix
+%%% mode: latex
+%%% TeX-master: t
+%%% TeX-PDF-mode: t
+%%% TeX-engine: xetex
+%%% End: 

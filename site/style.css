@@ -1,0 +1,104 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+/* Two-column layout */
+.layout {
+  display: flex;
+  gap: 20px;
+}
+
+/* Gallery grid */
+.gallery {
+  position: relative;
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  max-height: 100vh;   /* ← prevent runaway height */
+  overflow-y: auto;    /* scroll if needed */
+}
+
+.item {
+  border: 1px solid #ccc;
+  padding: 5px;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.item img {
+  max-width: 100px;
+  max-height: 100px;
+  cursor: pointer;
+}
+
+.glyph-label {
+  color: #0056cc;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+/* Metadata panel */
+.details {
+  flex: 1;
+  border-left: 2px solid #333;
+  padding-left: 15px;
+}
+
+#detail-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 5px;
+}
+
+/* Version badge */
+.version {
+  position: fixed;
+  top: 10px;
+  right: 15px;
+  background: #333;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 2000;
+}
+
+.detail-img {
+  cursor: zoom-in;
+}
+
+#filter-bar {
+  margin: 10px 0 5px 0;
+  text-align: left;
+}
+
+#filter-input {
+  width: 60%;
+  max-width: 320px;
+  padding: 6px 8px;
+  font-size: 14px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  outline: none;
+}
+
+#filter-input:focus {
+  border-color: #555;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1000;
+  padding: 0.5em;
+  border-bottom: 1px solid #ccc;
+}

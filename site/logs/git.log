@@ -1,0 +1,293 @@
+jsbien@JSBbookworm:~/git/typoglyphs$ git reflog
+WARNING: terminal is not fully functional
+Press RETURN to continue 
+
+bda75b2c (HEAD -> main) HEAD@{0}: reset: moving to bda75b2
+5db633b0 (origin/main, origin/HEAD) HEAD@{1}: commit: Trigger GitHub Pages rebuild
+beca303c HEAD@{2}: reset: moving to beca303
+ba376ec0 HEAD@{3}: commit: filtering
+beca303c HEAD@{4}: commit: new approach correction
+f81a32aa HEAD@{5}: commit: new approach
+7cbec16b HEAD@{6}: commit: logging
+7fdc66f7 HEAD@{7}: commit: logging
+bda75b2c (HEAD -> main) HEAD@{8}: commit: date+time
+bc80ec57 HEAD@{9}: commit: index corrected
+212c2c8b HEAD@{10}: commit: link corrected
+f03accf6 HEAD@{11}: commit: Trigger GitHub Pages rebuild
+521fef52 HEAD@{12}: commit: version badge
+9163b6b1 HEAD@{13}: commit: trim
+2cfd4733 HEAD@{14}: commit: Add cache-busting and debug logging for metadata clicks (2025-10-02-2)
+1d4d8cba HEAD@{15}: commit: Version 2025-10-02-2: clickable glyph IDs update metadata
+1268ac05 HEAD@{16}: commit: Add visible version marker (2025-10-02-1)
+13093975 HEAD@{17}: commit: Clicking image shows fullscreen and metadata simultaneously
+a831897c HEAD@{18}: commit: Split image/lightbox and label/metadata actions
+c1a3306e HEAD@{19}: commit: Split image/lightbox and label/metadata actions
+5d6131c8 HEAD@{20}: commit: The lightbox version
+61c40d1d HEAD@{21}: commit: Add debug logging for parsed CSV entries
+1a3bf096 HEAD@{22}: commit: Fix field names and markdown fetch to raw.githubusercontent.com
+fec0cb37 HEAD@{23}: commit: Fix CSV parser: pad missing trailing fields
+cc5b6ff4 HEAD@{24}: commit: Fix CSV parsing: assume no header row
+ddade9d8 HEAD@{25}: commit: Fix image paths to load from raw.githubusercontent.com
+00e9ff78 HEAD@{26}: commit: Rename typoglyphs.csv to typoglyphs.txt
+1dd95583 HEAD@{27}: commit: Fix has_description comparison logic
+d597418c HEAD@{28}: commit: Fix CSV parser for missing trailing fields
+d2ce8b75 HEAD@{29}: commit: Fix path resolution for images and markdown
+b565a50a HEAD@{30}: commit: Fix path resolution for images and markdown
+116c5e33 HEAD@{31}: commit: Move CSV into docs/ and fix fetch path
+2522e373 HEAD@{32}: commit: a link
+e0520f8f HEAD@{33}: commit: site initial version
+f9f0cf6a HEAD@{34}: commit: `glyphids2tex.py`
+afa274a3 HEAD@{35}: commit: `glyphids2tex.md`
+c1d53f23 HEAD@{36}: commit: glyph2tex script
+40dd7e2e HEAD@{37}: commit: glyph2tex specification
+8f812cdb HEAD@{38}: commit: extracting script
+c7c75ec4 HEAD@{39}: commit: extracting specification
+7e1113b6 HEAD@{40}: commit: specification with a formatting error
+091fabd1 HEAD@{41}: commit: indexing script
+aebbaa3f HEAD@{42}: commit: index
+958739bf HEAD@{43}: commit: renaming description files
+160ff486 HEAD@{44}: commit: introducing subdirectories for descriptions
+7f915d75 HEAD@{45}: commit: redundant files removed
+1081759f HEAD@{46}: clone: from https://github.com/jsbien/typoglyphs.git
+jsbien@JSBbookworm:~/git/typoglyphs$ git checkout bda75b2c
+Note: switching to 'bda75b2c'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at bda75b2c date+time
+jsbien@JSBbookworm:~/git/typoglyphs$ python3 -m http.server 8001
+
+Serving HTTP on 0.0.0.0 port 8001 (http://0.0.0.0:8001/) ...
+127.0.0.1 - - [03/Oct/2025 16:59:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Oct/2025 16:59:07] code 404, message File not found
+127.0.0.1 - - [03/Oct/2025 16:59:07] "GET /favicon.ico HTTP/1.1" 404 -
+  C-c C-c
+Keyboard interrupt received, exiting.
+jsbien@JSBbookworm:~/git/typoglyphs$ cd docs/
+jsbien@JSBbookworm:~/git/typoglyphs/docs$ python3 -m http.server 8001
+
+Serving HTTP on 0.0.0.0 port 8001 (http://0.0.0.0:8001/) ...
+127.0.0.1 - - [03/Oct/2025 16:59:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Oct/2025 16:59:29] "GET /style.css?v=2025-10-03-165929 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Oct/2025 16:59:29] "GET /script.js?v=2025-10-03-165929 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Oct/2025 16:59:29] "GET /typoglyphs.txt HTTP/1.1" 200 -
+  C-c C-c
+Keyboard interrupt received, exiting.
+jsbien@JSBbookworm:~/git/typoglyphs/docs$ git log -p -S"gallery + always-visible metadata" -- docs/script.js
+WARNING: terminal is not fully functional
+Press RETURN to continue 
+
+jsbien@JSBbookworm:~/git/typoglyphs/docs$ git add docs/s
+warning: could not open directory 'docs/docs/': No such file or directory
+fatal: pathspec 'docs/s' did not match any files
+jsbien@JSBbookworm:~/git/typoglyphs/docs$ git add docs/
+warning: could not open directory 'docs/docs/': No such file or directory
+fatal: pathspec 'docs/' did not match any files
+jsbien@JSBbookworm:~/git/typoglyphs/docs$ git add *
+jsbien@JSBbookworm:~/git/typoglyphs/docs$ git commit -m "Restore working gallery + always-visible metadata version"
+[detached HEAD 51e0a522] Restore working gallery + always-visible metadata version
+ 4 files changed, 184 insertions(+), 112 deletions(-)
+ create mode 100644 docs/script.js.new
+jsbien@JSBbookworm:~/git/typoglyphs/docs$ git push origin main
+To https://github.com/jsbien/typoglyphs.git
+ ! [rejected]          main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/jsbien/typoglyphs.git'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+jsbien@JSBbookworm:~/git/typoglyphs/docs$ git pull
+From https://github.com/jsbien/typoglyphs
+ * [new branch]        add-indexing-spec -> origin/add-indexing-spec
+You are not currently on a branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+jsbien@JSBbookworm:~/git/typoglyphs/docs$ cd ..
+jsbien@JSBbookworm:~/git/BADtypoglyphs$ cd ..
+jsbien@JSBbookworm:~/git$ git clone https://github.com/jsbien/typoglyphs.git
+Cloning into 'typoglyphs'...
+remote: Enumerating objects: 32240, done.        
+remote: Counting objects: 100% (6649/6649), done.        
+remote: Compressing objects: 100% (1883/1883), done.        
+remote: Total 32240 (delta 6588), reused 4771 (delta 4766), pack-reused 25591 (from 3)        
+Receiving objects: 100% (32240/32240), 10.22 MiB | 28.51 MiB/s, done.
+Resolving deltas: 100% (20874/20874), done.
+jsbien@JSBbookworm:~/git$ cd typoglyphs
+jsbien@JSBbookworm:~/git/typoglyphs$ git add docs/
+jsbien@JSBbookworm:~/git/typoglyphs$ git commit -m "Restore working gallery + always-visible metadata version"
+[main 5cf6849a] Restore working gallery + always-visible metadata version
+ 1 file changed, 7851 insertions(+)
+ create mode 100644 docs/typoglyphs.txt
+jsbien@JSBbookworm:~/git/typoglyphs$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 372 bytes | 372.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.        
+To https://github.com/jsbien/typoglyphs.git
+   5db633b0..5cf6849a  main -> main
+jsbien@JSBbookworm:~/git/typoglyphs$ git tag -a first-usable-version -m "First usable version with gallery + metadata"
+jsbien@JSBbookworm:~/git/typoglyphs$ git push origin first-usable-version
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 201 bytes | 201.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/jsbien/typoglyphs.git
+ * [new tag]           first-usable-version -> first-usable-version
+jsbien@JSBbookworm:~/git/typoglyphs$ git push origin first-usable-version
+
+Everything up-to-date
+jsbien@JSBbookworm:~/git/typoglyphs$ jsbien@JSBbookworm:~/git/typoglyphs$ git checkout -b site-dev
+Switched to a new branch 'site-dev'
+jsbien@JSBbookworm:~/git/typoglyphs$ git push origin site-dev
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: 
+remote: Create a pull request for 'site-dev' on GitHub by visiting:        
+remote:      https://github.com/jsbien/typoglyphs/pull/new/site-dev        
+remote: 
+To https://github.com/jsbien/typoglyphs.git
+ * [new branch]        site-dev -> site-dev
+jsbien@JSBbookworm:~/git/typoglyphs$ git add docs/
+jsbien@JSBbookworm:~/git/typoglyphs$ git commit -m "Experiment with Back to Gallery version"
+[site-dev 2aad9f48] Experiment with Back to Gallery version
+ 2 files changed, 21 insertions(+), 30 deletions(-)
+jsbien@JSBbookworm:~/git/typoglyphs$ git push origin site-dev
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 839 bytes | 839.00 KiB/s, done.
+Total 5 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.        
+To https://github.com/jsbien/typoglyphs.git
+   5cf6849a..2aad9f48  site-dev -> site-dev
+jsbien@JSBbookworm:~/git/typoglyphs$ git status
+On branch site-dev
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   docs/index.html
+	modified:   docs/script.js
+	modified:   docs/style.css
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	docs/bad/
+	docs/chat/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+jsbien@JSBbookworm:~/git/typoglyphs$ git add docs/
+jsbien@JSBbookworm:~/git/typoglyphs$ git commit -m "Back-to-Gallery version with toggle view and metadata"
+[site-dev f364c8cd] Back-to-Gallery version with toggle view and metadata
+ 12 files changed, 579 insertions(+), 55 deletions(-)
+ create mode 100644 docs/bad/index.html
+ create mode 100644 docs/bad/script.js
+ create mode 100644 docs/bad/style.css
+ create mode 100644 docs/chat/index.html
+ create mode 100644 docs/chat/index.html~
+ create mode 100644 docs/chat/script.js
+ create mode 100644 docs/chat/script.js~
+ create mode 100644 docs/chat/style.css
+ create mode 100644 docs/chat/style.css~
+jsbien@JSBbookworm:~/git/typoglyphs$ git push origin site-dev
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 2.41 KiB | 2.41 MiB/s, done.
+Total 8 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.        
+To https://github.com/jsbien/typoglyphs.git
+   2aad9f48..f364c8cd  site-dev -> site-dev
+jsbien@JSBbookworm:~/git/typoglyphs$ git tag -a back-to-gallery -m "Initial Back-to-Gallery version"
+jsbien@JSBbookworm:~/git/typoglyphs$ git push origin back-to-gallery
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 192 bytes | 192.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/jsbien/typoglyphs.git
+ * [new tag]           back-to-gallery -> back-to-gallery
+jsbien@JSBbookworm:~/git/typoglyphs$ git add docs/
+jsbien@JSBbookworm:~/git/typoglyphs$ git commit -m "Separate metadata panel"
+[site-dev 62d4bae3] Separate metadata panel
+ 3 files changed, 71 insertions(+), 28 deletions(-)
+jsbien@JSBbookworm:~/git/typoglyphs$ git push
+fatal: The current branch site-dev has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin site-dev
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+jsbien@JSBbookworm:~/git/typoglyphs$ git push origin site-dev
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 1.31 KiB | 1.31 MiB/s, done.
+Total 6 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.        
+To https://github.com/jsbien/typoglyphs.git
+   f364c8cd..62d4bae3  site-dev -> site-dev
+jsbien@JSBbookworm:~/git/typoglyphs$ git add docs/
+jsbien@JSBbookworm:~/git/typoglyphs$ git commit -m "Zoom - to be corrected"
+[site-dev 083d2ab0] Zoom - to be corrected
+ 2 files changed, 35 insertions(+), 1 deletion(-)
+jsbien@JSBbookworm:~/git/typoglyphs$ git push origin site-dev
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 930 bytes | 930.00 KiB/s, done.
+Total 5 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.        
+To https://github.com/jsbien/typoglyphs.git
+   62d4bae3..083d2ab0  site-dev -> site-dev
+jsbien@JSBbookworm:~/git/typoglyphs$ git add docs/
+jsbien@JSBbookworm:~/git/typoglyphs$ git commit -m "Zoom improved by other problems introduced"
+[site-dev a024ef50] Zoom improved by other problems introduced
+ 3 files changed, 141 insertions(+), 108 deletions(-)
+jsbien@JSBbookworm:~/git/typoglyphs$ git push origin site-dev
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 2.12 KiB | 2.12 MiB/s, done.
+Total 6 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.        
+To https://github.com/jsbien/typoglyphs.git
+   083d2ab0..a024ef50  site-dev -> site-dev
+jsbien@JSBbookworm:~/git/typoglyphs$ git add docs/
+jsbien@JSBbookworm:~/git/typoglyphs$ git commit -m "Zoom acceptable, grid not aligned"
+[site-dev 85f81e6a] Zoom acceptable, grid not aligned
+ 2 files changed, 42 insertions(+), 34 deletions(-)
+jsbien@JSBbookworm:~/git/typoglyphs$ git push origin site-dev
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 1.07 KiB | 1.07 MiB/s, done.
+Total 5 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.        
+To https://github.com/jsbien/typoglyphs.git
+   a024ef50..85f81e6a  site-dev -> site-dev
+jsbien@JSBbookworm:~/git/typoglyphs$ 
