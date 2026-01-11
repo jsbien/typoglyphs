@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'typoglyphs.csv'
+
   workflow_dispatch:
 
 permissions:
@@ -14,21 +15,34 @@ permissions:
   id-token: write
 
 concurrency:
-  group: 'pages'
+  group: "pages"
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🏗️ Prepare site output
+        run: |
+          mkdir -p site
+          cp -r docs/* site/  # Change this line to match your setup
+
+      - name: 📦 Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: ⬇️ Checkout repository
-        uses: actions/checkout@v3
-
-      - name: 📦 Upload site content
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: ./docs   # 👈 change to ./docs if you still use that folder
-
       - name: 🚀 Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v2
