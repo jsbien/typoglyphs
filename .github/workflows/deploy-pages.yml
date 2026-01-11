@@ -14,35 +14,30 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: ⬇️ Checkout code
-        uses: actions/checkout@v4
-
-      - name: 🏗️ Prepare site output
-        run: |
-          mkdir -p site
-          cp -r docs/* site/  # Change this line to match your setup
-
-      - name: 📦 Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: site
-
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 📁 Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: 🏗️ Build site content
+        run: |
+          mkdir -p site
+          cp -r docs/* site/  # Replace with your actual site build logic
+
+      - name: 📤 Upload site
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: site
+
       - name: 🚀 Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
