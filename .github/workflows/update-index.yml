@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 🐍 Run index generator
-        run: python3 utils/generate_typoglyphs_index.py
+        run: python3 utils/generate_typoglyphs_index.py .
 
       - name: 📤 Commit updated CSV
         run: |
