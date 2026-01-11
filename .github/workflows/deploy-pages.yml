@@ -6,8 +6,7 @@ on:
       - main
     paths:
       - 'typoglyphs.csv'
-
-  workflow_dispatch:  # 👈 Allows manual trigger from GitHub UI
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -21,9 +20,15 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: ⬇️ Checkout repository
         uses: actions/checkout@v3
+
+      - name: 📦 Upload site content
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./docs   # 👈 change to ./docs if you still use that folder
 
       - name: 🚀 Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
