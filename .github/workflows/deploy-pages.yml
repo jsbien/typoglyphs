@@ -22,11 +22,17 @@ jobs:
       - name: ⬇️ Checkout
         uses: actions/checkout@v4
 
-      - name: 📦 Upload artifact (Pages-compatible)
+      - name: 🔍 List site contents
+        run: ls -alh site
+
+      - name: 🔍 Find symlinks
+        run: find site -type l
+
+      - name: 📆 Upload artifact (Pages-compatible)
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
-          path: site  # Make sure this folder exists and has your site content
+          path: site
 
   deploy:
     needs: build
