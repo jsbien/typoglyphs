@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About – Typoglyphs</title>
+  <link rel="stylesheet" href="style.css" /> <!-- Optional -->
+</head>
+<body>
+  <nav style="background-color: #f0f0f0; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+    <div>
+      <a href="/">Home</a>
+      <a href="about.html" style="margin-left: 15px;">About</a>
+    </div>
+    <div class="version">typoglyphs</div> <!-- No dynamic timestamp here -->
+  </nav>
+
+  <main style="padding: 20px; max-width: 800px; margin: auto; font-family: sans-serif;">
+    <h1>About Typoglyphs</h1>
+    <p>This is a simple browser for the inventory of glyphs used in some 16th century fonts of Polish printers. For more info see <a href="https://github.com/jsbien/typoglyphs">the GitHub repository</a>.</p>
+
+    <p>Clicking on the glyph ID displays the metadata in the side panel. The metadata consists of the content of the appropriate keywords file, which always exists, and the appropriate description file, which exists only for some glyphs.</p>
+
+    <p>Clicking on the glyph images switches the display to a special window with the glyph image, which can be zoomed with the mouse wheel. Clicking anywhere outside the scan returns to the standard gallery window.</p>
+
+    <p>You can filter the displayed typoglyphs by file names or their fragments, e.g. <code>t63</code>, <code>t63_l03</code>, <code>t63_l03g28.png</code>, or the glyphs ID or their fragments, e.g. <code>U2</code>, <code>U2-14</code>, <code>U2-14_0328</code>.</p>
+
+    <p>Problems and suggestions should use the appropriate tools ("Issues" or "Discussions") of the repository <a href="https://github.com/jsbien/typoglyphs">https://github.com/jsbien/typoglyphs</a>.</p>
+  </main>
+</body>
+</html>
