@@ -5997,6 +5997,7 @@ U2-15_0420,typoglyphs/64_glyphs/t64_l04g20.png,keywords/64_keywords/t64_l04g20.m
 U2-15_0421,typoglyphs/64_glyphs/t64_l04g21.png,keywords/64_keywords/t64_l04g21.md,0,
 U2-15_0422,typoglyphs/64_glyphs/t64_l04g22.png,keywords/64_keywords/t64_l04g22.md,0,
 U2-15_0423,typoglyphs/64_glyphs/t64_l04g23.png,keywords/64_keywords/t64_l04g23.md,0,
+U2-16_0000,typoglyphs/65_glyphs/t65_l00g01.png,keywords/65_keywords/t65_l00g01.md,1,descriptions/65_descriptions/t65_l00g01.md
 U2-16_0101,typoglyphs/65_glyphs/t65_l01g01.png,keywords/65_keywords/t65_l01g01.md,0,
 U2-16_0102,typoglyphs/65_glyphs/t65_l01g02.png,keywords/65_keywords/t65_l01g02.md,0,
 U2-16_0103,typoglyphs/65_glyphs/t65_l01g03.png,keywords/65_keywords/t65_l01g03.md,0,
