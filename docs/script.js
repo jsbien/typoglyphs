@@ -32,6 +32,7 @@ function createGalleryItem(entry) {
   div.className = "item";
   div.dataset.glyphId = entry.glyph_id;
   div.dataset.imagePath = entry.image_path;
+  div.dataset.hasDescription = entry.has_description;
 
   const img = document.createElement("img");
   img.src = `https://raw.githubusercontent.com/jsbien/typoglyphs/main/${entry.image_path}`;
