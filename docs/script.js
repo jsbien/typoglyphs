@@ -121,23 +121,36 @@ async function initGallery() {
 
 function enableFiltering() {
   const filterInput = document.getElementById("filter-input");
+  const descOnly = document.getElementById("desc-only");
   if (!filterInput) return;
 
-  filterInput.addEventListener("input", e => {
-    const query = e.target.value.toLowerCase().trim();
+  function applyFilters() {
+    const query = filterInput.value.toLowerCase().trim();
+    const onlyWithDescriptions = descOnly ? descOnly.checked : false;
     const items = gallery.querySelectorAll(".item");
 
     items.forEach(item => {
-      // we stored entry data as dataset attributes for convenience
       const glyphId = item.dataset.glyphId?.toLowerCase() || "";
       const imagePath = item.dataset.imagePath?.toLowerCase() || "";
+      const hasDescription = String(item.dataset.hasDescription || "").trim() === "1";
 
-      item.style.display =
-        glyphId.includes(query) || imagePath.includes(query)
-          ? ""
-          : "none";
+      const matchesText =
+        glyphId.includes(query) || imagePath.includes(query);
+
+      const matchesDescription =
+        !onlyWithDescriptions || hasDescription;
+
+      item.style.display = matchesText && matchesDescription
+        ? ""
+        : "none";
     });
-  });
+  }
+
+  filterInput.addEventListener("input", applyFilters);
+  if (descOnly) {
+    descOnly.addEventListener("change", applyFilters);
+  }
+  applyFilters();
 }
 
 
